@@ -8,8 +8,9 @@ const userSchema = new mongoose.Schema({
   address_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Address' },
   email: String,
   password: String,  // Hash the password before storing
-  equipment_ids: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Equipment' }],
-  monthly_consumption: Number
+  installed_units_ids: [{ type: mongoose.Schema.Types.ObjectId, ref: 'InstalledUnit' }],
+  monthly_consumption: Number,
+  created_at: { type: Date, default: Date.now }
 });
 
 module.exports = mongoose.model('User', userSchema);

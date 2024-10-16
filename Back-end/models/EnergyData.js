@@ -6,7 +6,8 @@ const energyDataSchema = new mongoose.Schema({
   usage: Number,
   start_time_interval: Date,
   end_time_interval: Date,
-  savings_estimate: Number
+  savings_estimate: Number,
+  created_at: { type: Date, default: Date.now }
 });
 
 module.exports = mongoose.model('EnergyData', energyDataSchema);

@@ -5,7 +5,8 @@ const addressSchema = new mongoose.Schema({
   zip_code: Number,
   city: String,
   size: Number,
-  address_type: String
+  address_type: String,
+  created_at: { type: Date, default: Date.now }
 });
 
 module.exports = mongoose.model('Address', addressSchema);

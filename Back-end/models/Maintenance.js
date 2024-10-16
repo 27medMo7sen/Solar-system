@@ -5,9 +5,10 @@ const maintenanceSchema = new mongoose.Schema({
   time: Date,
   done_by: String,
   type: String,
-  equipment_ids: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Equipment' }],
   details: String,
-  next_maintenance_id: { type: mongoose.Schema.Types.ObjectId, ref: 'FutureMaintenance' }
+  installed_unit_ids: [{ type: mongoose.Schema.Types.ObjectId, ref: 'InstalledUnit' }],
+  next_maintenance_id: { type: mongoose.Schema.Types.ObjectId, ref: 'FutureMaintenance' },
+  created_at: { type: Date, default: Date.now }
 });
 
 module.exports = mongoose.model('Maintenance', maintenanceSchema);
