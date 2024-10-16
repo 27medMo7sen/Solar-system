@@ -9,7 +9,8 @@ build/
 # Ignore environment variable files
 .env
 .env.local
-
+config.env
+.config.env
 # Ignore log files
 *.log
 
