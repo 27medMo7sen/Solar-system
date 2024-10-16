@@ -1,7 +1,9 @@
 import express from "express";
-
+import path from "path";
+import { config } from "dotenv";
 const app = express();
 const PORT = 3000;
+config({ path: path.resolve("./config/config.env", ".env") });
 app.use(express.json());
 app.get("/", (req, res) => {
   res.send("Hello World");
