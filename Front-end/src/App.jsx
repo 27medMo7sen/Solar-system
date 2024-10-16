@@ -1,7 +1,19 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Root } from "./pages/Root";
+import { Fragment } from "react";
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    children: [],
+  },
+]);
 function App() {
-  return  <h1 className="text-3xl text-red-900 font-bold underline">
-  Testing Tailwind
-</h1>;
+  return (
+    <Fragment>
+      <RouterProvider router={router} />
+    </Fragment>
+  );
 }
 
 export default App;
