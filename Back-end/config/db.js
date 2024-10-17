@@ -13,6 +13,9 @@ const connectDB = async () => {
   config();
   mongoose
     .connect(process.env.CONNECTION_DB_URL)
+    .then(() => {
+      console.log("MongoDB connected");
+    })
     // .then(() => {
     //   console.log("MongoDB connected");
 
