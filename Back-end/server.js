@@ -7,7 +7,6 @@ const app = express();
 connectDB();
 config({ path: path.resolve(".env") });
 const PORT = process.env.PORT || 5000;
-console.log(process.env.MONGO_URI);
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
