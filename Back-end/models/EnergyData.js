@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-
+import mongoose from 'mongoose';
 const energyDataSchema = new mongoose.Schema({
   user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   date: Date,
@@ -10,4 +9,5 @@ const energyDataSchema = new mongoose.Schema({
   created_at: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model('EnergyData', energyDataSchema);
+const energyDataModel = mongoose.model('EnergyData', energyDataSchema);
+export default energyDataModel;

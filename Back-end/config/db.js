@@ -1,65 +1,68 @@
-const mongoose = require('mongoose');
-const User = require('../models/User');
-const Address = require('../models/Address');
-const EnergyData = require('../models/EnergyData');
-const Maintenance = require('../models/Maintenance');
-const FutureMaintenance = require('../models/FutureMaintenance');
-const Category = require('../models/Category');
-const Product = require('../models/Product');
-const Vendor = require('../models/Vendor');
-const InstalledUnit = require('../models/InstalledUnit');
-const Blog = require('../models/Blog');
-require('dotenv').config();
+import mongoose from "mongoose";
+import userModel from "../models/User.js";
+import addressModel from "../models/Address.js";
+import energyDataModel from "../models/EnergyData.js";
+import maintenanceModel from "../models/Maintenance.js";
+import futureMaintenanceModel from "../models/FutureMaintenance.js";
+import productModel from "../models/Product.js";
+import categoryModel from "../models/Category.js";
+import installedUnitModel from "../models/InstalledUnit.js";
+import blogModel from "../models/Blog.js";
+import { config } from "dotenv";
+const connectDB = async () => {
+  // Connect to MongoDB
+  config();
+  mongoose
+    .connect(process.env.CONNECTION_DB_URL)
+    // .then(() => {
+    //   console.log("MongoDB connected");
 
-const connectDB = async () => {    
-    // Connect to MongoDB
-    mongoose.connect(process.env.MONGO_URI)
-      .then(() => {
-        console.log('MongoDB connected');
-    
-        // Create collections without inserting data
-        User.createCollection()
-          .then(() => console.log('User collection created'))
-          .catch(err => console.log(err));
-    
-        Address.createCollection()
-          .then(() => console.log('Address collection created'))
-          .catch(err => console.log(err));
-    
-        EnergyData.createCollection()
-          .then(() => console.log('EnergyData collection created'))
-          .catch(err => console.log(err));
-    
-        Maintenance.createCollection()
-          .then(() => console.log('Maintenance collection created'))
-          .catch(err => console.log(err));
-    
-        FutureMaintenance.createCollection()
-          .then(() => console.log('FutureMaintenance collection created'))
-          .catch(err => console.log(err));
+    //   // Create collections without inserting data
+    //   userModel
+    //     .createCollection()
+    //     .then(() => console.log("User collection created"))
+    //     .catch((err) => console.log(err));
 
-        Product.createCollection()
-          .then(() => console.log('Product collection created'))
-          .catch(err => console.log(err));
+    //   addressModel
+    //     .init()
+    //     .then(() => console.log("Address collection created"))
+    //     .catch((err) => console.log(err));
 
-        Category.createCollection()
-          .then(() => console.log('Category collection created'))
-          .catch(err => console.log(err));  
+    //   energyDataModel
+    //     .init()
+    //     .then(() => console.log("EnergyData collection created"))
+    //     .catch((err) => console.log(err));
 
-        Vendor.createCollection()
-          .then(() => console.log('Vendor collection created'))
-          .catch(err => console.log(err));
+    //   maintenanceModel
+    //     .init()
+    //     .then(() => console.log("Maintenance collection created"))
+    //     .catch((err) => console.log(err));
 
-        InstalledUnit.createCollection()
-          .then(() => console.log('InstalledUnit collection created'))
-          .catch(err => console.log(err));
+    //   futureMaintenanceModel
+    //     .init()
+    //     .then(() => console.log("FutureMaintenance collection created"))
+    //     .catch((err) => console.log(err));
 
-        Blog.createCollection()
-          .then(() => console.log('Blog collection created'))
-          .catch(err => console.log(err));
-      })
-      .catch(err => console.log('MongoDB connection error:', err));
-    
+    //   productModel
+    //     .init()
+    //     .then(() => console.log("Product collection created"))
+    //     .catch((err) => console.log(err));
+
+    //   categoryModel
+    //     .init()
+    //     .then(() => console.log("Category collection created"))
+    //     .catch((err) => console.log(err));
+
+    //   installedUnitModel
+    //     .init()
+    //     .then(() => console.log("InstalledUnit collection created"))
+    //     .catch((err) => console.log(err));
+
+    //   blogModel
+    //     .init()
+    //     .then(() => console.log("Blog collection created"))
+    //     .catch((err) => console.log(err));
+    // })
+    .catch((err) => console.log("MongoDB connection error:", err));
 };
-
-module.exports = connectDB;
+export default connectDB;

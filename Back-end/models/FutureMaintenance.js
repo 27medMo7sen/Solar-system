@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const futureMaintenanceSchema = new mongoose.Schema({
   user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
@@ -8,4 +8,5 @@ const futureMaintenanceSchema = new mongoose.Schema({
   created_at: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model('FutureMaintenance', futureMaintenanceSchema);
+const futureMaintenanceModel = mongoose.model('FutureMaintenance', futureMaintenanceSchema);
+export default futureMaintenanceModel;
