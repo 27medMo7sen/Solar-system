@@ -1,5 +1,4 @@
 // import { productModel } from "../../DB/Models/product.model.js";
-import cloudinary from "./coludinaryConfigrations.js";
 
 export const asyncHandler = (API) => {
   return (req, res, next) => {
