@@ -1,6 +1,5 @@
-const express = require('express');
-const connectDB = require('./config/db');
-
+import express from "express";
+import connectDB from "./Config/db";
 const app = express();
 
 connectDB();
