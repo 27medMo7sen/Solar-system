@@ -5,7 +5,11 @@ const userSchema = new mongoose.Schema({
   last_name: String,
   phone_number: String,
   created_at: { type: Date, default: Date.now },
-  address_id: { type: mongoose.Schema.Types.ObjectId, ref: "Address" },
+  address: {
+    location: String,
+    zip_code: Number,
+    city: String,
+  },
   role: {
     type: String,
     enum: ["admin", "user", "vendor"],

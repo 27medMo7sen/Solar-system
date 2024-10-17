@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 import userModel from "../models/User.js";
-import addressModel from "../models/Address.js";
 import energyDataModel from "../models/EnergyData.js";
 import maintenanceModel from "../models/Maintenance.js";
 import futureMaintenanceModel from "../models/FutureMaintenance.js";
