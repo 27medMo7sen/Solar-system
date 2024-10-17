@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-
+import mongoose from 'mongoose';
 const addressSchema = new mongoose.Schema({
   location: String,
   zip_code: Number,
@@ -9,4 +8,5 @@ const addressSchema = new mongoose.Schema({
   created_at: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model('Address', addressSchema);
+const userModel = mongoose.model('Address', addressSchema);
+export default userModel;

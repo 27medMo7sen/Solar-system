@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const maintenanceSchema = new mongoose.Schema({
   user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
@@ -11,4 +11,5 @@ const maintenanceSchema = new mongoose.Schema({
   created_at: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model('Maintenance', maintenanceSchema);
+const maintenanceModel = mongoose.model('Maintenance', maintenanceSchema);
+export default maintenanceModel;
