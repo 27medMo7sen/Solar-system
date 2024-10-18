@@ -20,7 +20,7 @@ const connectDB = async () => {
 
       // Create collections without inserting data
       userModel
-        .createCollection()
+        .init()
         .then(() => console.log("User collection created"))
         .catch((err) => console.log(err));
 

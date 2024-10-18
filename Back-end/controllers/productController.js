@@ -1,7 +1,21 @@
 import productModel from '../models/Product.js';
+import categoryModel from '../models/Category.js';
+import brandModel from '../models/Brand.js';
 
 export const createProduct = async (req, res) => {
   try {
+    const { category_id, brand } = req.body;
+
+    const category = await categoryModel.findById(category_id);
+    if (!category) {
+      return res.status(400).json({ message: 'Invalid category ID' });
+    }
+
+    const brandExists = await brandModel.findById(brand);
+    if (!brandExists) {
+      return res.status(400).json({ message: 'Invalid brand ID' });
+    }
+
     const product = new productModel(req.body);
     await product.save();
     res.status(201).json(product);
@@ -33,6 +47,22 @@ export const getProductById = async (req, res) => {
 
 export const updateProduct = async (req, res) => {
   try {
+    const { category_id, brand } = req.body;
+
+    if (category_id) {
+      const category = await categoryModel.findById(category_id);
+      if (!category) {
+        return res.status(400).json({ message: 'Invalid category ID' });
+      }
+    }
+
+    if (brand) {
+      const brandExists = await brandModel.findById(brand);
+      if (!brandExists) {
+        return res.status(400).json({ message: 'Invalid brand ID' });
+      }
+    }
+
     const product = await productModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
     if (!product) {
       return res.status(404).json({ message: 'Product not found' });
