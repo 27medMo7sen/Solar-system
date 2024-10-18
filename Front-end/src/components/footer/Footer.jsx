@@ -132,7 +132,6 @@ export const Footer = () => {
         </div>
       </div>
 
-      {/* Footer Bottom */}
       <div
         className="w-full h-12 text-center bg-cover bg-center"
         style={{

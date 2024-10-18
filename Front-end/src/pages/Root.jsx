@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { Outlet } from "react-router-dom";
-import { Footer } from "../components/footer/Footer.jsx";
+import { Footer } from "../components/footer/Footer";
 export const Root = () => {
   return (
     <Fragment>
