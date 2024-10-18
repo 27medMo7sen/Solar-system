@@ -28,8 +28,13 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   }, // Hash the password before storing
-  installed_units_ids: [
-    { type: mongoose.Schema.Types.ObjectId, ref: "InstalledUnit" },
+  installed_products: [
+    {
+      product_id: { type: mongoose.Schema.Types.ObjectId, ref: "Product" }, 
+      installation_location: String,
+      date_of_installation: Date,
+      end_of_warranty: Date,
+    },
   ],
   monthly_consumption: Number,
   created_at: { type: Date, default: Date.now },
