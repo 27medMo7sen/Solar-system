@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { Outlet } from "react-router-dom";
-
+import { Footer } from "../components/footer/Footer.jsx";
 export const Root = () => {
   return (
     <Fragment>
@@ -8,6 +8,7 @@ export const Root = () => {
         Testing Tailwind
       </h1>
       <Outlet />
+      <Footer />
     </Fragment>
   );
 };
