@@ -6,8 +6,7 @@ const maintenanceSchema = new mongoose.Schema({
   done_by: String,
   type: String,
   details: String,
-  installed_unit_ids: [{ type: mongoose.Schema.Types.ObjectId, ref: 'InstalledUnit' }],
-  next_maintenance_id: { type: mongoose.Schema.Types.ObjectId, ref: 'FutureMaintenance' },
+  next_maintenance: Date,
   created_at: { type: Date, default: Date.now }
 });
 

@@ -4,6 +4,10 @@ const brandSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  logo: {
+      secure_url: String,
+      public_id: String,
+    },
   created_at: { type: Date, default: Date.now },
 });
 const brandModel = mongoose.model("Brand", brandSchema);
