@@ -3,11 +3,20 @@ const productSchema = new mongoose.Schema({
   name: String,
   model: String,
   description: String,
-  category_id: { type: mongoose.Schema.Types.ObjectId, ref: "Category" },
+  category: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: "Category",
+  },
   power_output: Number,
   efficiency: Number,
-  images: [String],
-  brand: { type: mongoose.Schema.Types.ObjectId, ref: "Brand" },
+  images: [
+    {
+      secure_url: String,
+      public_id: String,
+    },
+  ],
+  brand: { type: mongoose.Schema.Types.ObjectId, required: true, ref: "Brand" },
   warranty_years: Number,
   price: Number,
   stock_quantity: Number,
