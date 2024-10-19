@@ -30,7 +30,7 @@ const userSchema = new mongoose.Schema({
   }, // Hash the password before storing
   installed_products: [
     {
-      product_id: { type: mongoose.Schema.Types.ObjectId, ref: "Product" }, 
+      product_id: { type: mongoose.Schema.Types.ObjectId, ref: "Product" },
       installation_location: String,
       date_of_installation: Date,
       end_of_warranty: Date,
@@ -38,6 +38,8 @@ const userSchema = new mongoose.Schema({
   ],
   monthly_consumption: Number,
   created_at: { type: Date, default: Date.now },
+  token: String,
+  isConfirmed: { type: Boolean, default: false },
 });
 
 const userModel = mongoose.model("User", userSchema);
