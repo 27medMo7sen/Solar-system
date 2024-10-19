@@ -20,10 +20,7 @@ const userSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
-  prfile_pic: {
-    secure_url: String,
-    public_id: String,
-  },
+  profile_pic: String,
   password: {
     type: String,
     required: true,

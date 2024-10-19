@@ -2,6 +2,13 @@ import categoryModel from '../models/Category.js';
 
 export const createCategory = async (req, res) => {
   try {
+    const { name } = req.body;
+
+    const existingCategory = await categoryModel.findOne({ name });
+    if (existingCategory) {
+      return res.status(400).json({ message: 'Category name already exists' });
+    }
+
     const category = new categoryModel(req.body);
     await category.save();
     res.status(201).json(category);
@@ -33,6 +40,15 @@ export const getCategoryById = async (req, res) => {
 
 export const updateCategory = async (req, res) => {
   try {
+    const { name } = req.body;
+
+    if (name) {
+      const existingCategory = await categoryModel.findOne({ name });
+      if (existingCategory && existingCategory._id.toString() !== req.params.id) {
+        return res.status(400).json({ message: 'Category name already exists' });
+      }
+    }
+
     const category = await categoryModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
     if (!category) {
       return res.status(404).json({ message: 'Category not found' });

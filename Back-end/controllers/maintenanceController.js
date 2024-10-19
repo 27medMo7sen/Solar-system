@@ -1,7 +1,15 @@
 import maintenanceModel from '../models/Maintenance.js';
+import userModel from '../models/User.js';
 
 export const createMaintenance = async (req, res) => {
   try {
+    const { user_id } = req.body;
+
+    const user = await userModel.findById(user_id);
+    if (!user) {
+      return res.status(400).json({ message: 'Invalid user ID' });
+    }
+
     const maintenance = new maintenanceModel(req.body);
     await maintenance.save();
     res.status(201).json(maintenance);
@@ -33,6 +41,15 @@ export const getMaintenanceById = async (req, res) => {
 
 export const updateMaintenance = async (req, res) => {
   try {
+    const { user_id } = req.body;
+
+    if (user_id) {
+      const user = await userModel.findById(user_id);
+      if (!user) {
+        return res.status(400).json({ message: 'Invalid user ID' });
+      }
+    }
+
     const maintenance = await maintenanceModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
     if (!maintenance) {
       return res.status(404).json({ message: 'Maintenance not found' });
