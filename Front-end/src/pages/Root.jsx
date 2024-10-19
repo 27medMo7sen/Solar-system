@@ -1,12 +1,17 @@
 import { Fragment } from "react";
 import { Outlet } from "react-router-dom";
+import Navbar from "../components/Navbar/Navbar";
+import Hero from "../components/Slider/Slider";
+
+import { Footer } from "../components/footer/Footer";
+
 export const Root = () => {
   return (
     <Fragment>
-      <h1 className="text-3xl text-red-900 font-bold underline">
-        Testing Tailwind
-      </h1>
+      <Navbar />
+      <Hero />
       <Outlet />
+      <Footer />
     </Fragment>
   );
 };
