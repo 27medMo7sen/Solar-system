@@ -17,7 +17,7 @@ export async function sendEmailServices({
   });
 
   const emailInfo = await transporter.sendMail({
-    from: "SolarEase",
+    from: `"solar ease" <${process.env.SENDER_EMAIL}>`,
     to: to ? to : "",
     subject: subject ? subject : "Hello",
     html: message ? message : "<h1>Hello</h1>",

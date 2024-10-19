@@ -38,7 +38,7 @@ export const signUp = async (req, res, next) => {
       linkData:
         "Please click the button below to confirm your email and finish setting up your account. This link will expire in 1 hour.",
       subject: "Email Confirmation",
-      buttonText: "Confirm Email",
+      buttonText: "Confirm",
     }),
   });
   if (!isEmailSent) {
