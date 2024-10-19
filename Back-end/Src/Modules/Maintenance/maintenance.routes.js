@@ -1,6 +1,6 @@
 import express from "express";
 import * as mc from "./maintenance.controller.js";
-import { validate } from "./maintenance.validationSchemas.js";
+import { validate } from "../../Middlewares/validation.js";
 import * as schema from "./maintenance.validationSchemas.js";
 import { asyncHandler } from "../../Utils/errorhandling.js";
 const router = express.Router();

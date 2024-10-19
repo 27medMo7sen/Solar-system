@@ -7,7 +7,7 @@ import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { GrMapLocation } from "react-icons/gr";
 import { HiOutlineMail } from "react-icons/hi";
 import { FaPhoneVolume } from "react-icons/fa6";
-import backgroundImage from "./background.png";
+import backgroundImage from "../../assets/background.png";
 import { Link } from "react-router-dom";
 
 const links = ["home", "about-Us", "services", "products", "calculate"];
@@ -25,7 +25,7 @@ const blogs = [
 export const Footer = () => {
   return (
     <footer className="flex flex-col justify-center items-center bg-black text-white">
-      <div className="flex gap-10 w-full justify-around p-14 flex-wrap sm:p-5 sm:gap-5">
+      <div className="flex gap-10 w-full justify-around p-14 max-h-80 overflow-y-auto flex-wrap sm:p-5 sm:gap-5">
         <div className="flex flex-col gap-3 sm:w-full sm:items-center sm:text-center">
           <p className="font-medium">Logo</p>
           <p className="text-sm w-80 flex flex-col gap-1 sm:w-full">
