@@ -18,7 +18,7 @@ const ModalOverlay = (props) => {
 };
 const SideModalOverlay = (props) => {
   return (
-    <div className="fixed top-0 h-screen w-60 right-0 animate-slideLeft bg-white z-30  rounded-lg">
+    <div className="fixed top-0 h-screen w-60 right-0 animate-slideLeft bg-white z-30  rounded-l-lg">
       {props.children}
     </div>
   );
