@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { IoMenu } from "react-icons/io5";
 import { useDispatch } from "react-redux";

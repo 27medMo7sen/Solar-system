@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { homeData } from "../Data";
+import { sliderData } from "../Data";
 export const uiSlice = createSlice({
   name: "ui",
   initialState: {
     value: 0,
-    length: homeData.length,
+    length: sliderData.length,
     sideModalIsVisible: false,
     searchModalIsVisible: false,
   },

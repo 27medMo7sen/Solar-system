@@ -4,7 +4,10 @@ import image3 from '../src/assets/image3.png';
 import image4 from '../src/assets/image4.png';
 import image5 from '../src/assets/image5.png';
 
-export const homeData = [
+import how1 from '../src/assets/howitworks1.png'
+import how2 from '../src/assets/howitworks2.png'
+import how3 from '../src/assets/howitworks3.png'
+export const sliderData = [
     {
         id: "0",
         cover: image4,
@@ -40,5 +43,25 @@ export const homeData = [
         text: 'Learn More About Solar Energy',
         description: 'Access our extensive resources to understand the benefits of solar power.',
         button: "Read Our Blog"
+    },
+]
+export const howItWorksData = [
+    {   
+        id: 0,
+        img: how1,
+        text: 'Browse solar products & services',
+        subtext: 'Explore a wide range of solar products and services tailored to your needs.',
+    },
+    {   
+        id: 1,
+        img: how2,
+        text: 'Get quotes or buy online',
+        subtext: 'Compare options, request quotes or purchase directly from direct suppliers.',
+    },
+    {   
+        id: 2,
+        img: how3,
+        text: 'Enjoy clean energy',
+        subtext: 'Benfit from renewable energy and reduce your electricity bills',
     },
 ]
