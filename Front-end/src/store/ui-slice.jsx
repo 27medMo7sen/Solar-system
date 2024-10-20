@@ -5,6 +5,8 @@ export const uiSlice = createSlice({
   initialState: {
     value: 0,
     length: homeData.length,
+    sideModalIsVisible: false,
+    searchModalIsVisible: false,
   },
   reducers: {
     nextSlide(state, action) {
@@ -16,6 +18,12 @@ export const uiSlice = createSlice({
     dotSlide(state, action) {
       const slide = action.payload;
       state.value = slide;
+    },
+    toggleSideModal(state) {
+      state.sideModalIsVisible = !state.sideModalIsVisible;
+    },
+    toggleSearchModal(state) {
+      state.searchModalIsVisible = !state.searchModalIsVisible;
     },
   },
 });
