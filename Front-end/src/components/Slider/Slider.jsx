@@ -1,19 +1,15 @@
 import { useEffect } from "react";
 import { homeData } from "../../Data";
-import {
-  nextSlide,
-  prevSlide,
-  dotSlide,
-} from "../../features/slices/Sliderslice";
+import { uiActions } from "../../store/ui-slice";
 import { useDispatch, useSelector } from "react-redux";
 
 const Hero = () => {
-  const slideIndex = useSelector((state) => state.slider.value);
+  const slideIndex = useSelector((state) => state.ui.value);
   const dispatch = useDispatch();
 
   useEffect(() => {
     const interval = setInterval(() => {
-      dispatch(nextSlide(slideIndex + 1));
+      dispatch(uiActions.nextSlide(slideIndex + 1));
     }, 10000);
 
     return () => clearInterval(interval);
@@ -75,7 +71,7 @@ const Hero = () => {
                       ? "bg-green-300 rounded-full p-2 cursor-pointer"
                       : "bg-white rounded-full p-2 cursor-pointer"
                   }
-                  onClick={() => dispatch(dotSlide(index))}
+                  onClick={() => dispatch(uiActions.dotSlide(index))}
                 ></div>
               </div>
             );
@@ -84,7 +80,7 @@ const Hero = () => {
         <div>
           <button
             className="absolute top-[50%] right-4 bg-white rounded-full p-2 hover:bg-green-300"
-            onClick={() => dispatch(nextSlide(slideIndex + 1))}
+            onClick={() => dispatch(uiActions.nextSlide(slideIndex + 1))}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -103,7 +99,7 @@ const Hero = () => {
           </button>
           <button
             className="absolute top-[50%] left-4 bg-white rounded-full p-2 hover:bg-green-300"
-            onClick={() => dispatch(prevSlide(slideIndex - 1))}
+            onClick={() => dispatch(uiActions.prevSlide(slideIndex - 1))}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
