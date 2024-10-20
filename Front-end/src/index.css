@@ -11,7 +11,8 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #888;
+  background-color: #999;
+  cursor: grabbing;
   border-radius: 10px;
 }
 
