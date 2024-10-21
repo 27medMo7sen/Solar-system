@@ -27,7 +27,7 @@ export const SideNavbar = () => {
         to="/become-a-partner"
         className={({ isActive }) => (isActive ? activeClass : inactiveClass)}
       >
-        Become a Partner
+        Partnership
       </NavLink>
       <NavLink
         to="/solar-calculator"
@@ -46,12 +46,6 @@ export const SideNavbar = () => {
         className={({ isActive }) => (isActive ? activeClass : inactiveClass)}
       >
         About
-      </NavLink>
-      <NavLink
-        to="/contact"
-        className={({ isActive }) => (isActive ? activeClass : inactiveClass)}
-      >
-        Contact Us
       </NavLink>
     </div>
   );
