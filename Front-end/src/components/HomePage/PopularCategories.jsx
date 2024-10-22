@@ -1,7 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-// Images (replace with actual image imports or URLs)
 import PanelsImg from "../../assets/pannels.png";
 import BatteriesImg from "../../assets/batteries.png";
 import InvertersImg from "../../assets/inverters.png";
@@ -18,7 +16,7 @@ export const PopularCategories = () => {
     <div
       ref={slideRef}
       className={`w-full py-10 bg-white text-center ${
-        isVisible ? "animate-slideLeft" : ""
+        isVisible ? "animate-slideLeft visible" : "invisible"
       }`}
     >
       <div className="flex justify-center items-center">
