@@ -78,10 +78,15 @@ const products = [
   },
 ];
 import { PiLineVerticalBold } from "react-icons/pi";
+import { useInViewAnimation } from "../../hooks/useInViewAnimation";
 
 export const FeaturedProducts = () => {
+  const { slideRef, isVisible } = useInViewAnimation();
   return (
-    <div className="my-10">
+    <div
+      ref={slideRef}
+      className={`my-10 ${isVisible ? "animate-slideRight" : ""}`}
+    >
       <h2 className="text-3xl font-bold text-center mb-8">Featured Products</h2>
       <div className="flex justify-center items-center">
         <div className="flex justify-start gap-5 range-xs:max-w-full range-xs:pl-1 overflow-x-auto pb-5 pl-4 pr-4 max-w-80%">

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import PanelsImg from "../../assets/pannels.png";
 import BatteriesImg from "../../assets/batteries.png";
 import InvertersImg from "../../assets/inverters.png";
+import { useInViewAnimation } from "../../hooks/useInViewAnimation";
 
 export const PopularCategories = () => {
   const categories = [
@@ -12,9 +13,14 @@ export const PopularCategories = () => {
     { name: "Batteries", image: BatteriesImg },
     { name: "Inverters", image: InvertersImg },
   ];
-
+  const { isVisible, slideRef } = useInViewAnimation();
   return (
-    <div className="w-full py-10 bg-white text-center">
+    <div
+      ref={slideRef}
+      className={`w-full py-10 bg-white text-center ${
+        isVisible ? "animate-slideLeft" : ""
+      }`}
+    >
       <div className="flex justify-center items-center">
         <div className="flex justify-center mx-md:flex-col mn-md:relative w-2/3 items-center mb-8 px-4 sm:px-10">
           <h2 className="text-3xl font-bold w-full">Popular Categories</h2>
@@ -26,7 +32,7 @@ export const PopularCategories = () => {
           </Link>
         </div>
       </div>
-      {/* Categories Grid */}
+
       <div className="flex justify-center items-center ">
         <div className="grid grid-cols-3 range-md:grid-cols-2 mx-md:grid-cols-1 gap-10 px-4 sm:px-10">
           {categories.map((category, index) => (
