@@ -16,8 +16,8 @@ const Navbar = () => {
   const inactiveClass =
     "hover:text-green-300 transition ease-in-out delay-150 over:-translate-y-1 hover:scale-110";
   return (
-    <nav className="bg-white flex justify-center items-center top-0 left-0 w-full h-14  shadow-md z-10 ">
-      <div className="container mx-auto px-4 flex justify-between items-center">
+    <nav className="bg-white flex items-center top-0 left-0 w-full h-14 shadow-md z-10 ">
+      <div className="w-full flex justify-between items-center pl-3">
         <div>
           <Link to="/" className="font-bold tracking-wide">
             Logo
@@ -41,7 +41,8 @@ const Navbar = () => {
           </NavLink>
           <NavLink
             to="/become-a-partner"
-            className={({ isActive }) => (isActive ? activeClass : inactiveClass)}>
+            className="hover:text-green-300 transition ease-in-out delay-150 over:-translate-y-1 hover:scale-110"
+          >
             Become a Partner
           </NavLink>
           <NavLink
@@ -61,9 +62,11 @@ const Navbar = () => {
           </NavLink>
           <NavLink
             to="/contact"
-            className={({ isActive }) => (isActive ? activeClass : inactiveClass)}>
+            className="hover:text-green-300 transition ease-in-out delay-150 over:-translate-y-1 hover:scale-110"
+          >
             Contact Us
-          </NavLink>        </div>
+          </NavLink>
+        </div>
         <div className="font-bold gap-5 lg:hidden flex items-center">
           <div
             className="rounded-full shadow-md h-9 w-9 flex justify-center items-center cursor-pointer hover:bg-gray-200"
@@ -78,7 +81,7 @@ const Navbar = () => {
             <button className="mr-2">Sign Up</button>
           </Link>
         </div>
-        <div className=" hidden lg:flex font-bold px-4 gap-5 justify-center items-center">
+        <div className=" hidden mx-lg:flex font-bold px-4 gap-5 justify-center items-center">
           <div
             className="rounded-full shadow-md h-9 w-9 flex justify-center items-center cursor-pointer hover:bg-gray-200"
             onClick={toggleSearchModal}

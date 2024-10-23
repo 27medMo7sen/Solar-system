@@ -38,7 +38,7 @@ export const Search = () => {
           placeholder="Search"
           value={query}
           onChange={handleSearch}
-          className="p-2 border w-96 border-gray-300 rounded-lg animate-searchWidth"
+          className="p-2 border w-96 mx-sm:w-72 mx-sm:animate-searchWidthSm border-gray-300 rounded-lg animate-searchWidth"
         />
         <FaSearch className="text-gray-400 absolute right-2 top-1/2 transform -translate-y-1/2" />
       </div>
