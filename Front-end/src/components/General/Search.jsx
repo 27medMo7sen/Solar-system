@@ -24,6 +24,8 @@ export const Search = () => {
         "Result 1",
         "Result 2",
         "Result 3",
+        "ahmed",
+        "mohsen",
       ].filter((item) =>
         item.toLowerCase().includes(e.target.value.toLowerCase())
       )

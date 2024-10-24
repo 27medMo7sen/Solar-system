@@ -14,7 +14,7 @@ const Navbar = () => {
   };
   return (
     <nav className="bg-white flex items-center top-0 left-0 w-full h-14 shadow-md z-10 ">
-      <div className="w-full flex justify-between items-center pl-3">
+      <div className="w-full flex justify-between items-center px-20 mx-lg:px-10 mx-sm:px-1">
         <div>
           <Link to="/" className="font-bold tracking-wide">
             Logo
@@ -78,7 +78,7 @@ const Navbar = () => {
             <button className="mr-2">Sign Up</button>
           </Link>
         </div>
-        <div className=" hidden mx-lg:flex font-bold px-4 gap-5 justify-center items-center">
+        <div className=" hidden mx-lg:flex font-bold gap-5 justify-center items-center">
           <div
             className="rounded-full shadow-md h-9 w-9 flex justify-center items-center cursor-pointer hover:bg-gray-200"
             onClick={toggleSearchModal}
