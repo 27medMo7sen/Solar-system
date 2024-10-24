@@ -33,7 +33,7 @@ export const Search = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center">
+    <div className="flex flex-col justify-center ">
       <div className="relative">
         <input
           type="text"

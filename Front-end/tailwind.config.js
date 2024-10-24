@@ -18,11 +18,15 @@ export default {
       keyframes: {
         slideDown: {
           "0%": {
-            transform: "translateY(-100%) translateX(-50%)",
+            transform: "translateY(-200%) translateX(-50%)",
             opacity: 0,
           },
-          "100%": {
+          "75%": {
             transform: "translateY(0) translateX(-50%)",
+            opacity: 1,
+          },
+          "100%": {
+            transform: "translateY(-50) translateX(-50%)",
             opacity: 1,
           },
         },

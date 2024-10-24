@@ -23,51 +23,63 @@ const Navbar = () => {
             Logo
           </Link>
         </div>
-        <div className="text-black  md:flex lg:hidden  items-center space-x-6">
+        <div className="text-black  md:flex  mx-lg:hidden   items-center space-x-6">
           <NavLink
             to="/"
-            className={({ isActive }) => (isActive ? activeClass : inactiveClass)}>
+            className={({ isActive }) =>
+              isActive ? activeClass : inactiveClass
+            }
+          >
             Home
           </NavLink>
           <NavLink
             to="/products"
-            className={({ isActive }) => (isActive ? activeClass : inactiveClass)}>
+            className={({ isActive }) =>
+              isActive ? activeClass : inactiveClass
+            }
+          >
             Products
           </NavLink>
           <NavLink
             to="/services"
-            className={({ isActive }) => (isActive ? activeClass : inactiveClass)}>
+            className={({ isActive }) =>
+              isActive ? activeClass : inactiveClass
+            }
+          >
             Services
           </NavLink>
           <NavLink
             to="/become-a-partner"
             className="hover:text-green-300 transition ease-in-out delay-150 over:-translate-y-1 hover:scale-110"
           >
-            Become a Partner
+            Partnership
           </NavLink>
           <NavLink
             to="/solar-calculator"
-            className={({ isActive }) => (isActive ? activeClass : inactiveClass)}>
+            className={({ isActive }) =>
+              isActive ? activeClass : inactiveClass
+            }
+          >
             Solar Calculator
           </NavLink>
           <NavLink
             to="/blog"
-            className={({ isActive }) => (isActive ? activeClass : inactiveClass)}>
+            className={({ isActive }) =>
+              isActive ? activeClass : inactiveClass
+            }
+          >
             Blog
           </NavLink>
           <NavLink
             to="/about"
-            className={({ isActive }) => (isActive ? activeClass : inactiveClass)}>
+            className={({ isActive }) =>
+              isActive ? activeClass : inactiveClass
+            }
+          >
             About
           </NavLink>
-          <NavLink
-            to="/contact"
-            className="hover:text-green-300 transition ease-in-out delay-150 over:-translate-y-1 hover:scale-110"
-          >
-            Contact Us
-          </NavLink>
         </div>
-        <div className="font-bold gap-5 lg:hidden flex items-center">
+        <div className="font-bold gap-5 mx-lg:hidden flex items-center">
           <div
             className="rounded-full shadow-md h-9 w-9 flex justify-center items-center cursor-pointer hover:bg-gray-200"
             onClick={toggleSearchModal}

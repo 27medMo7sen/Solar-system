@@ -7,7 +7,7 @@ export const Home = () => {
   return (
     <Fragment>
       <Hero />
-      <HowItWorks />
+      {/* <HowItWorks /> */}
       <PopularCategories />
       <FeaturedProducts />
     </Fragment>

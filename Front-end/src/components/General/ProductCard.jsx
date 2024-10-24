@@ -18,16 +18,18 @@ export const ProductCard = ({ product, index }) => {
         />
         <div className="absolute h-full w-full bg-black/20 flex flex-col gap-3 justify-center items-center -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all duration-300 ">
           <Link
-            to={`/${product.name}`}
             className="bg-Primary-button hover:bg-Primary-button-hover text-white
                   font-semibold py-2 px-6 rounded"
           >
             Add to cart
           </Link>
           <div className="flex gap-4">
-            <button className="bg-Secondary-button hover:bg-Secondary-button-hover text-white font-semibold py-2 px-6 rounded">
+            <Link
+              to={`product-details/${product.name}`}
+              className="bg-Secondary-button hover:bg-Secondary-button-hover text-white font-semibold py-2 px-6 rounded"
+            >
               View
-            </button>
+            </Link>
             <button className="bg-Secondary-button hover:bg-Secondary-button-hover text-white font-semibold py-2 px-6 rounded">
               Compare
             </button>
