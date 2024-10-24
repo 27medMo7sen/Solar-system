@@ -60,7 +60,7 @@ const HowItWorks = () => {
               <img
                 src={card.img}
                 alt="icon"
-                className="w-20 h-20 rounded-full object-cover transition-transform duration-300 ease-in-out hover:rotate-6"
+                className="w-20 h-20 rounded-full object-cover transition-transform duration-300 ease-in-out hover:rotate-12"
               />
             </div>
             <div className="text-center">

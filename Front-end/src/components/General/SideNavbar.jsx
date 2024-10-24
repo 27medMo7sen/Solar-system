@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 export const SideNavbar = () => {
-  const activeClass = "h-10 w-full flex items-center border-b-2 text-green-300";
+  const activeClass = "h-10 w-full flex items-center border-b-2 text-green-500";
   const inactiveClass =
     "h-10 w-full flex items-center border-b-2 hover:text-green-300 transition ease-in-out delay-150 over:-translate-y-1 hover:scale-110";
   return (
