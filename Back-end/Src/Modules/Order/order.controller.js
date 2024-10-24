@@ -1,4 +1,4 @@
-import orderModel from "../../../models/Order.js";
+import orderModel from "./order.schema.js";
 
 export const createOrder = async (req, res) => {
   const order = new orderModel(req.body);

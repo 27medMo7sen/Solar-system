@@ -1,13 +1,13 @@
 import mongoose from "mongoose";
-import blogModel from "../models/Blog.js";
-import brandModel from "../models/Brand.js";
-import cartModel from "../models/Cart.js";
-import categoryModel from "../models/Category.js";
-import energyDataModel from "../models/EnergyData.js";
-import maintenanceModel from "../models/Maintenance.js";
-import orderModel from "../models/Order.js";
-import productModel from "../models/Product.js";
-import userModel from "../models/User.js";
+import blogModel from "../Src/Modules/Blog/blog.schema.js";
+import brandModel from "../Src/Modules/Brand/brand.schema.js";
+import cartModel from "../Src/Modules/Cart/cart.schema.js";
+import categoryModel from "../Src/Modules/Category/category.schema.js";
+import energyDataModel from "../Src/Modules/EnergyData/energyData.schema.js";
+import maintenanceModel from "../Src/Modules/Maintenance/maintenance.schema.js";
+import orderModel from "../Src/Modules/Order/order.schema.js";
+import productModel from "../Src/Modules/Product/product.schema.js";
+import userModel from "../Src/Models/User.js";
 
 import { config } from "dotenv";
 const connectDB = async () => {

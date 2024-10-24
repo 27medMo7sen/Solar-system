@@ -1,4 +1,4 @@
-import userModel from "../../../models/User.js";
+import userModel from "../../Models/User.js";
 import { hashSync, compareSync } from "bcrypt";
 import { emailTemplate } from "../../Utils/emailTemplate.js";
 import { generateToken, verifyToken } from "../../Utils/tokenFunctions.js";

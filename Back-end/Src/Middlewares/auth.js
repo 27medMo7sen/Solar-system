@@ -1,4 +1,4 @@
-import userModel from "../../models/User.js";
+import userModel from "../Models/User.js";
 import { generateToken, verifyToken } from "../Utils/tokenFunctions.js";
 export const isAuth = (roles) => {
   return async (req, res, next) => {
