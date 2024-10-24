@@ -2,20 +2,22 @@ import express from "express";
 import * as ec from "./energyData.controller.js";
 import { asyncHandler } from "../../Utils/errorhandling.js";
 import * as schema from "./energyData.validationSchemas.js";
-import { validate } from "../../Middlewares/validation.js";
+import { validateBody } from "../../Middlewares/bodyValidation.js";
+import { validateId } from "../../Middlewares/idValidation.js";
 const router = express.Router();
 router.post(
   "/",
-  validate(schema.createEnergyDataSchema),
+  validateBody(schema.createEnergyDataSchema),
   asyncHandler(ec.createEnergyData)
 );
 router.get("/", asyncHandler(ec.getEnergyData));
-router.get("/:id", asyncHandler(ec.getEnergyDataById));
+router.get("/:id",validateId(), asyncHandler(ec.getEnergyDataById));
 router.put(
   "/:id",
-  validate(schema.updateEnergyDataSchema),
+  validateId(),
+  validateBody(schema.updateEnergyDataSchema),
   asyncHandler(ec.updateEnergyData)
 );
-router.delete("/:id", asyncHandler(ec.deleteEnergyData));
+router.delete("/:id", validateId(), asyncHandler(ec.deleteEnergyData));
 
 export default router;

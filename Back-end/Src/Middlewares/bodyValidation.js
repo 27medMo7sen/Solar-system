@@ -1,4 +1,4 @@
-export const validate = (schema) => {
+export const validateBody = (schema) => {
   return (req, res, next) => {
     const { error, value } = schema.validate(req.body, {
       abortEarly: false,
@@ -6,7 +6,7 @@ export const validate = (schema) => {
     });
     if (error) {
       const errorMessages = error.details.map((detail) => detail.message);
-      return next(new Error(errorMessages, { cause: 400 }));
+      return next(new Error(errorMessages.join(', '), { cause: 400 }));
     }
     console.log(value);
     if (Object.keys(value).length === 0) {

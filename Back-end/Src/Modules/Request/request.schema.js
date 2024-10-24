@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 const partnerRequestSchema = new mongoose.Schema({
   company_name: {
@@ -35,6 +35,6 @@ const partnerRequestSchema = new mongoose.Schema({
   },
 });
 
-const PartnerRequest = mongoose.model('PartnerRequest', partnerRequestSchema);
+const partnerRequestModel = mongoose.model('PartnerRequest', partnerRequestSchema);
 
-module.exports = PartnerRequest;
+export default partnerRequestModel;

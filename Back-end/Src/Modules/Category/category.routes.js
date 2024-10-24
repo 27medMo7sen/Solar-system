@@ -4,29 +4,33 @@ import { asyncHandler } from "../../Utils/errorhandling.js";
 import { isAuth } from "../../Middlewares/auth.js";
 import * as categoryRoles from "./category.endpoints.roles.js";
 import * as schema from "./category.validationSchemas.js";
-import { validate } from "../../Middlewares/validation.js";
+import { validateBody } from "../../Middlewares/bodyValidation.js";
+import { validateId } from "../../Middlewares/idValidation.js";
 const router = express.Router();
 router.post(
   "/",
-  validate(schema.createCategorySchema),
   isAuth(categoryRoles.createCategory),
+  validateBody(schema.createCategorySchema),
   asyncHandler(cc.createCategory)
 );
 router.get("/", asyncHandler(cc.getCategories));
 router.get(
   "/:id",
   isAuth(categoryRoles.getCategoryById),
+  validateId(),
   asyncHandler(cc.getCategoryById)
 );
 router.put(
   "/:id",
-  validate(schema.updateCategorySchema),
   isAuth(categoryRoles.updateCategory),
+  validateId(),
+  validateBody(schema.updateCategorySchema),
   asyncHandler(cc.updateCategory)
 );
 router.delete(
   "/:id",
   isAuth(categoryRoles.deleteCategory),
+  validateId(),
   asyncHandler(cc.deleteCategory)
 );
 

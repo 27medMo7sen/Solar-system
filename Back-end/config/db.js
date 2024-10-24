@@ -8,6 +8,8 @@ import maintenanceModel from "../Src/Modules/Maintenance/maintenance.schema.js";
 import orderModel from "../Src/Modules/Order/order.schema.js";
 import productModel from "../Src/Modules/Product/product.schema.js";
 import userModel from "../Src/Models/User.js";
+import vendorModel from "../Src/Modules/Vendor/vendor.schema.js";
+import partnerRequestModel from "../Src/Modules/Request/request.schema.js";
 
 import { config } from "dotenv";
 const connectDB = async () => {
@@ -62,6 +64,16 @@ const connectDB = async () => {
       brandModel
         .init()
         .then(() => console.log("Brand collection created"))
+        .catch((err) => console.log(err));
+
+      vendorModel
+        .init()
+        .then(() => console.log("Vendor collection created"))
+        .catch((err) => console.log(err));
+
+        partnerRequestModel
+        .init()
+        .then(() => console.log("Request collection created"))
         .catch((err) => console.log(err));
     })
     .catch((err) => console.log("MongoDB connection error:", err));
