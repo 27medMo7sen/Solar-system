@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { IoMenu } from "react-icons/io5";
 import { useDispatch } from "react-redux";
 import { uiActions } from "../../store/ui-slice";
@@ -14,55 +14,77 @@ const Navbar = () => {
   };
   return (
     <nav className="bg-white flex items-center top-0 left-0 w-full h-14 shadow-md z-10 ">
-      <div className="w-full flex justify-between items-center pl-3">
+      <div className="w-full flex justify-between items-center px-3">
         <div>
-          <Link to="/" className="font-bold tracking-wide">
+          <NavLink to="/" className="font-bold tracking-wide">
             Logo
-          </Link>
+          </NavLink>
         </div>
-        <div className="text-black   mx-lg:hidden  items-center space-x-6">
-          <Link
+        <div className="text-black mx-lg:hidden items-center space-x-6">
+          <NavLink
             to="/"
-            className="hover:text-green-300 transition ease-in-out delay-150 over:-translate-y-1 hover:scale-110"
+            className={({ isActive }) =>
+              isActive
+                ? "text-green-600 px-3 py-2 text-base font-medium"
+                : "text-black px-3 py-2 text-base font-medium hover:text-green-300 transition ease-in-out delay-150 over:-translate-y-1 hover:scale-110"
+            }
           >
             Home
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to="/products"
-            className="hover:text-green-300 transition ease-in-out delay-150 over:-translate-y-1 hover:scale-110"
-          >
+            className={({ isActive }) =>
+              isActive
+                ? "text-green-600 px-3 py-2 text-base font-medium"
+                : "text-black px-3 py-2 text-base font-medium hover:text-green-300 transition ease-in-out delay-150 over:-translate-y-1 hover:scale-110"
+            }          >
             Products
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to="/services"
-            className="hover:text-green-300 transition ease-in-out delay-150 over:-translate-y-1 hover:scale-110"
-          >
+            className={({ isActive }) =>
+              isActive
+                ? "text-green-600 px-3 py-2 text-base font-medium"
+                : "text-black px-3 py-2 text-base font-medium hover:text-green-300 transition ease-in-out delay-150 over:-translate-y-1 hover:scale-110"
+            }          >
             Services
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to="/become-a-partner"
-            className="hover:text-green-300 transition ease-in-out delay-150 over:-translate-y-1 hover:scale-110"
-          >
+            className={({ isActive }) =>
+              isActive
+                ? "text-green-600 px-3 py-2 text-base font-medium"
+                : "text-black px-3 py-2 text-base font-medium hover:text-green-300 transition ease-in-out delay-150 over:-translate-y-1 hover:scale-110"
+            }          >
             Partnership
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to="/solar-calculator"
-            className="hover:text-green-300 transition ease-in-out delay-150 over:-translate-y-1 hover:scale-110"
-          >
+            className={({ isActive }) =>
+              isActive
+                ? "text-green-600 px-3 py-2 text-base font-medium"
+                : "text-black px-3 py-2 text-base font-medium hover:text-green-300 transition ease-in-out delay-150 over:-translate-y-1 hover:scale-110"
+            }          >
             Solar Calculator
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to="/blog"
-            className="hover:text-green-300 transition ease-in-out delay-150 over:-translate-y-1 hover:scale-110"
-          >
+            className={({ isActive }) =>
+              isActive
+                ? "text-green-600 px-3 py-2 text-base font-medium"
+                : "text-black px-3 py-2 text-base font-medium hover:text-green-300 transition ease-in-out delay-150 over:-translate-y-1 hover:scale-110"
+            }          >
             Blog
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to="/about"
-            className="hover:text-green-300 transition ease-in-out delay-150 over:-translate-y-1 hover:scale-110"
-          >
+            className={({ isActive }) =>
+              isActive
+                ? "text-green-600 px-3 py-2 text-base font-medium"
+                : "text-black px-3 py-2 text-base font-medium hover:text-green-300 transition ease-in-out delay-150 over:-translate-y-1 hover:scale-110"
+            }          >
             About
-          </Link>
+          </NavLink>
         </div>
         <div className="font-bold gap-5 mx-lg:hidden flex items-center">
           <div
