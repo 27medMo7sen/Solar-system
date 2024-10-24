@@ -5,8 +5,8 @@ import { useState } from "react";
 export const ProductImages = () => {
   const [imageIndex, setImageIndex] = useState(0);
   return (
-    <div className="flex flex-col">
-      <div className="flex py-10 relative justify-center items-center mx-sm:px-1 px-4 border-border-color border-2 rounded-md">
+    <div className="flex flex-col ">
+      <div className="flex py-10 relative justify-center items-center mx-sm:px-1 px-4 h-main-card border-border-color border-2 rounded-md">
         <button
           className="text-2xl cursor-pointer rounded-lg left-4 bg-slate-200/50 h-8 w-10 absolute border border-1 justify-center flex items-center px-2 border-border-color hover:bg-slate-300"
           onClick={() =>
@@ -17,11 +17,11 @@ export const ProductImages = () => {
         >
           <MdOutlineKeyboardArrowLeft />
         </button>
-        <div className="w-96 p-5 flex items-center">
+        <div className="h-96 p-5 flex items-center">
           <img
             src={productImages[imageIndex]}
             alt="product"
-            className="w-96 mx-auto my-10"
+            className="w-80 mx-auto my-10"
           />
         </div>
         <button

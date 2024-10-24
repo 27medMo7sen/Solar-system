@@ -14,7 +14,9 @@ export default {
       maxWidth: {
         "main-card": "800px", // You can adjust this to fit your product card size
       },
-
+      height: {
+        "main-card": "700px", // You can adjust this to fit your product card size
+      },
       keyframes: {
         slideDown: {
           "0%": {
