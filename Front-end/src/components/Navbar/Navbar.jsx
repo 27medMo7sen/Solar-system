@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { IoMenu } from "react-icons/io5";
 import { useDispatch } from "react-redux";
 import { uiActions } from "../../store/ui-slice";
@@ -12,6 +12,9 @@ const Navbar = () => {
   const toggleSearchModal = () => {
     dispatch(uiActions.toggleSearchModal());
   };
+  const activeClass = "text-green-500";
+  const inactiveClass =
+    "hover:text-green-300 transition ease-in-out delay-150 over:-translate-y-1 hover:scale-110";
   return (
     <nav className="bg-white flex items-center top-0 left-0 w-full h-14 shadow-md z-10 ">
       <div className="w-full flex justify-between items-center pl-3">
@@ -20,51 +23,51 @@ const Navbar = () => {
             Logo
           </Link>
         </div>
-        <div className="text-black   mx-lg:hidden  items-center space-x-6">
-          <Link
+        <div className="text-black  md:flex lg:hidden  items-center space-x-6">
+          <NavLink
             to="/"
-            className="hover:text-green-300 transition ease-in-out delay-150 over:-translate-y-1 hover:scale-110"
-          >
+            className={({ isActive }) => (isActive ? activeClass : inactiveClass)}>
             Home
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to="/products"
-            className="hover:text-green-300 transition ease-in-out delay-150 over:-translate-y-1 hover:scale-110"
-          >
+            className={({ isActive }) => (isActive ? activeClass : inactiveClass)}>
             Products
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to="/services"
-            className="hover:text-green-300 transition ease-in-out delay-150 over:-translate-y-1 hover:scale-110"
-          >
+            className={({ isActive }) => (isActive ? activeClass : inactiveClass)}>
             Services
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to="/become-a-partner"
             className="hover:text-green-300 transition ease-in-out delay-150 over:-translate-y-1 hover:scale-110"
           >
-            Partnership
-          </Link>
-          <Link
+            Become a Partner
+          </NavLink>
+          <NavLink
             to="/solar-calculator"
-            className="hover:text-green-300 transition ease-in-out delay-150 over:-translate-y-1 hover:scale-110"
-          >
+            className={({ isActive }) => (isActive ? activeClass : inactiveClass)}>
             Solar Calculator
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to="/blog"
-            className="hover:text-green-300 transition ease-in-out delay-150 over:-translate-y-1 hover:scale-110"
-          >
+            className={({ isActive }) => (isActive ? activeClass : inactiveClass)}>
             Blog
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to="/about"
+            className={({ isActive }) => (isActive ? activeClass : inactiveClass)}>
+            About
+          </NavLink>
+          <NavLink
+            to="/contact"
             className="hover:text-green-300 transition ease-in-out delay-150 over:-translate-y-1 hover:scale-110"
           >
-            About
-          </Link>
+            Contact Us
+          </NavLink>
         </div>
-        <div className="font-bold gap-5 mx-lg:hidden flex items-center">
+        <div className="font-bold gap-5 lg:hidden flex items-center">
           <div
             className="rounded-full shadow-md h-9 w-9 flex justify-center items-center cursor-pointer hover:bg-gray-200"
             onClick={toggleSearchModal}
