@@ -11,7 +11,7 @@ const HowItWorks = () => {
 
   return (
     <div className="relative py-20 p-10">
-      <h1 className="text-gray-900 text-4xl font-extrabold text-center mb-12 tracking-wide">
+      <h1 className="text-3xl font-bold text-center mb-12 tracking-wide">
         How It Works
       </h1>
       <div className="mb-7">
@@ -50,7 +50,7 @@ const HowItWorks = () => {
           </label>
         </div>
       </div>
-      <div className={`relative max-w-6xl mx-auto grid grid-cols-3 gap-14 ${loaded ? "opacity-100" : "opacity-0"} transition-opacity duration-1000 ease-in-out`}>
+      <div className={`relative max-w-6xl mx-auto grid grid-cols-3 range-md:grid-cols-2 mx-md:grid-cols-1 px-4 sm:px-10 gap-14 ${loaded ? "opacity-100" : "opacity-0"} transition-opacity duration-1000 ease-in-out`}>
         {howItWorksData.map((card, index) => (
           <div
             key={index}
@@ -68,7 +68,7 @@ const HowItWorks = () => {
               <p className="text-gray-500 leading-relaxed">{card.subtext}</p>
             </div>
             {index < howItWorksData.length - 1 && (
-              <PiArrowArcRight   className="absolute top-1/2 transform -translate-y-1/2 right-[-50px] z-10 w-20 h-20 animate-bounce text-orange-400"/>
+              <PiArrowArcRight className="absolute top-1/2 mx-md:hidden  transform -translate-y-1/2 right-[-50px] z-10 w-20 h-20 animate-bounce text-orange-400"/>
             )}
           </div>
         ))}

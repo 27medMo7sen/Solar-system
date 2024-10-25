@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Link } from "react-router-dom";
 import PanelsImg from "../../assets/pannels.png";
 import BatteriesImg from "../../assets/batteries.png";

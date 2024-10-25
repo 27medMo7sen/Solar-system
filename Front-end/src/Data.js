@@ -8,6 +8,12 @@ import BatteriesImg from "./assets/batteries.png";
 import how1 from "../src/assets/howitworks1.png";
 import how2 from "../src/assets/howitworks2.png";
 import how3 from "../src/assets/howitworks3.png";
+
+import partner1 from "../src/assets/friend-01.jpg";
+import partner2 from "../src/assets/friend-02.jpg";
+import partner3 from "../src/assets/friend-03.jpg";
+import partner4 from "../src/assets/friend-04.jpg";
+import partner5 from "../src/assets/friend-05.jpg";
 export const sliderData = [
   {
     id: "0",
@@ -72,6 +78,17 @@ export const howItWorksData = [
     subtext: "Benfit from renewable energy and reduce your electricity bills",
   },
 ];
+
+export const partners = [
+  { id: 1, name: "Partner 1", logo: partner1 },
+  { id: 2, name: "Partner 2", logo: partner2 },
+  { id: 3, name: "Partner 3", logo: partner3 },
+  { id: 4, name: "Partner 4", logo: partner4 },
+  { id: 5, name: "Partner 5", logo: partner5 },
+  { id: 6, name: "Partner 6", logo: partner1 },
+  { id: 7, name: "Partner 7", logo: partner3 },
+];
+
 export const products = [
   {
     image:
