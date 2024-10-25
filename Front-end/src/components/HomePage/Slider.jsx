@@ -37,7 +37,7 @@ const Hero = () => {
                   />
                 )}
               </div>
-              <div className="absolute top-44 left-28 mx-auto text-left p-3 m-2">
+              <div className="absolute top-44 left-28 mx-auto text-left p-3 m-2 mx-md:left-0">
                 <div
                   style={{
                     borderTop: "2px solid #ff9472",
