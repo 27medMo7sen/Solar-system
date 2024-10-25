@@ -1,11 +1,5 @@
 import vendorModel from "./vendor.schema.js";
 
-export const createVendor = async (req, res) => {
-  const vendor = new vendorModel({ ...req.body });
-  await vendor.save();
-  res.status(201).json(vendor);
-};
-
 export const getVendors = async (req, res) => {
   const vendors = await vendorModel.find();
   res.status(200).json(vendors);

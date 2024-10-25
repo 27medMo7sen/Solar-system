@@ -10,21 +10,7 @@ const userSchema = new mongoose.Schema({
     zip_code: Number,
     city: String,
   },
-  role: {
-    type: String,
-    enum: ["admin", "user", "vendor"],
-    default: "user",
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-  },
   profile_pic: String,
-  password: {
-    type: String,
-    required: true,
-  }, // Hash the password before storing
   installed_products: [
     {
       product_id: { type: mongoose.Schema.Types.ObjectId, ref: "Product" },
@@ -35,8 +21,6 @@ const userSchema = new mongoose.Schema({
   ],
   monthly_consumption: Number,
   created_at: { type: Date, default: Date.now },
-  token: String,
-  isConfirmed: { type: Boolean, default: false },
 });
 
 const userModel = mongoose.model("User", userSchema);

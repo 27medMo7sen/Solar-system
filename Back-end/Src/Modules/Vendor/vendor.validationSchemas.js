@@ -16,12 +16,6 @@ export const createVendorSchema = Joi.object({
     'string.min': 'Contact person should have a minimum length of 3 characters',
     'any.required': 'Contact person is a required field'
   }),
-  email: Joi.string().email().required().messages({
-    'string.base': 'Email should be a type of text',
-    'string.empty': 'Email cannot be an empty field',
-    'string.email': 'Email should be a valid email address',
-    'any.required': 'Email is a required field'
-  }),
   phone_number: Joi.string().pattern(/^[0-9]{10,15}$/).required().messages({
     'string.base': 'Phone number should be a type of text',
     'string.empty': 'Phone number cannot be an empty field',
@@ -50,11 +44,6 @@ export const updateVendorSchema = Joi.object({
     'string.base': 'Contact person should be a type of text',
     'string.empty': 'Contact person cannot be an empty field',
     'string.min': 'Contact person should have a minimum length of 3 characters'
-  }),
-  email: Joi.string().email().messages({
-    'string.base': 'Email should be a type of text',
-    'string.empty': 'Email cannot be an empty field',
-    'string.email': 'Email should be a valid email address'
   }),
   phone_number: Joi.string().pattern(/^[0-9]{10,15}$/).messages({
     'string.base': 'Phone number should be a type of text',

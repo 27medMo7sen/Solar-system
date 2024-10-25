@@ -1,5 +1,8 @@
 import partnerRequestModel from "./request.schema.js";
 import vendorModel from "../Vendor/vendor.schema.js";
+import { randomBytes } from "crypto";
+import accountModel from "../Auth/account.schema.js";
+import { hashSync } from "bcrypt";
 
 export const createRequest = async (req, res) => {
   const request = new partnerRequestModel({ ...req.body });
@@ -25,28 +28,28 @@ export const approveRequest = async (req, res, next) => {
   if (!request) {
     return next(new Error("Request not found", { cause: 404 }));
   }
+  const password = randomBytes(12).toString('hex').slice(0, 12)
+  console.log('password', password)
+  const hashedPassword = await hashSync(password, 10);
+  const accountData = {
+    email: request.email,
+    role: 'vendor',
+    password: hashedPassword,
+    isVerified: true
+  }
   const vendorData = {
     company_name: request.company_name,
     contact_person: request.contact_person,
-    email: request.email,
     phone_number: request.phone_number,
     website: request.website || null,
     address: request.address || null,
   };
-  console.log('vendorData', vendorData);
-  try {
-    const vendor = new vendorModel(vendorData);
-    await vendor.save();
-    await partnerRequestModel.deleteOne({ _id: req.params.id });
-    res.status(200).json(vendor);
-  } catch (error) {
-    console.log('error', error);
-    return next(new Error("Request not approved", { cause: 500 }));
-  }
-  // const vendor = new vendorModel(vendorData);
-  // await vendor.save();
-  // await request.remove();
-  // res.status(200).json(vendor);
+  const vendor = new vendorModel(vendorData);
+  await vendor.save();
+  const account = new accountModel(accountData)
+  await account.save()
+  await partnerRequestModel.deleteOne({ _id: req.params.id });
+  res.status(200).json(vendor);
 };
 
 export const updateRequest = async (req, res, next) => {

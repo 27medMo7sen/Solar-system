@@ -7,12 +7,6 @@ import { validateBody } from "../../Middlewares/bodyValidation.js";
 import { validateId } from "../../Middlewares/idValidation.js";
 import * as schema from "./vendor.validationSchemas.js";
 const router = express.Router();
-router.post(
-  "/",
-  // isAuth(vendorRoles.createVendor),
-  validateBody(schema.createVendorSchema),
-  asyncHandler(pc.createVendor)
-);
 router.get(
   "/",
   //  isAuth(vendorRoles.getVendors),
