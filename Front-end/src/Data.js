@@ -3,7 +3,6 @@ import image2 from "../src/assets/image2.png";
 import image3 from "../src/assets/image3.png";
 import image4 from "../src/assets/image4.png";
 import image5 from "../src/assets/image5.png";
-import test from "../src/assets/download (6).png";
 import BatteriesImg from "./assets/batteries.png";
 
 import how1 from "../src/assets/howitworks1.png";
@@ -152,10 +151,4 @@ export const products = [
     reviews: 120,
   },
 ];
-export const productImages = [
-  test,
-  how2,
-  BatteriesImg,
-  BatteriesImg,
-  BatteriesImg,
-];
+export const productImages = [BatteriesImg, BatteriesImg, BatteriesImg];

@@ -13,14 +13,15 @@ export default {
       },
       maxWidth: {
         "main-card": "800px", // You can adjust this to fit your product card size
+        sections: "1600px",
       },
       height: {
-        "main-card": "700px", // You can adjust this to fit your product card size
+        "main-card": "650px", // You can adjust this to fit your product card size
       },
       keyframes: {
-        slideDown: {
+        slideCardDown: {
           "0%": {
-            transform: "translateY(-200%) translateX(-50%)",
+            transform: "translateY(-100%) translateX(-50%)",
             opacity: 0,
           },
           "75%": {
@@ -31,6 +32,10 @@ export default {
             transform: "translateY(-50) translateX(-50%)",
             opacity: 1,
           },
+        },
+        slideDown: {
+          "0%": { transform: "translateY(-100%)", opacity: 0 },
+          "100%": { transform: "translateY(0)", opacity: 1 },
         },
         slideLeft: {
           "0%": { transform: "translateX(100%)", opacity: 0 },
@@ -50,6 +55,7 @@ export default {
         },
       },
       animation: {
+        slideCardDown: "slideCardDown 0.5s ease-in-out",
         slideDown: "slideDown 0.5s ease-in-out",
         slideLeft: "slideLeft 0.8s ease-in-out",
         searchWidth: "searchWidth 0.7s ease-in-out",

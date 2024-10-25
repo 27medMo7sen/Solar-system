@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export const ProductDetails = () => {
+export const ProductActions = () => {
   const [quantity, setQuantity] = useState(1);
 
   const increaseQuantity = () => {
@@ -15,7 +15,7 @@ export const ProductDetails = () => {
 
   return (
     <div className="max-w-detail-card h-full flex flex-col shrink-1 ">
-      <h1 className="text-5xl  font-bold">
+      <h1 className="text-5xl mx-lg:text-3xl font-bold">
         Tigo El Battery with Enclosure – 9.9Wh, 9.9kW Capacity | 1 Enclosure & 3
         Modules
       </h1>
