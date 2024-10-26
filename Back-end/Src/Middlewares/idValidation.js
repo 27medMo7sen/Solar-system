@@ -17,8 +17,7 @@ export const validateId = () => {
     });
 
     if (error) {
-      const errorMessage = error.details.map((detail) => detail.message);
-      return next(new Error(errorMessage, { cause: 400 }));
+      return res.status(400).json({ error: error.details[0].message });
     }
 
     req.params = value;

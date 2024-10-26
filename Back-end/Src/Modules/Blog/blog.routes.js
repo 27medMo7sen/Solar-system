@@ -6,6 +6,8 @@ import * as blogRoles from "./blog.endpoints.roles.js";
 import { validateBody } from "../../Middlewares/bodyValidation.js";
 import { validateId } from "../../Middlewares/idValidation.js";
 import * as schema from "./blog.validationSchemas.js";
+import { validateQuery } from "../../Middlewares/queryValidation.js";
+
 const router = express.Router();
 router.post(
   "/",
@@ -13,7 +15,7 @@ router.post(
   validateBody(schema.createBlogSchema),
   asyncHandler(bc.createBlog)
 );
-router.get("/", asyncHandler(bc.getBlogs));
+router.get("/", validateQuery('blogs'), asyncHandler(bc.getBlogs));
 router.get("/:id", validateId(), asyncHandler(bc.getBlogById));
 router.put(
   "/:id",

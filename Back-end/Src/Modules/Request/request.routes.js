@@ -6,38 +6,43 @@ import * as requestRoles from "./request.endpoints.roles.js";
 import { validateBody } from "../../Middlewares/bodyValidation.js";
 import { validateId } from "../../Middlewares/idValidation.js";
 import * as schema from "./request.validationSchemas.js";
+import { validateQuery } from "../../Middlewares/queryValidation.js";
+
 const router = express.Router();
 router.post(
   "/",
-  // isAuth(requestRoles.createRequest),
+  isAuth(requestRoles.createRequest),
   validateBody(schema.createPartnerRequestSchema),
   asyncHandler(pc.createRequest)
 );
-router.get("/", 
-  // isAuth(requestRoles.getRequests), 
-  asyncHandler(pc.getRequests));
+router.get(
+  "/",
+  isAuth(requestRoles.getRequests),
+  validateQuery(),
+  asyncHandler(pc.getRequests)
+);
 router.get(
   "/:id",
-  // isAuth(requestRoles.getRequestById),
+  isAuth(requestRoles.getRequestById),
   validateId(),
   asyncHandler(pc.getRequestById)
 );
 router.put(
   "/:id",
-  // isAuth(requestRoles.updateRequest),
+  isAuth(requestRoles.updateRequest),
   validateId(),
   validateBody(schema.updatePartnerRequestSchema),
   asyncHandler(pc.updateRequest)
 );
 router.post(
   "/:id/approve",
-  // isAuth(requestRoles.approveRequest),
+  isAuth(requestRoles.approveRequest),
   validateId(),
   asyncHandler(pc.approveRequest)
 );
 router.delete(
   "/:id",
-  // isAuth(requestRoles.deleteRequest),
+  isAuth(requestRoles.deleteRequest),
   validateId(),
   asyncHandler(pc.deleteRequest)
 );

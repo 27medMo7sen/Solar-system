@@ -6,6 +6,8 @@ import * as cartRoles from "./cart.endpoints.roles.js";
 import * as schema from "./cart.validationSchemas.js";
 import { validateBody } from "../../Middlewares/bodyValidation.js";
 import { validateId } from "../../Middlewares/idValidation.js";
+import { validateQuery } from "../../Middlewares/queryValidation.js";
+
 const router = express.Router();
 router.post(
   "/",
@@ -13,8 +15,13 @@ router.post(
   validateBody(schema.createCartSchema),
   asyncHandler(cc.createCart)
 );
-router.get("/", asyncHandler(cc.getCarts));
-router.get("/:id", isAuth(cartRoles.getCartById), validateId(), asyncHandler(cc.getCartById));
+router.get("/", validateQuery(), asyncHandler(cc.getCarts));
+router.get(
+  "/:id",
+  isAuth(cartRoles.getCartById),
+  validateId(),
+  asyncHandler(cc.getCartById)
+);
 router.put(
   "/:id",
   isAuth(cartRoles.updateCart),

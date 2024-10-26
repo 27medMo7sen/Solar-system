@@ -4,13 +4,15 @@ import { validateBody } from "../../Middlewares/bodyValidation.js";
 import { validateId } from "../../Middlewares/idValidation.js";
 import * as schema from "./maintenance.validationSchemas.js";
 import { asyncHandler } from "../../Utils/errorhandling.js";
+import { validateQuery } from "../../Middlewares/queryValidation.js";
+
 const router = express.Router();
 router.post(
   "/",
   validateBody(schema.createMaintenanceSchema),
   asyncHandler(mc.createMaintenance)
 );
-router.get("/", asyncHandler(mc.getMaintenances));
+router.get("/", validateQuery(), asyncHandler(mc.getMaintenances));
 router.get("/:id", validateId(), asyncHandler(mc.getMaintenanceById));
 router.put(
   "/:id",

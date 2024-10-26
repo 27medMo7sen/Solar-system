@@ -8,7 +8,7 @@ export const asyncHandler = (API) => {
       //   await cloudinary.api.delete_folder(req.imagesPath);
       //   await productModel.deleteOne({ customId: req.customId });
       // }
-      return next(new Error("Fail", { cause: 500 }));
+      return next(new Error(`Fail ${err}`, { cause: 500 }));
     });
   };
 };

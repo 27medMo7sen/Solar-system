@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const accountSchema = new mongoose.Schema({
-  email: String,
+  email: { type: String, index: true },
   password: String,
   role: {
     type: String,
@@ -12,9 +12,9 @@ const accountSchema = new mongoose.Schema({
   isConfirmed: { type: Boolean, default: false },
   profile: {
     type: mongoose.Schema.Types.Mixed,
-    default: null
+    default: null,
   },
-  created_at: { type: Date, default: Date.now },
+  created_at: { type: Date, default: Date.now, index: true },
 });
 
 const accountModel = mongoose.model("Account", accountSchema);

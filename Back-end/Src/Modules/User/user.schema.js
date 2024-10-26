@@ -4,7 +4,6 @@ const userSchema = new mongoose.Schema({
   first_name: String,
   last_name: String,
   phone_number: String,
-  created_at: { type: Date, default: Date.now },
   address: {
     location: String,
     zip_code: Number,
@@ -20,7 +19,7 @@ const userSchema = new mongoose.Schema({
     },
   ],
   monthly_consumption: Number,
-  created_at: { type: Date, default: Date.now },
+  created_at: { type: Date, default: Date.now, index: true },
 });
 
 const userModel = mongoose.model("User", userSchema);

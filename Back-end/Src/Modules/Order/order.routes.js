@@ -6,6 +6,7 @@ import * as orderRoles from "./order.endpoints.roles.js";
 import * as schema from "./order.validationSchemas.js";
 import { validateBody } from "../../Middlewares/bodyValidation.js";
 import { validateId } from "../../Middlewares/idValidation.js";
+import { validateQuery } from "../../Middlewares/queryValidation.js";
 const router = express.Router();
 router.post(
   "/",
@@ -13,7 +14,12 @@ router.post(
   validateBody(schema.createOrderSchema),
   asyncHandler(oc.createOrder)
 );
-router.get("/", isAuth(orderRoles.getOrders), asyncHandler(oc.getOrders));
+router.get(
+  "/",
+  validateQuery(),
+  isAuth(orderRoles.getOrders),
+  asyncHandler(oc.getOrders)
+);
 router.get(
   "/:id",
   isAuth(orderRoles.getOrderById),

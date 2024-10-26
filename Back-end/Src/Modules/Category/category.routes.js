@@ -6,6 +6,8 @@ import * as categoryRoles from "./category.endpoints.roles.js";
 import * as schema from "./category.validationSchemas.js";
 import { validateBody } from "../../Middlewares/bodyValidation.js";
 import { validateId } from "../../Middlewares/idValidation.js";
+import { validateQuery } from "../../Middlewares/queryValidation.js";
+
 const router = express.Router();
 router.post(
   "/",
@@ -13,7 +15,7 @@ router.post(
   validateBody(schema.createCategorySchema),
   asyncHandler(cc.createCategory)
 );
-router.get("/", asyncHandler(cc.getCategories));
+router.get("/", validateQuery(), asyncHandler(cc.getCategories));
 router.get(
   "/:id",
   isAuth(categoryRoles.getCategoryById),

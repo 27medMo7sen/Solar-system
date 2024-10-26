@@ -6,6 +6,8 @@ import * as brandRoles from "./brand.endpoints.roles.js";
 import * as schema from "./brand.validationSchemas.js";
 import { validateBody } from "../../Middlewares/bodyValidation.js";
 import { validateId } from "../../Middlewares/idValidation.js";
+import { validateQuery } from "../../Middlewares/queryValidation.js";
+
 const router = express.Router();
 router.post(
   "/",
@@ -13,7 +15,12 @@ router.post(
   validateBody(schema.createBrandSchema),
   asyncHandler(bc.createBrand)
 );
-router.get("/", isAuth(brandRoles.getBrands), asyncHandler(bc.getBrands));
+router.get(
+  "/",
+  validateQuery(),
+  isAuth(brandRoles.getBrands),
+  asyncHandler(bc.getBrands)
+);
 router.get(
   "/:id",
   isAuth(brandRoles.getBrandById),

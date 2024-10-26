@@ -25,13 +25,14 @@ const VendorSchema = new mongoose.Schema({
     type: String,
     default: null,
   },
-  brands: {
+  brand: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Brand",
   },
   created_at: {
     type: Date,
     default: Date.now,
+    index: true,
   },
 });
 

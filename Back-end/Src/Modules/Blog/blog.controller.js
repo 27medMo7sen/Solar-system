@@ -1,4 +1,5 @@
 import blogModel from "./blog.schema.js";
+import { apiFeatures } from "../../Utils/apiFeatures.js";
 
 export const createBlog = async (req, res) => {
   const blog = new blogModel(req.body);
@@ -7,8 +8,26 @@ export const createBlog = async (req, res) => {
 };
 
 export const getBlogs = async (req, res) => {
-  const blogs = await blogModel.find();
-  res.status(200).json(blogs);
+  const features = new apiFeatures(blogModel.find(), req.query)
+    .filter()
+    .sort()
+    .select()
+    .search()
+    .pagination();
+
+  const blogs = await features.mongooseQuery;
+  const totalItems = await blogModel.countDocuments();
+
+  res.status(200).json({
+    data: blogs,
+    pagination: {
+      currentPage: req.query.page,
+      totalItems,
+      pageSize: req.query.size,
+    },
+  });
+  // const blogs = await blogModel.find();
+  // res.status(200).json(blogs);
 };
 
 export const getBlogById = async (req, res, next) => {

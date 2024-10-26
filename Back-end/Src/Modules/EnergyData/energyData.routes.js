@@ -4,14 +4,16 @@ import { asyncHandler } from "../../Utils/errorhandling.js";
 import * as schema from "./energyData.validationSchemas.js";
 import { validateBody } from "../../Middlewares/bodyValidation.js";
 import { validateId } from "../../Middlewares/idValidation.js";
+import { validateQuery } from "../../Middlewares/queryValidation.js";
+
 const router = express.Router();
 router.post(
   "/",
   validateBody(schema.createEnergyDataSchema),
   asyncHandler(ec.createEnergyData)
 );
-router.get("/", asyncHandler(ec.getEnergyData));
-router.get("/:id",validateId(), asyncHandler(ec.getEnergyDataById));
+router.get("/", validateQuery(), asyncHandler(ec.getEnergyData));
+router.get("/:id", validateId(), asyncHandler(ec.getEnergyDataById));
 router.put(
   "/:id",
   validateId(),

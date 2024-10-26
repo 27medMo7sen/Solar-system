@@ -6,6 +6,8 @@ import * as productRoles from "./product.endpoints.roles.js";
 import { validateBody } from "../../Middlewares/bodyValidation.js";
 import { validateId } from "../../Middlewares/idValidation.js";
 import * as schema from "./product.validationSchemas.js";
+import { validateQuery } from "../../Middlewares/queryValidation.js";
+
 const router = express.Router();
 router.post(
   "/",
@@ -13,7 +15,12 @@ router.post(
   validateBody(schema.createProductSchema),
   asyncHandler(pc.createProduct)
 );
-router.get("/", isAuth(productRoles.getProducts), asyncHandler(pc.getProducts));
+router.get(
+  "/",
+  validateQuery(),
+  isAuth(productRoles.getProducts),
+  asyncHandler(pc.getProducts)
+);
 router.get(
   "/:id",
   isAuth(productRoles.getProductById),

@@ -5,10 +5,8 @@ export const validateBody = (schema) => {
       stripUnknown: true,
     });
     if (error) {
-      const errorMessages = error.details.map((detail) => detail.message);
-      return next(new Error(errorMessages.join(', '), { cause: 400 }));
+      return res.status(400).json({ error: error.details[0].message });
     }
-    console.log(value);
     if (Object.keys(value).length === 0) {
       return res
         .status(400)

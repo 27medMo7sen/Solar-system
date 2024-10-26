@@ -6,30 +6,33 @@ import * as userRoles from "./user.endpoints.roles.js";
 import { validateBody } from "../../Middlewares/bodyValidation.js";
 import { validateId } from "../../Middlewares/idValidation.js";
 import * as schema from "./user.validationSchemas.js";
+import { validateQuery } from "../../Middlewares/queryValidation.js";
+
 const router = express.Router();
 router.get(
   "/",
-  //  isAuth(userRoles.getUsers),
+  isAuth(userRoles.getUsers),
+  validateQuery(),
   asyncHandler(pc.getUsers)
 );
 router.get(
   "/:id",
-  // isAuth(userRoles.getUserById),
+  isAuth(userRoles.getUserById),
   validateId(),
-  asyncHandler(pc.getUserById),
+  asyncHandler(pc.getUserById)
 );
 router.put(
   "/:id",
-  // isAuth(userRoles.updateUser),
+  isAuth(userRoles.updateUser),
   validateId(),
   validateBody(schema.updateUserSchema),
-  asyncHandler(pc.updateUser),
+  asyncHandler(pc.updateUser)
 );
 router.delete(
   "/:id",
-  // isAuth(userRoles.deleteUser),
+  isAuth(userRoles.deleteUser),
   validateId(),
-  asyncHandler(pc.deleteUser),
+  asyncHandler(pc.deleteUser)
 );
 
 export default router;
