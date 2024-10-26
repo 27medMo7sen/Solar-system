@@ -13,7 +13,7 @@ export default {
       },
       maxWidth: {
         "main-card": "800px", // You can adjust this to fit your product card size
-        sections: "1600px",
+        sections: "1200px",
       },
       height: {
         "main-card": "650px", // You can adjust this to fit your product card size

@@ -4,7 +4,7 @@ export const ProductCard = ({ product, index }) => {
   return (
     <div
       key={index}
-      className="bg-white w-80 min-w-80 mx-sm:min-w-72 relative shadow-md rounded-md p-4 mx-sm:snap-center group"
+      className="bg-white max-w-80 min-w-80 mx-sm:min-w-72 relative shadow-md rounded-md p-4 mx-sm:snap-center group"
     >
       <span className="text-red-500 absolute top-0 right-0 hover:font-bold z-10 bg-blue-200 h-10 flex justify-center flex-col p-1 rounded-bl-md rounded-tr-md  text-sm">
         {product.discount}

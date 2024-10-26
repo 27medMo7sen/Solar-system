@@ -1,5 +1,5 @@
 import { ProductDetails } from "./SectionsParts/Features/ProductDetails";
-import { Tabs } from "./SectionsParts/Features/Tabs";
+import { Tabs } from "./SectionsParts/Tabs";
 import { MainReviews } from "./SectionsParts/reviews/MainReviews";
 
 export const Sections = () => {
@@ -18,8 +18,10 @@ export const Sections = () => {
   };
 
   return (
-    <div className="max-w-sections mx-lg:max-w-main-card mx-lg:mx-8 mx-sm:mx-1 py-8">
-      <Tabs tabs={tabs}>{tabContent}</Tabs>
+    <div className="max-w-sections w-full mb-3 border-b-2">
+      <div className="flex flex-col">
+        <Tabs tabs={tabs}>{tabContent}</Tabs>
+      </div>
     </div>
   );
 };

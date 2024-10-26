@@ -9,28 +9,30 @@ export const ReviewForm = ({ pushReview }) => {
   };
   const [rating, setRating] = useState(0);
   return (
-    <div className="flex flex-col  w-full">
+    <div className="flex flex-col mx-sm:w-64 ">
       <textarea
         placeholder="add your review"
         onChange={handleReview}
         value={review}
-        className="w-96 h-40 border-2 border-border-color rounded-lg p-2"
+        className="mx-sm:w-64 w-80 h-40 border-2 border-border-color rounded-lg p-2"
       />
-      <div className="flex items-center">
+      <div className="flex w-full justify-around  items-center">
         <span>Rate us: </span>
-        {[1, 2, 3, 4, 5].map((star) => (
-          <span
-            key={star}
-            className={`text-black text-2xl cursor-pointer ${
-              star <= rating ? "text-Primary-button" : ""
-            }`}
-            onClick={() => {
-              ratingHandler(star);
-            }}
-          >
-            ★
-          </span>
-        ))}
+        <div>
+          {[1, 2, 3, 4, 5].map((star) => (
+            <span
+              key={star}
+              className={`text-black text-2xl cursor-pointer ${
+                star <= rating ? "text-orange-500" : ""
+              }`}
+              onClick={() => {
+                ratingHandler(star);
+              }}
+            >
+              ★
+            </span>
+          ))}
+        </div>
       </div>
 
       <button
