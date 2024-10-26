@@ -15,7 +15,7 @@ router.post(
   validateBody(schema.createBlogSchema),
   asyncHandler(bc.createBlog)
 );
-router.get("/", validateQuery('blogs'), asyncHandler(bc.getBlogs));
+router.get("/", validateQuery(), asyncHandler(bc.getBlogs));
 router.get("/:id", validateId(), asyncHandler(bc.getBlogById));
 router.put(
   "/:id",

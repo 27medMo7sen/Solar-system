@@ -3,12 +3,13 @@
 export const asyncHandler = (API) => {
   return (req, res, next) => {
     API(req, res, next).catch(async (err) => {
+      console.log(err);
       // if (req.imagesPath) {
       //   await cloudinary.api.delete_resources_by_prefix(req.imagesPath);
       //   await cloudinary.api.delete_folder(req.imagesPath);
       //   await productModel.deleteOne({ customId: req.customId });
       // }
-      return next(new Error(`Fail ${err}`, { cause: 500 }));
+      return next(new Error('Fail', { cause: 500 }));
     });
   };
 };
