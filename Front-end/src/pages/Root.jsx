@@ -1,14 +1,12 @@
 import { Fragment } from "react";
 import { Outlet } from "react-router-dom";
-import Navbar from "../components/Navbar/Navbar";
-import Hero from "../components/Slider/Slider";
-
-import { Footer } from "../components/footer/Footer";
+import Navbar from "../components/General/Navbar";
+import { Footer } from "../components/General/Footer";
 import { Modal, SideModal } from "../UI/Modal";
 import { useDispatch, useSelector } from "react-redux";
 import { uiActions } from "../store/ui-slice";
-import { Search } from "../components/Search/Search";
-import { SideNavbar } from "../components/SideNavebar/SideNavbar";
+import { Search } from "../components/General/Search";
+import { SideNavbar } from "../components/General/SideNavbar";
 export const Root = () => {
   const dispatch = useDispatch();
   const closeSideModal = () => {

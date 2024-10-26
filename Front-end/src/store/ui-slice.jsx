@@ -1,12 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { homeData } from "../Data";
+import { sliderData } from "../Data";
 export const uiSlice = createSlice({
   name: "ui",
   initialState: {
     value: 0,
-    length: homeData.length,
+    length: sliderData.length,
     sideModalIsVisible: false,
     searchModalIsVisible: false,
+    navbarIsVisible: true,
   },
   reducers: {
     nextSlide(state, action) {
@@ -24,6 +25,9 @@ export const uiSlice = createSlice({
     },
     toggleSearchModal(state) {
       state.searchModalIsVisible = !state.searchModalIsVisible;
+    },
+    setNavbar(state, action) {
+      state.navbarIsVisible = action.payload;
     },
   },
 });

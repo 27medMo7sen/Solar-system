@@ -25,10 +25,10 @@ const blogs = [
 export const Footer = () => {
   return (
     <footer className="flex flex-col justify-center items-center bg-black text-white">
-      <div className="flex gap-10 w-full justify-around p-14 max-h-80 overflow-y-auto flex-wrap sm:p-5 sm:gap-5">
-        <div className="flex flex-col gap-3 sm:w-full sm:items-center sm:text-center">
+      <div className="flex gap-10 w-full justify-around py-14 max-h-80 overflow-y-auto flex-wrap mx-sm:p-5 sm:gap-5">
+        <div className="flex flex-col gap-3 mx-sm:w-full mx-sm:items-center mx-sm:text-center">
           <p className="font-medium">Logo</p>
-          <p className="text-sm w-80 flex flex-col gap-1 sm:w-full">
+          <p className="text-sm w-80 flex flex-col gap-1 mx-sm:w-full">
             <span className="font-bold">
               Ready to cut energy costs and go green?
             </span>
@@ -37,7 +37,7 @@ export const Footer = () => {
             maintenance, we’ve got everything you need to harness the power of
             the sun. Join the solar revolution today!
           </p>
-          <div className="flex items-center gap-3 sm:justify-center">
+          <div className="flex items-center gap-3 mx-sm:justify-center">
             <div className="bg-white text-yellow-400 p-2 rounded-full cursor-pointer">
               <FaFacebookF />
             </div>
@@ -53,14 +53,14 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-3 sm:w-full sm:items-center">
+        <div className="flex flex-col gap-3 mx-sm:w-full mx-sm:items-center">
           <div className="flex flex-col font-medium">
             Quick Links
             <div className="text-yellow-400">
               <CgShapeZigzag />
             </div>
           </div>
-          <div className="flex flex-col sm:items-center">
+          <div className="flex flex-col mx-sm:items-center">
             {links.map((link, index) => (
               <Link
                 className="flex items-center hover:underline hover:text-yellow-400"
@@ -76,21 +76,21 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-3 sm:w-full sm:items-center">
+        <div className="flex flex-col gap-3 mx-sm:w-full mx-sm:items-center">
           <div className="flex flex-col font-medium">
             Latest Blogs
             <div className="text-yellow-400">
               <CgShapeZigzag />
             </div>
           </div>
-          <div className="flex flex-col gap-5 sm:items-center">
+          <div className="flex flex-col gap-5 mx-sm:items-center">
             {blogs.map((blog, index) => (
-              <div key={index} className="sm:text-center">
-                <div className="flex cursor-pointer items-center sm:justify-center">
+              <div key={index} className="mx-sm:text-center">
+                <div className="flex cursor-pointer items-center mx-sm:justify-center">
                   <div className="text-yellow-400">
                     <MdOutlineKeyboardArrowRight />
                   </div>
-                  <p className="w-48 hover:underline hover:text-yellow-400 sm:w-full">
+                  <p className="w-48 hover:underline hover:text-yellow-400 mx-sm:w-full">
                     {blog.title}
                   </p>
                 </div>
@@ -100,7 +100,7 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-5 sm:w-full sm:items-center">
+        <div className="flex flex-col gap-5 mx-sm:w-full mx-sm:items-center">
           <div className="flex flex-col font-medium">
             Contact
             <div className="text-yellow-400">
@@ -108,25 +108,29 @@ export const Footer = () => {
             </div>
           </div>
           <div className="flex flex-col gap-5">
-            <div className="flex items-center gap-2 sm:justify-center">
+            <div className="flex items-center gap-2 mx-sm:justify-center">
               <div className="text-yellow-400">
                 <GrMapLocation />
               </div>
-              <p className="w-48 sm:w-full sm:text-center">
+              <p className="w-48 mx-sm:w-full mx-sm:text-center">
                 44 Danwers, NY City, USA, 70-102
               </p>
             </div>
-            <div className="flex items-center gap-2 sm:justify-center">
+            <div className="flex items-center gap-2 mx-sm:justify-center">
               <div className="text-yellow-400">
                 <HiOutlineMail />
               </div>
-              <p className="w-48 sm:w-full sm:text-center">solar@example.com</p>
+              <p className="w-48 mx-sm:w-full mx-sm:text-center">
+                solar@example.com
+              </p>
             </div>
-            <div className="flex items-center gap-2 sm:justify-center">
+            <div className="flex items-center gap-2 mx-sm:justify-center">
               <div className="text-yellow-400">
                 <FaPhoneVolume />
               </div>
-              <p className="w-48 sm:w-full sm:text-center">91+585-656-658</p>
+              <p className="w-48 mx-sm:w-full mx-mx-sm:text-center">
+                91+585-656-658
+              </p>
             </div>
           </div>
         </div>

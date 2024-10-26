@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { homeData } from "../../Data";
+import { sliderData } from "../../Data";
 import { uiActions } from "../../store/ui-slice";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -18,7 +18,7 @@ const Hero = () => {
   return (
     <div className="pb-4 relative">
       <div>
-        {homeData.map((item) => {
+        {sliderData.map((item) => {
           return (
             <div
               key={item.id}
@@ -37,7 +37,7 @@ const Hero = () => {
                   />
                 )}
               </div>
-              <div className="absolute top-44 left-28 mx-auto inset-x-1/4 text-left p-3 m-2">
+              <div className="absolute top-44 left-28 mx-auto text-left p-3 m-2 mx-md:left-0">
                 <div
                   style={{
                     borderTop: "2px solid #ff9472",
@@ -62,7 +62,7 @@ const Hero = () => {
       </div>
       <div>
         <div className="flex absolute bottom-12 left-[45%]">
-          {homeData.map((dot, index) => {
+          {sliderData.map((dot, index) => {
             return (
               <div className="mr-4" key={dot.id}>
                 <div

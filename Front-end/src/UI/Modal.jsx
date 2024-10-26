@@ -4,21 +4,21 @@ import ReactDOM from "react-dom";
 const Backdrop = (props) => {
   return (
     <div
-      className="fixed top-0 left-0 w-full h-full bg-black/50 z-20"
+      className="fixed top-0 left-0 w-full h-full bg-black/50 z-40"
       onClick={props.onClose}
     />
   );
 };
 const ModalOverlay = (props) => {
   return (
-    <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-slideDown bg-white z-30 p-3 rounded-lg">
+    <div className="fixed mt-80 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-slideCardDown bg-white z-50 p-3 rounded-lg">
       {props.children}
     </div>
   );
 };
 const SideModalOverlay = (props) => {
   return (
-    <div className="fixed top-0 h-screen w-60 right-0 animate-slideLeft bg-white z-30  rounded-l-lg">
+    <div className="fixed top-0 h-screen w-60 right-0 animate-slideLeft bg-white z-50  rounded-l-lg">
       {props.children}
     </div>
   );
