@@ -72,7 +72,7 @@ const Navbar = () => {
               Services
             </NavLink>
             <NavLink
-              to="/become-a-partner"
+              to="/partnership"
               className={({ isActive }) =>
                 isActive ? activeClass : inactiveClass
               }

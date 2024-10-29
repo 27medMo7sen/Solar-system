@@ -4,7 +4,11 @@ import { Fragment } from "react";
 import { Home } from "./pages/Home";
 import { Products } from "./pages/Products";
 import { ProductDetails } from "./pages/ProductDetails";
+
+import Partnership from "./components/Partnership/Partnership";
+
 import { Categories } from "./pages/Categories";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -23,9 +27,15 @@ const router = createBrowserRouter([
         element: <ProductDetails />,
       },
       {
+
+        path: "partnership",
+        element: <Partnership />,
+      },
+
         path: "categories",
         element: <Categories />,
       }
+
     ],
   },
 ]);
