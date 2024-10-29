@@ -2,8 +2,8 @@ export const ProductList = ({ children , image, name }) => {
   return (
     <div className="bg-gray-50 rounded-md">
       {image && name && (
-        <div className="flex items-center cursor-pointer border-b-2 gap-3 pl-3 pt-3 mb-2">
-        <img src={image} alt={name} className="w-10  object-cover" />
+        <div className="flex items-center hover:bg-slate-100 cursor-pointer border-b-2 gap-3 pl-3 pt-3 mb-2">
+        <img src={image} alt={name} className="max-h-16  object-cover" />
         <span className="font-bold text-xl underline ">{name}</span>
         </div>
       )}

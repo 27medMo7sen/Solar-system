@@ -1,17 +1,14 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Details } from "../components/Product-details/Details";
-import { Pathbar } from "../components/General/Pathbar";
-
-export const ProductDetails = () => {
+import { useDispatch } from "react-redux";
+import { uiActions } from "../store/ui-slice";
+  export const ProductDetails = () => {
   const { name } = useParams();
-  const path = [
-    { name: "Products", link: "/products" },
-    { name: "Product", link: `/product-details/${name}` },
-  ];
+  const dispatch = useDispatch();
+  dispatch(uiActions.addToPathbar({ name: name, link: `/product-details/${name}` }));
   return (
     <Fragment>
-      <Pathbar path={path} />
       <Details />
     </Fragment>
   );

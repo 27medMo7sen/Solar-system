@@ -1,6 +1,9 @@
 import { PiLineVerticalBold } from "react-icons/pi";
 import { Link } from "react-router-dom";
-import { ProductDetails } from "../../pages/ProductDetails";
+import { FaCartPlus } from "react-icons/fa6";
+import { IoIosGitCompare } from "react-icons/io";
+import { MdOutlinePageview } from "react-icons/md";
+
 export const ProductCard = ({ product, index }) => {
   return (
     <div
@@ -22,17 +25,19 @@ export const ProductCard = ({ product, index }) => {
             className="bg-Primary-button hover:bg-Primary-button-hover text-white
                   font-semibold py-2 px-6 rounded"
           >
-            Add to cart
+           <span className="flex justify-center items-center gap-1"> Add to cart <FaCartPlus/></span>
           </Link>
           <div className="flex gap-4">
             <Link
-              to={`product-details/${product.name}`}
+              to={`/product-details/${product.title}`}
               className="bg-Secondary-button hover:bg-Secondary-button-hover text-white font-semibold py-2 px-6 rounded"
             >
-              View
+                         <span className="flex justify-center items-center gap-1"> View<MdOutlinePageview/></span>
+
             </Link>
             <button className="bg-Secondary-button hover:bg-Secondary-button-hover text-white font-semibold py-2 px-6 rounded">
-              Compare
+            <span className="flex justify-center items-center gap-1"> Compare<IoIosGitCompare/></span>
+
             </button>
           </div>
         </div>

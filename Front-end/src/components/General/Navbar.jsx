@@ -40,7 +40,7 @@ const Navbar = () => {
   return (
     navbarIsVisible && (
       <nav className=" sticky bg-white flex items-center top-0 left-0 w-full h-14 shadow-md z-30 animate-slideDown   ">
-        <div className="w-full flex justify-around items-center mx-lg:justify-between  mx-lg:px-4 ">
+        <div className="w-full justify-between gap-2 flex items-center px-28 mx-lg:px-10 mx-sm:px-2 ">
           <div>
             <Link to="/" className="font-bold tracking-wide">
               Logo
