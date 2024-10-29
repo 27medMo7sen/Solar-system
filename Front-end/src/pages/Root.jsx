@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { uiActions } from "../store/ui-slice";
 import { Search } from "../components/General/Search";
 import { SideNavbar } from "../components/General/SideNavbar";
+import { Pathbar } from "../components/General/Pathbar";
 export const Root = () => {
   const dispatch = useDispatch();
   const closeSideModal = () => {
@@ -21,10 +22,11 @@ export const Root = () => {
   const searchModalIsVisible = useSelector(
     (state) => state.ui.searchModalIsVisible
   );
-
+  const pathbarLinks = useSelector((state) => state.ui.pathbarLinks);
   return (
     <Fragment>
       <Navbar />
+     {(pathbarLinks.length!==1 && <Pathbar path={pathbarLinks} />)}
       {searchModalIsVisible && (
         <Modal onClose={closeSearchModal}>
           <Search />

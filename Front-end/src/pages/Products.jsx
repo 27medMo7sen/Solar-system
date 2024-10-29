@@ -1,3 +1,7 @@
+import { MainProducts } from "../components/Products/MainProducts";
+
 export const Products = () => {
-  return <div></div>;
+  return <div>
+    <MainProducts/>
+  </div>;
 };

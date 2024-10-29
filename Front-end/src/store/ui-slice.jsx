@@ -8,6 +8,10 @@ export const uiSlice = createSlice({
     sideModalIsVisible: false,
     searchModalIsVisible: false,
     navbarIsVisible: true,
+    pathbarLinks: [{
+      name: "Home",
+      link: "/",
+    }],
   },
   reducers: {
     nextSlide(state, action) {
@@ -28,6 +32,21 @@ export const uiSlice = createSlice({
     },
     setNavbar(state, action) {
       state.navbarIsVisible = action.payload;
+    },
+    backInPathbar(state, action) {
+      while (state.pathbarLinks[state.pathbarLinks.length - 1].link !== action.payload.link) {
+        state.pathbarLinks.pop();
+      }
+    },
+   addToPathbar(state, action) {
+      const existingIndex = state.pathbarLinks.findIndex(link => link.link === action.payload.link);
+      if (existingIndex !== -1) {
+        while (state.pathbarLinks[state.pathbarLinks.length - 1].link !== action.payload.link) {
+          state.pathbarLinks.pop();
+        }
+      } else {
+        state.pathbarLinks.push(action.payload);
+      }
     },
   },
 });
