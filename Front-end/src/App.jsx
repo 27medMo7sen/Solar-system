@@ -4,6 +4,7 @@ import { Fragment } from "react";
 import { Home } from "./pages/Home";
 import { Products } from "./pages/Products";
 import { ProductDetails } from "./pages/ProductDetails";
+import { Categories } from "./pages/Categories";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
         path: "product-details/:name",
         element: <ProductDetails />,
       },
+      {
+        path: "categories",
+        element: <Categories />,
+      }
     ],
   },
 ]);

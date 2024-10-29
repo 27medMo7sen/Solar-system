@@ -1,5 +1,6 @@
 import { PiLineVerticalBold } from "react-icons/pi";
 import { Link } from "react-router-dom";
+import { ProductDetails } from "../../pages/ProductDetails";
 export const ProductCard = ({ product, index }) => {
   return (
     <div
@@ -14,7 +15,7 @@ export const ProductCard = ({ product, index }) => {
         <img
           src={product.image}
           alt={product.title}
-          className="w-60 h-60 object-cover mb-4 rounded-md"
+          className="max-w-60 object-cover mb-4 rounded-md"
         />
         <div className="absolute h-full w-full bg-black/20 flex flex-col gap-3 justify-center items-center -bottom-10 group-hover:bottom-0 opacity-0 group-hover:opacity-100 transition-all duration-300 ">
           <Link
@@ -41,7 +42,11 @@ export const ProductCard = ({ product, index }) => {
       <p className="text-sm text-gray-600 mb-4">{product.description}</p>
 
       <div className="flex items-center mb-4">
-        <span className="text-orange-500 text-lg mr-2">★★★★★</span>
+        <span className="text-orange-500 text-lg mr-2">
+          {Array(5).fill(0).map((star, index) => (
+            (index<=product.stars) ? <span key={index} className="text-orange-500">★</span> : <span key={index} className="text-gray-700">★</span>
+          ))}
+        </span>
         <span className="text-gray-600 text-sm">({product.reviews})</span>
       </div>
 
