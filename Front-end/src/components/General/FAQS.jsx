@@ -30,7 +30,7 @@ const FAQS = () => {
     };
 
     return (
-        <div className="py-10 bg-black text-white flex items-center justify-center">
+        <div className="py-10 bg-black text-white flex items-center justify-center mb-4">
             <div className="w-full max-w-7xl p-4">
                 <h2 className="text-center text-3xl font-bold mb-8">
                     Frequently Asked Questions
