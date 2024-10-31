@@ -5,7 +5,7 @@ import { Home } from "./pages/Home";
 import { Products } from "./pages/Products";
 import { ProductDetails } from "./pages/ProductDetails";
 
-import Partnership from "./components/Partnership/Partnership";
+import Partnership from "./pages/Partnership";
 
 import { Categories } from "./pages/Categories";
 

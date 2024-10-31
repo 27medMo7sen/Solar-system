@@ -38,6 +38,9 @@ export const uiSlice = createSlice({
         state.pathbarLinks.pop();
       }
     },
+  clearPath(state) {
+      state.pathbarLinks = [];
+  },
    addToPathbar(state, action) {
       const existingIndex = state.pathbarLinks.findIndex(link => link.link === action.payload.link);
       if (existingIndex !== -1) {
