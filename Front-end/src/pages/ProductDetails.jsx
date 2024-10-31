@@ -1,4 +1,4 @@
-import { Fragment, useEffect } from "react";
+import { Fragment } from "react";
 import { useParams } from "react-router-dom";
 import { Details } from "../components/Product-details/Details";
 import { useDispatch } from "react-redux";
