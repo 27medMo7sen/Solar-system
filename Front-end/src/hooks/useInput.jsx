@@ -5,18 +5,10 @@ export const useInput = (validateValue) => {
   const isValid = validateValue(enteredValue);
   const hasError = (!isValid && valueIsTouched);
 
-  const setValue = useCallback(
-    (value) => {
-      setEnteredValue(value);
-    },
-    [setEnteredValue]
-  );
 
   const valueChangeHandler = useCallback(
     (event) => {
       setValueIsTouched(true);
-      
-      console.log(event.target.value);  
       setEnteredValue(event.target.value);
     },  
     [setValueIsTouched, setEnteredValue]
@@ -34,7 +26,6 @@ export const useInput = (validateValue) => {
     enteredValue,
     hasError,
     isValid,
-    setValue,
     valueChangeHandler,
     valueBlurHandler,
     reset,

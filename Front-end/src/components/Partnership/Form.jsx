@@ -6,7 +6,7 @@ const Form = () => {
   const [serviceType, setServiceType] = useState(0);
   const [checkbox,setCheckbox]=useState(0);
   const {
-    enterdValue: name,
+    enteredValue: name,
     isValid: nameIsValid,
     hasError: nameHasError,
     valueChangeHandler: nameChangeHandler,
@@ -14,7 +14,7 @@ const Form = () => {
     reset: resetName,
   } = useInput((value) => value.trim() !== "");
   const {
-    enterdValue: email,
+    enteredValue: email,
     isValid: emailIsValid,
     hasError: emailHasError,
     valueChangeHandler: emailChangeHandler,
@@ -22,7 +22,7 @@ const Form = () => {
     reset: resetEmail,
   } = useInput((value) => value.includes("@"));
   const {
-    enterdValue: phone,
+    enteredValue: phone,
     isValid: phoneIsValid,
     hasError: phoneHasError,
     valueChangeHandler: phoneChangeHandler,
@@ -30,7 +30,7 @@ const Form = () => {
     reset: resetPhone,
   } = useInput((value) => value.trim() !== "");
   const {
-    entedValue: link,
+    enteredValue: link,
     isValid: linkIsValid,
     hasError: linkHasError,
     valueChangeHandler: linkChangeHandler,
@@ -38,7 +38,7 @@ const Form = () => {
     reset: resetLink,
   } = useInput((value) => value.trim() !== "");
   const {
-    enterdValue:address,
+    enteredValue:address,
     isValid:addressIsValid,
     hasError:addressHasError,
     valueChangeHandler:addressChangeHandler,
@@ -54,6 +54,9 @@ const Form = () => {
     resetPhone();
     resetLink();
     resetAddress();
+    setBusinesType(0);
+    setServiceType(0);
+    setCheckbox(0);
   }
   const formIsValid= nameIsValid && emailIsValid && phoneIsValid && linkIsValid && addressIsValid && checkbox &&( businesType==="Products" || (businesType==="Services"&&serviceType));
   const inputFeildIsNotValidClasses =
