@@ -1,3 +1,4 @@
+import FAQS from "../General/FAQS"
 import Form from "./Form"
 import Head from "./Header"
 import Says from "./Says"
@@ -12,7 +13,8 @@ const Partnership = () => {
         <WhyUs />
         <Form />
         <Verification />
-        <Says />  
+        <Says />
+        <FAQS />  
       </div>
     </>
 
