@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useInput } from "../../hooks/useInput";
 
 const Form = () => {
-  const [businessType, setBusinessType] = useState(0);
-  const [serviceType, setServiceType] = useState("");
+  const [businesType, setBusinesType] = useState(0);
+  const [serviceType, setServiceType] = useState(0);
   const [checkbox,setCheckbox]=useState(0);
   const {
     enterdValue: name,
@@ -45,7 +45,17 @@ const Form = () => {
     valueBlurHandler:addressBlurHandler,
     reset:resetAddress
   }=useInput((value)=>value.trim()!=="");
-  const formIsValid= nameIsValid && emailIsValid && phoneIsValid && linkIsValid && addressIsValid;
+  const submitHandler=(e)=>{
+    e.preventDefault();
+  
+    console.log(name,email,phone,link,businesType,serviceType,address)
+    resetName();
+    resetEmail();
+    resetPhone();
+    resetLink();
+    resetAddress();
+  }
+  const formIsValid= nameIsValid && emailIsValid && phoneIsValid && linkIsValid && addressIsValid && checkbox &&( businesType==="Products" || (businesType==="Services"&&serviceType));
   const inputFeildIsNotValidClasses =
     "border border-red-500 p-2 rounded bg-red-200 focus:outline-none focus:bg-red-100";
   return (
@@ -53,7 +63,7 @@ const Form = () => {
       <h2 className="text-3xl font-bold mb-8 text-center">
         Become Our Partner
       </h2>
-      <form className="flex flex-col gap-3  border border-black p-3 rounded-md">
+      <form className="flex flex-col gap-3 gap-y-10  border border-black p-3 rounded-md" onSubmit={submitHandler}>
         <div className="grid grid-cols-2 gap-x-5 gap-y-8 mx-md:grid-cols-1">
           <div className="flex flex-col gap-1">
             <label
@@ -68,6 +78,7 @@ const Form = () => {
               value={name}
               onChange={nameChangeHandler}
               onBlur={nameBlurHandler}
+              autoComplete="off"
               required
               className={`border border-gray-300 p-2 rounded ${
                 nameHasError ? inputFeildIsNotValidClasses : ""
@@ -90,6 +101,7 @@ const Form = () => {
               value={email}
               onChange={emailChangeHandler}
               onBlur={emailBlurHandler}
+              autoComplete="off"
               required
               className={`border border-gray-300 p-2 rounded ${
                 emailHasError ? inputFeildIsNotValidClasses : ""
@@ -112,6 +124,7 @@ const Form = () => {
               value={phone}
               onChange={phoneChangeHandler}
               onBlur={phoneBlurHandler}
+              autoComplete="off"
               required
               className={`border border-gray-300 p-2 rounded ${
                 phoneHasError ? inputFeildIsNotValidClasses : ""
@@ -134,6 +147,7 @@ const Form = () => {
               value={link}
               onChange={linkChangeHandler}
               onBlur={linkBlurHandler}
+              autoComplete="off"
               required
               className={`border border-gray-300 p-2 rounded ${
                 linkHasError ? inputFeildIsNotValidClasses : ""
@@ -148,7 +162,7 @@ const Form = () => {
             <select
               id="businessType"
               onChange={(e)=>{
-                setBusinessType(e.target.value)
+                setBusinesType(e.target.value)
               }}
               className="border bg-white p-2 rounded"
             >
@@ -163,21 +177,20 @@ const Form = () => {
               </option>
             </select>
           </div>
-          {businessType==="Services" && (
+          {businesType==="Services" && (
             <div className="flex flex-col gap-1">
               <label htmlFor="businessType">Service Type</label>
               <select
-                id="businessType"
-                value={serviceType}
-                onChange={(e) => businessType(e.target.value)}
+                id="serviceType"
+                onChange={(e) => setServiceType(e.target.value)}
                 className="border  bg-white p-2 rounded"
               >
                 <option selected hidden disabled>
                   Choose Service Type
                 </option>
-                <option>System insallaion</option>
-                <option>Maintenance</option>
-                <option>Consultation</option>
+                <option value="systemInstallation">System installtion</option>
+                <option value="maintenance">Maintenance</option>
+                <option value="consultation">Consultation</option>
               </select>
             </div>
           )}
@@ -194,6 +207,7 @@ const Form = () => {
               value={address}
               onChange={addressChangeHandler}
               onBlur={addressBlurHandler}
+              autoComplete="off"
               required
               className={`border border-gray-300 p-2 rounded ${
                 addressHasError ? inputFeildIsNotValidClasses : ""

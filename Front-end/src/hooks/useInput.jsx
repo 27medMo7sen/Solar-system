@@ -15,15 +15,17 @@ export const useInput = (validateValue) => {
   const valueChangeHandler = useCallback(
     (event) => {
       setValueIsTouched(true);
+      
+      console.log(event.target.value);  
       setEnteredValue(event.target.value);
-    },
+    },  
     [setValueIsTouched, setEnteredValue]
   );
 
   const valueBlurHandler = useCallback(() => {
     setValueIsTouched(true);
   }, [setValueIsTouched]);
-  
+
   const reset = () => {
     setEnteredValue("");
     setValueIsTouched(false);
