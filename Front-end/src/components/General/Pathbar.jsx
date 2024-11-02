@@ -4,6 +4,8 @@ import { Fragment } from "react";
 import { useDispatch } from "react-redux";
 import { uiActions } from "../../store/ui-slice";
 export const Pathbar = ({ path }) => {
+  console.log("here");
+  
   return (
     <div className="flex gap-2 px-28 mx-lg:px-10 mx-sm:px-2 mt-3 mb-3 text-md text-gray-500">
       {path.map((item, index) => (

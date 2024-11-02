@@ -9,7 +9,9 @@ import { Search } from "../components/General/Search";
 import { SideNavbar } from "../components/General/SideNavbar";
 import { Pathbar } from "../components/General/Pathbar";
 export const Root = () => {
+
   const dispatch = useDispatch();
+  const pathbarLinks = useSelector((state) => state.ui.pathbarLinks);
   const closeSideModal = () => {
     dispatch(uiActions.toggleSideModal());
   };
@@ -22,11 +24,11 @@ export const Root = () => {
   const searchModalIsVisible = useSelector(
     (state) => state.ui.searchModalIsVisible
   );
-  const pathbarLinks = useSelector((state) => state.ui.pathbarLinks);
+
   return (
     <Fragment>
       <Navbar />
-     {(pathbarLinks.length!==1 && <Pathbar path={pathbarLinks} />)}
+      {(pathbarLinks.length!==1 && <Pathbar path={pathbarLinks} />)}
       {searchModalIsVisible && (
         <Modal onClose={closeSearchModal}>
           <Search />
@@ -37,10 +39,10 @@ export const Root = () => {
           <div className="flex justify-center font-bold items-center h-10 border-b-4">
             Menu
           </div>
-          <SideNavbar />
+          <SideNavbar /> 
         </SideModal>
       )}
-      <Outlet />
+        <Outlet />
       <Footer />
     </Fragment>
   );

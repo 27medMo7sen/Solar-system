@@ -167,11 +167,9 @@ const Form = () => {
               onChange={(e)=>{
                 setBusinesType(e.target.value)
               }}
+              defaultValue={"choose business type"} 
               className="border bg-white p-2 rounded"
             >
-              <option hidden disabled selected >
-                Choose Business Type
-              </option>
               <option value="Products" >
                 Products
               </option>
@@ -187,10 +185,8 @@ const Form = () => {
                 id="serviceType"
                 onChange={(e) => setServiceType(e.target.value)}
                 className="border  bg-white p-2 rounded"
+                defaultValue={"choose service type"}  
               >
-                <option selected hidden disabled>
-                  Choose Service Type
-                </option>
                 <option value="systemInstallation">System installtion</option>
                 <option value="maintenance">Maintenance</option>
                 <option value="consultation">Consultation</option>

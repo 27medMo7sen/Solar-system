@@ -68,20 +68,17 @@ export const ApiFeatures = () => {
         </div>
       )}
       <div className="flex justify-center gap-2">
-        <select className="border border-gray-100 appearance-none rounded-md py-2 px-3 cursor-pointer hover:bg-gray-200">
-          <option selected hidden disabled value="">Category</option>
+        <select className="border border-gray-100 appearance-none rounded-md py-2 px-3 cursor-pointer hover:bg-gray-200" defaultValue={"category"}>
           <option  value="ctegory1">Category 1</option>
           <option  value="ctegory2">Category 2</option>
           <option  value="ctegory3">Category 3</option>
         </select>
-          <select className="border border-gray-100 rounded-md px-3 py-2 appearance-none cursor-pointer hover:bg-gray-200">
-            <option value="" disabled selected hidden>Brand</option>
+          <select className="border border-gray-100 rounded-md px-3 py-2 appearance-none cursor-pointer hover:bg-gray-200" defaultValue={"brand"}>
             <option value="brand1">Brand 1</option>
             <option value="brand2">Brand 2</option>
             <option value="brand3">Brand 3</option>
           </select>
-          <select className="border border-gray-100 rounded-md px-3 py-2 appearance-none cursor-pointer hover:bg-gray-200">
-            <option value="" disabled selected hidden>sort by</option>
+          <select className="border border-gray-100 rounded-md px-3 py-2 appearance-none cursor-pointer hover:bg-gray-200" defaultValue={"sortBy"}>
             <option value="option1">option 1</option>
             <option value="option2">option 2</option>
             <option value="option3">option 3</option>
