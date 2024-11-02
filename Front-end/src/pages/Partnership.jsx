@@ -7,7 +7,6 @@ import { useDispatch } from "react-redux";
 import { uiActions } from "../store/ui-slice";
 import { Fragment } from "react";
 const Partnership = () => {
-  
   const dispatch = useDispatch();
   dispatch(uiActions.clearPath());
   dispatch(

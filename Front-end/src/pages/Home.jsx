@@ -10,7 +10,6 @@ import FAQS from "../components/General/FAQS";
 export const Home = () => {
   const dispatch = useDispatch();
   dispatch(uiActions.clearPath());
-
     useEffect(() => {
       dispatch(uiActions.addToPathbar({ name: "Home", link: "/" }));
     }, [dispatch]);

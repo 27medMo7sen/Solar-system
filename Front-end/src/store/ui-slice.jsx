@@ -9,8 +9,6 @@ export const uiSlice = createSlice({
     searchModalIsVisible: false,
     navbarIsVisible: true,
     pathbarLinks: [{
-      name: "Home",
-      link: "/",
     }],
   },
   reducers: {
