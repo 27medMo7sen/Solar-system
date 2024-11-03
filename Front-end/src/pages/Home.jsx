@@ -12,6 +12,7 @@ export const Home = () => {
   dispatch(uiActions.clearPath());
     useEffect(() => {
       dispatch(uiActions.addToPathbar({ name: "Home", link: "/" }));
+      window.scrollTo(0,0);
     }, [dispatch]);
   return (
     <Fragment>
