@@ -18,9 +18,9 @@ const productSchema = new mongoose.Schema({
   ],
   brand: { type: mongoose.Schema.Types.ObjectId, required: true, ref: "Brand" },
   warranty_years: Number,
-  price: Number,
+  price: {type: Number, index: true},
   stock_quantity: Number,
-  created_at: { type: Date, default: Date.now },
+  created_at: { type: Date, default: Date.now, index: true },
 });
 const productModel = mongoose.model("Product", productSchema);
 export default productModel;

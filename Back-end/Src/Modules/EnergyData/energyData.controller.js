@@ -1,4 +1,4 @@
-import energyDataModel from "../../../models/EnergyData.js";
+import energyDataModel from "./energyData.schema.js";
 
 export const createEnergyData = async (req, res) => {
   const energyData = new energyDataModel(req.body);

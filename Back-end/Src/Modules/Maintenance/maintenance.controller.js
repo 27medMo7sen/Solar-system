@@ -1,4 +1,4 @@
-import maintenanceModel from "../../../models/Maintenance.js";
+import maintenanceModel from "./maintenance.schema.js";
 
 export const createMaintenance = async (req, res) => {
   const maintenance = new maintenanceModel(req.body);

@@ -3,17 +3,21 @@ import { Router } from "express";
 import { asyncHandler } from "../../Utils/errorhandling.js";
 import { isAuth } from "../../Middlewares/auth.js";
 import * as authRoles from "./auth.endpoints.roles.js";
+import { validateBody } from "../../Middlewares/bodyValidation.js";
+import { createUserSchema } from "../User/user.validationSchemas.js";
+import { loginValidationSchema } from "./auth.validationSchemas.js";
+
 const router = Router();
-router.post("/", asyncHandler(ac.signUp));
+router.post(
+  "/sign-up",
+  validateBody(createUserSchema),
+  asyncHandler(ac.signUp)
+);
 router.get("/confirm/:token", asyncHandler(ac.confirmEmail));
-router.patch("/login", asyncHandler(ac.logIn));
-router.get("/", isAuth(authRoles.getUsers), asyncHandler(ac.getUsers));
-router.get("/:id", isAuth(authRoles.getUserById), asyncHandler(ac.getUserById));
-router.put("/:id", isAuth(authRoles.updateUser), asyncHandler(ac.updateUser));
-router.delete(
-  "/:id",
-  isAuth(authRoles.deleteUser),
-  asyncHandler(ac.deleteUser)
+router.patch(
+  "/log-in",
+  validateBody(loginValidationSchema),
+  asyncHandler(ac.logIn)
 );
 
 export default router;
