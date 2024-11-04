@@ -1,11 +1,19 @@
-import { Fragment } from "react";
-
+import { Fragment, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import Hero from "../components/HomePage/Slider";
 import HowItWorks from "../components/HomePage/HowItWorks";
 import { PopularCategories } from "../components/HomePage/PopularCategories";
 import { FeaturedProducts } from "../components/HomePage/FeaturedProducts";
 import Partners from "../components/HomePage/Partners";
+import { uiActions } from "../store/ui-slice";
+import FAQS from "../components/General/FAQS";
 export const Home = () => {
+  const dispatch = useDispatch();
+  dispatch(uiActions.clearPath());
+    useEffect(() => {
+      dispatch(uiActions.addToPathbar({ name: "Home", link: "/" }));
+      window.scrollTo(0,0);
+    }, [dispatch]);
   return (
     <Fragment>
       <Hero />
@@ -13,6 +21,7 @@ export const Home = () => {
       <PopularCategories />
       <FeaturedProducts />
       <Partners />
+      <FAQS />
     </Fragment>
   );
 };

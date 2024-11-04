@@ -11,7 +11,7 @@ export const Sections = () => {
   ];
 
   const tabContent = {
-    Description: <ProductDetails />,
+  "Description": <ProductDetails />,
     "Customer reviews": <MainReviews />,
     "Guide and info": <div>Guide and info content...</div>,
     "Shipping info": <div>Shipping info content...</div>,

@@ -5,6 +5,9 @@ import { uiActions } from "../../store/ui-slice";
 import { FaSearch } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
+import { RiShoppingCartLine } from "react-icons/ri";
+import { cartActions } from "../../store/cart-slice";
+
 const Navbar = () => {
   const dispatch = useDispatch();
   const toggleSideModal = () => {
@@ -26,7 +29,10 @@ const Navbar = () => {
       setLastScrollY(currentScrollY);
     }
   };
-
+  const openCart = () => {
+    dispatch(cartActions.toggleCart());
+  }
+  const totalQuantity = useSelector((state) => state.cart.totalQuantity);
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -40,7 +46,7 @@ const Navbar = () => {
   return (
     navbarIsVisible && (
       <nav className=" sticky bg-white flex items-center top-0 left-0 w-full h-14 shadow-md z-30 animate-slideDown   ">
-        <div className="w-full flex justify-around items-center mx-lg:justify-between  mx-lg:px-4 ">
+        <div className="w-full justify-between gap-2 flex items-center px-28 mx-lg:px-10 mx-sm:px-2 ">
           <div>
             <Link to="/" className="font-bold tracking-wide">
               Logo
@@ -72,7 +78,7 @@ const Navbar = () => {
               Services
             </NavLink>
             <NavLink
-              to="/become-a-partner"
+              to="/partnership"
               className={({ isActive }) =>
                 isActive ? activeClass : inactiveClass
               }
@@ -111,6 +117,10 @@ const Navbar = () => {
             >
               <FaSearch className="text-black" />
             </div>
+            <button onClick={openCart} className = "w-12 h-9 flex justify-center items-center cursor-pointer gap-1 border-1 rounded-md shadow-sm shadow-black hover:bg-gray-200 group">
+              <RiShoppingCartLine className="text-black text-2xl shadow-lg group-hover:rotate-12" />
+              <span className="text-xl">{totalQuantity}</span>
+            </button>
             <Link to="/login">
               <button className="mr-2">Login</button>
             </Link>
@@ -125,6 +135,10 @@ const Navbar = () => {
             >
               <FaSearch className="text-black text-sm" />
             </div>
+            <button onClick={openCart} className = "w-12 h-9 flex justify-center items-center cursor-pointer gap-1 border-1 rounded-md shadow-sm shadow-black hover:bg-gray-200 group">
+              <RiShoppingCartLine className="text-black text-2xl shadow-lg group-hover:rotate-12"/>
+              <span className="text-xl">{totalQuantity}</span>
+            </button>
             <Link to="/login">
               <button>Login</button>
             </Link>

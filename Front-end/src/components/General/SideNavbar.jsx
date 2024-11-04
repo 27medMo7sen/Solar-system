@@ -24,7 +24,7 @@ export const SideNavbar = () => {
         Services
       </NavLink>
       <NavLink
-        to="/become-a-partner"
+        to="/partnership"
         className={({ isActive }) => (isActive ? activeClass : inactiveClass)}
       >
         Partnership
