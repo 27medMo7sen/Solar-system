@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Fragment } from "react";
 import { useDispatch } from "react-redux";
 import { uiActions } from "../../store/ui-slice";
+
 export const Pathbar = ({ path }) => {
   console.log("here");
   

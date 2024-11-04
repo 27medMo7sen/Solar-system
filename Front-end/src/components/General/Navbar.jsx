@@ -5,6 +5,9 @@ import { uiActions } from "../../store/ui-slice";
 import { FaSearch } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
+import { RiShoppingCartLine } from "react-icons/ri";
+import { cartActions } from "../../store/cart-slice";
+
 const Navbar = () => {
   const dispatch = useDispatch();
   const toggleSideModal = () => {
@@ -26,7 +29,10 @@ const Navbar = () => {
       setLastScrollY(currentScrollY);
     }
   };
-
+  const openCart = () => {
+    dispatch(cartActions.toggleCart());
+  }
+  const totalQuantity = useSelector((state) => state.cart.totalQuantity);
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -111,6 +117,10 @@ const Navbar = () => {
             >
               <FaSearch className="text-black" />
             </div>
+            <button onClick={openCart} className = "w-12 h-9 flex justify-center items-center cursor-pointer gap-1 border-1 rounded-md shadow-sm shadow-black hover:bg-gray-200 group">
+              <RiShoppingCartLine className="text-black text-2xl shadow-lg group-hover:rotate-12" />
+              <span className="text-xl">{totalQuantity}</span>
+            </button>
             <Link to="/login">
               <button className="mr-2">Login</button>
             </Link>
@@ -125,6 +135,10 @@ const Navbar = () => {
             >
               <FaSearch className="text-black text-sm" />
             </div>
+            <button onClick={openCart} className = "w-12 h-9 flex justify-center items-center cursor-pointer gap-1 border-1 rounded-md shadow-sm shadow-black hover:bg-gray-200 group">
+              <RiShoppingCartLine className="text-black text-2xl shadow-lg group-hover:rotate-12"/>
+              <span className="text-xl">{totalQuantity}</span>
+            </button>
             <Link to="/login">
               <button>Login</button>
             </Link>
