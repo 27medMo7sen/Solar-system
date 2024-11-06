@@ -40,9 +40,9 @@ const Navbar = () => {
     };
   }, [lastScrollY]);
 
-  const activeClass = "text-green-500";
+  const activeClass = "text-Primary-button";
   const inactiveClass =
-    "hover:text-green-500 transition ease-in-out delay-150 over:-translate-y-1 hover:scale-110";
+    "hover:text-Primary-button transition ease-in-out delay-150 over:-translate-y-1 hover:scale-110";
   return (
     navbarIsVisible && (
       <nav className=" sticky bg-white flex items-center top-0 left-0 w-full h-14 shadow-md z-30 animate-slideDown   ">
