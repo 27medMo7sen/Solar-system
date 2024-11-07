@@ -80,6 +80,14 @@ const Navbar = () => {
               Partnership
             </NavLink>
             <NavLink
+              to="/dashboard"
+              className={({ isActive }) =>
+                isActive ? activeClass : inactiveClass
+              }
+            >
+              Dashboard
+            </NavLink>
+            <NavLink
               to="/solar-calculator"
               className={({ isActive }) =>
                 isActive ? activeClass : inactiveClass
@@ -131,7 +139,6 @@ const Navbar = () => {
             <Link to="/signup">
               <button>Sign Up</button>
             </Link>
-
             <IoMenu
               className="text-2xl cursor-pointer"
               onClick={toggleSideModal}
