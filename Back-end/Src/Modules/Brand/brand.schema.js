@@ -13,7 +13,7 @@ const brandSchema = new mongoose.Schema({
     secure_url: String,
     public_id: String,
   },
-  created_at: { type: Date, default: Date.now },
+  created_at: { type: Date, default: Date.now, index: true },
 });
 const brandModel = mongoose.model("Brand", brandSchema);
 export default brandModel;

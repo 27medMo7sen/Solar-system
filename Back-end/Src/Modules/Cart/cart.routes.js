@@ -4,25 +4,35 @@ import { asyncHandler } from "../../Utils/errorhandling.js";
 import { isAuth } from "../../Middlewares/auth.js";
 import * as cartRoles from "./cart.endpoints.roles.js";
 import * as schema from "./cart.validationSchemas.js";
-import { validate } from "../../Middlewares/validation.js";
+import { validateBody } from "../../Middlewares/bodyValidation.js";
+import { validateId } from "../../Middlewares/idValidation.js";
+import { validateQuery } from "../../Middlewares/queryValidation.js";
+
 const router = express.Router();
 router.post(
   "/",
-  validate(schema.createCartSchema),
   isAuth(cartRoles.createCart),
+  validateBody(schema.createCartSchema),
   asyncHandler(cc.createCart)
 );
-router.get("/", asyncHandler(cc.getCarts));
-router.get("/:id", isAuth(cartRoles.getCartById), asyncHandler(cc.getCartById));
+router.get("/", validateQuery(), asyncHandler(cc.getCarts));
+router.get(
+  "/:id",
+  isAuth(cartRoles.getCartById),
+  validateId(),
+  asyncHandler(cc.getCartById)
+);
 router.put(
   "/:id",
-  validate(schema.updateCartSchema),
   isAuth(cartRoles.updateCart),
+  validateId(),
+  validateBody(schema.updateCartSchema),
   asyncHandler(cc.updateCart)
 );
 router.delete(
   "/:id",
   isAuth(cartRoles.deleteCart),
+  validateId(),
   asyncHandler(cc.deleteCart)
 );
 

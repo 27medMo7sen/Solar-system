@@ -8,8 +8,7 @@ export const uiSlice = createSlice({
     sideModalIsVisible: false,
     searchModalIsVisible: false,
     navbarIsVisible: true,
-    pathbarLinks: [{
-    }],
+    pathbarLinks: [{}],
   },
   reducers: {
     nextSlide(state, action) {

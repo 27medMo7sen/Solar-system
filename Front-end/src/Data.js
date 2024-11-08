@@ -98,77 +98,84 @@ export const products = [
   {
     image: solarPanelImg,
     title: "The best solar panel",
+    id:1,
     description:
       "The best solar panel that you can get in our store for the next two decades",
     price: 200,
     originalPrice: 400,
-    discount: "50%",
+    discount: 50,
     reviews: 120,
     stars: 4,
   },
   {
     image: solarPanelImg,
     title: "The best solar panel",
+    id:2,
     description:
       "The best solar panel that you can get in our store for the next two decades",
     price: 200,
     originalPrice: 400,
-    discount: "50%",
+    discount: 50,
     reviews: 120,
     stars: 4,
   },
   {
     image: solarPanelImg,
     title: "The best solar panel",
+    id:3,
     description:
       "The best solar panel that you can get in our store for the next two decades",
     price: 200,
     originalPrice: 400,
-    discount: "50%",
+    discount: 50,
     reviews: 120,
     stars: 4,
   },
   {
     image: solarPanelImg,
     title: "The best solar panel",
+    id:4,
     description:
       "The best solar panel that you can get in our store for the next two decades",
     price: 200,
     originalPrice: 400,
-    discount: "50%",
+    discount: 50,
     reviews: 120,
     stars: 4,
   },
   {
     image: solarPanelImg,
     title: "The best solar panel",
+    id:5,
     description:
       "The best solar panel that you can get in our store for the next two decades",
     price: 200,
     originalPrice: 400,
-    discount: "50%",
+    discount: 50,
     reviews: 120,
     stars: 4,
   },
   {
     image: solarPanelImg,
     title: "The best solar panel",
+    id:6,
     description:
       "The best solar panel that you can get in our store for the next two decades",
     price: 200,
     originalPrice: 400,
-    discount: "50%",
+    discount: 50,
     reviews: 120,
     stars: 4,
   },
   {
     image: solarPanelImg,
     title: "The best solar panel",
+    id:7, 
     description:
       "The best solar panel that you can get in our store for the next two decades",
     price: 200,
     originalPrice: 400,
-    discount: "50%",
+    discount: 50,
     reviews: 120,
     stars: 4,
   },
@@ -194,6 +201,55 @@ export const categories = [
         discount: "50%",
         reviews: 120,
         stars: 5,
+     image:batteryImg,
+     title: "The best battery",
+     description:
+       "The best battery that you can get in our store for the next two decades",
+       price: 200,
+      originalPrice: 400,
+       discount: 50,
+       reviews: 120,
+       stars: 5,
+      }, {
+     image:batteryImg,
+     title: "The best battery",
+     description:
+       "The best battery that you can get in our store for the next two decades",
+       price: 200,
+      originalPrice: 400,
+       discount: 50,
+       reviews: 120,
+       stars: 5,
+      }, {
+     image:batteryImg,
+     title: "The best battery",
+     description:
+       "The best battery that you can get in our store for the next two decades",
+       price: 200,
+      originalPrice: 400,
+       discount: 50,
+       reviews: 120,
+       stars: 5,
+      }, {
+     image:batteryImg,
+     title: "The best battery",
+     description:
+       "The best battery that you can get in our store for the next two decades",
+       price: 200,
+      originalPrice: 400,
+       discount: 50,
+       reviews: 120,
+       stars: 5,
+      }, {
+     image:batteryImg,
+     title: "The best battery",
+     description:
+       "The best battery that you can get in our store for the next two decades",
+       price: 200,
+      originalPrice: 400,
+       discount: 50,
+       reviews: 120,
+       stars: 5,
       },
       {
         image: batteryImg,
@@ -251,8 +307,13 @@ export const categories = [
         description:
           "The best inverter that you can get in our store for the next two decades",
         price: 200,
+ 
         originalPrice: 400,
         discount: "50%",
+ 
+       originalPrice: 400,
+        discount: 50,
+ 
         reviews: 120,
         stars: 5,
       },
@@ -262,8 +323,13 @@ export const categories = [
         description:
           "The best inverter that you can get in our store for the next two decades",
         price: 200,
+ 
         originalPrice: 400,
         discount: "50%",
+ 
+       originalPrice: 400,
+        discount: 50,
+ 
         reviews: 120,
         stars: 5,
       },
@@ -273,8 +339,13 @@ export const categories = [
         description:
           "The best inverter that you can get in our store for the next two decades",
         price: 200,
+ 
         originalPrice: 400,
         discount: "50%",
+ 
+       originalPrice: 400,
+        discount: 50,
+ 
         reviews: 120,
         stars: 5,
       },
@@ -284,9 +355,12 @@ export const categories = [
         description:
           "The best inverter that you can get in our store for the next two decades",
         price: 200,
+ 
         originalPrice: 400,
         discount: "50%",
-        reviews: 120,
+        originalPrice: 400,
+        discount: 50,
+         reviews: 120,
         stars: 5,
       },
       {
@@ -295,9 +369,12 @@ export const categories = [
         description:
           "The best inverter that you can get in our store for the next two decades",
         price: 200,
-        originalPrice: 400,
+         originalPrice: 400,
         discount: "50%",
-        reviews: 120,
+ 
+       originalPrice: 400,
+        discount: 50,
+         reviews: 120,
         stars: 5,
       },
     ],

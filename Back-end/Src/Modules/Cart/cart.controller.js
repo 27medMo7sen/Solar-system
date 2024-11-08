@@ -1,4 +1,4 @@
-import cartModel from "../../../models/Cart.js";
+import cartModel from "./cart.schema.js";
 
 export const createCart = async (req, res) => {
   const cart = new cartModel(req.body);
