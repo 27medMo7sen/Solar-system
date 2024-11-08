@@ -41,17 +41,25 @@ export const ProductCard = ({ product, index }) => {
             className="bg-Primary-button hover:bg-Primary-button-hover text-white
                   font-semibold py-2 px-6 rounded"
           >
-            <span className="flex justify-center items-center gap-1">
+             <span className="flex justify-center items-center gap-1"> Add to cart <FaCartPlus /></span>
+          </Link>
+             <span className="flex justify-center items-center gap-1">
               {" "}
               Add to cart <FaCartPlus />
             </span>
           </button>
-          <div className="flex gap-4">
+           <div className="flex gap-4">
             <Link
               to={`/product-details/${product.title}`}
               className="bg-Secondary-button hover:bg-Secondary-button-hover text-white font-semibold py-2 px-6 rounded"
             >
-              <span className="flex justify-center items-center gap-1">
+               <span className="flex justify-center items-center gap-1"> View<MdOutlinePageview /></span>
+
+            </Link>
+            <button className="bg-Secondary-button hover:bg-Secondary-button-hover text-white font-semibold py-2 px-6 rounded">
+              <span className="flex justify-center items-center gap-1"> Compare<IoIosGitCompare /></span>
+
+               <span className="flex justify-center items-center gap-1">
                 View
                 <MdOutlinePageview />
               </span>
@@ -62,7 +70,7 @@ export const ProductCard = ({ product, index }) => {
                 Compare
                 <IoIosGitCompare />
               </span>
-            </button>
+             </button>
           </div>
         </div>
       </div>
@@ -72,7 +80,10 @@ export const ProductCard = ({ product, index }) => {
 
       <div className="flex items-center mb-4">
         <span className="text-orange-500 text-lg mr-2">
-          {Array(5)
+           {Array(5).fill(0).map((star, index) => (
+            (index <= product.stars) ? <span key={index} className="text-orange-500">★</span> : <span key={index} className="text-gray-700">★</span>
+          ))}
+           {Array(5)
             .fill(0)
             .map((star, index) =>
               index <= product.stars ? (
@@ -85,7 +96,7 @@ export const ProductCard = ({ product, index }) => {
                 </span>
               )
             )}
-        </span>
+         </span>
         <span className="text-gray-600 text-sm">({product.reviews})</span>
       </div>
 

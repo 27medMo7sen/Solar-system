@@ -9,11 +9,11 @@ export const CategoriesList = () => {
 
   return <div className="flex mt-3 flex-col gap-2 mx-28 mx-lg:mx-10 mx-sm:mx-2">
     {categories.map((category, index) => (
-   < ProductList key={index} image={category.image} name={category.name} >
-    {category.products.map((product, index) => (
-      <ProductCard key={index} product={product} />
+      < ProductList key={index} image={category.image} name={category.name} >
+        {category.products.map((product, index) => (
+          <ProductCard key={index} product={product} />
+        ))}
+      </ProductList>
     ))}
-   </ProductList>
-    ))}
-   </div>
+  </div>
 };

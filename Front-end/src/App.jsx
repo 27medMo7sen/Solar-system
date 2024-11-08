@@ -8,6 +8,7 @@ import { ProductDetails } from "./pages/ProductDetails";
 import Partnership from "./pages/Partnership";
 
 import { Categories } from "./pages/Categories";
+import DashboardPage from "./pages/DashboardPage";
 
 const router = createBrowserRouter([
   {
@@ -26,15 +27,21 @@ const router = createBrowserRouter([
         path: "product-details/:name",
         element: <ProductDetails />,
       },
+     
+      {
+        path: "categories",
+        element: <Categories />,
+      },
       {
 
         path: "partnership",
         element: <Partnership />,
       },
       {
-        path: "categories",
-        element: <Categories />,
-      }
+
+        path: "dashboard",
+        element: <DashboardPage />,
+      },
 
     ],
   },
