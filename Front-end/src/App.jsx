@@ -4,7 +4,7 @@ import { Fragment } from "react";
 import { Home } from "./pages/Home";
 import { Products } from "./pages/Products";
 import { ProductDetails } from "./pages/ProductDetails";
-
+import { Authentication } from "./pages/Authentication";
 import Partnership from "./pages/Partnership";
 
 import { Categories } from "./pages/Categories";
@@ -33,15 +33,17 @@ const router = createBrowserRouter([
         element: <Categories />,
       },
       {
-
         path: "partnership",
         element: <Partnership />,
       },
       {
-
         path: "dashboard",
         element: <DashboardPage />,
       },
+      {
+        path: "authentication",
+        element: <Authentication />,
+      }
 
     ],
   },

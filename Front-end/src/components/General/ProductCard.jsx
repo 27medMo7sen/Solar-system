@@ -5,7 +5,7 @@ import { IoIosGitCompare } from "react-icons/io";
 import { MdOutlinePageview } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../store/cart-slice";
-
+import { uiActions } from "../../store/ui-slice";
 export const ProductCard = ({ product, index }) => {
   const dispatch = useDispatch();
 
@@ -18,6 +18,7 @@ export const ProductCard = ({ product, index }) => {
       amount: 1,
       discount: product.discount,
     };
+    dispatch(uiActions.setNavbar(true));
     dispatch(cartActions.addToCart(cartItem));
   };
 

@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+import { BiBorderAll } from "react-icons/bi";
 import { screens } from "tailwindcss/defaultTheme";
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
@@ -11,6 +12,7 @@ export default {
         "Secondary-button-hover": "#4E6565",
         "border-color": "#4E6565",
       },
+
       maxWidth: {
         "main-card": "800px", // You can adjust this to fit your product card size
         sections: "1200px",
@@ -19,6 +21,20 @@ export default {
         "main-card": "650px", // You can adjust this to fit your product card size
       },
       keyframes: {
+        shake: {
+          "10%, 90%": {
+            transform: "translate3d(-1px, 0, 0)",
+          },
+          "20%, 80%": {
+            transform: "translate3d(2px, 0, 0)",
+          },
+          "30%, 50%, 70%": {
+            transform: "translate3d(-4px, 0, 0)",
+          },
+          "40%, 60%": {
+            transform: "translate3d(4px, 0, 0)",
+          },
+        },
         slideCardDown: {
           "0%": {
             transform: "translateY(-100%) translateX(-50%)",
@@ -55,6 +71,7 @@ export default {
         },
       },
       animation: {
+        shake: "shake 0.82s cubic-bezier(.36,.07,.19,.97) both",
         slideCardDown: "slideCardDown 0.5s ease-in-out",
         slideDown: "slideDown 0.5s ease-in-out",
         slideLeft: "slideLeft 0.8s ease-in-out",
@@ -65,7 +82,9 @@ export default {
       boxShadow: {
         "3xl": "0 35px 60px -15px rgba(0, 0, 0, 0.3)",
         n: "2px rgba(0, 0, 0, 1)",
+        "auth-form-shadow": "-10px 10px 10px  rgba(249, 129 ,6,0.8)",
       },
+
       screens: {
         // Max-width breakpoints
         "mx-xl": { max: "1280px" },
