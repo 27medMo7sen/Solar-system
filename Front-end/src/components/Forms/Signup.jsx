@@ -230,7 +230,8 @@ export const Signup = () => {
   
             <button
               type="submit"
-              className="w-full bg-orange-500 text-white py-2 px-4 rounded-lg hover:bg-orange-600 transition-colors"
+              disabled={!emailIsValid || !passwordIsValid || !firstNameIsValid || !lastNameIsValid || !usernameIsValid || !confirmPasswordIsValid}
+              className="w-full bg-orange-500 text-white py-2 px-4 rounded-lg hover:bg-orange-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-gray-500"
             >
               Sign Up
             </button>
