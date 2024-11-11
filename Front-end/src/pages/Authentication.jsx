@@ -5,7 +5,11 @@ import { ForgetPassword } from "../components/Forms/ForgetPassword";
 import { useEffect } from "react";
 import authentication_forms from "../assets/authentication_forms.png";
 import { CheckInbox } from "../components/Forms/CheckInbox";
+import { uiActions } from "../store/ui-slice";
+import { useDispatch } from "react-redux";
 export const Authentication = () => {
+  const dispatch = useDispatch();
+  dispatch(uiActions.clearPath());
   useEffect(() => {
     window.scrollTo(0, 0);
   },[]);
