@@ -36,7 +36,7 @@ export const Root = () => {
   return (
     <Fragment>
       <Navbar />
-      {(pathbarLinks.length!==1 && <Pathbar path={pathbarLinks} />)}
+      {(pathbarLinks.length>1 && <Pathbar path={pathbarLinks} />)}
       {searchModalIsVisible && (
         <Modal onClose={closeSearchModal}>
           <Search />

@@ -129,11 +129,11 @@ const Navbar = () => {
               <RiShoppingCartLine className="text-black text-2xl shadow-lg group-hover:rotate-12" />
               <span className="text-xl">{totalQuantity}</span>
             </button>
-            <Link to="/login">
-              <button className="mr-2">Login</button>
+            <Link to="/authentication?mode=login">
+              <button className="mr-2">Sign in</button>
             </Link>
-            <Link to="/signup">
-              <button className="mr-2">Sign Up</button>
+            <Link to="/authentication?mode=signup">
+              <button className="mr-2">Sign up</button>
             </Link>
           </div>
           <div className=" hidden mx-lg:flex font-bold gap-2 justify-center items-center">
@@ -147,11 +147,11 @@ const Navbar = () => {
               <RiShoppingCartLine className="text-black text-2xl shadow-lg group-hover:rotate-12"/>
               <span className="text-xl">{totalQuantity}</span>
             </button>
-            <Link to="/login">
-              <button>Login</button>
+            <Link to="/authentication?mode=login">
+              <button className="mr-2">Sign in</button>
             </Link>
-            <Link to="/signup">
-              <button>Sign Up</button>
+            <Link to="/authentication?mode=signup">
+              <button className="mr-2">Sign up</button>
             </Link>
             <IoMenu
               className="text-2xl cursor-pointer"
