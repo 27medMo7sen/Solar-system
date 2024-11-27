@@ -15,7 +15,7 @@ export const ForgetPassword = () => {
         e.preventDefault();
         // Handle forget password logic here
         resetEmail();
-        navigate("/authentication?mode=check-inbox");
+        navigate("/authentication?mode=check-inbox-reset");
     }
     return (
         <div className="bg-white/80 p-8 rounded-3xl w-full max-w-md shadow-auth-form-shadow animate-slideDown mx-4 ">

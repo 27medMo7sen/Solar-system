@@ -6,6 +6,7 @@ const accountSchema = new mongoose.Schema({
   role: {
     type: String,
     enum: ["user", "vendor", "admin"],
+    default: "user",
     required: true,
   },
   token: String,

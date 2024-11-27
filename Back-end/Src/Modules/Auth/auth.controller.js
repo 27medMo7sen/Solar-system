@@ -6,8 +6,10 @@ import { generateToken, verifyToken } from "../../Utils/tokenFunctions.js";
 import { sendEmailServices } from "../../Services/sendEmailService.js";
 // MARK:signup
 export const signUp = async (req, res, next) => {
-  const { first_name, last_name, phone_number, address, email, password } =
-    req.body;
+  const { first_name, last_name , phone_number,  email, password } =
+  req.body;
+
+  console.log(first_name, last_name, phone_number, email, password);
   const findAcc = await accountModel.findOne({ email });
   if (findAcc) {
     return next(new Error("User already exists"));
@@ -17,9 +19,7 @@ export const signUp = async (req, res, next) => {
     first_name,
     last_name,
     phone_number,
-    address,
   });
-  console.log("here");
   if (!user) {
     return next(new Error("User not created", { code: 500 }));
   }
@@ -37,7 +37,7 @@ export const signUp = async (req, res, next) => {
     signature: process.env.CONFIRMATION_EMAIL_TOKEN,
     expiresIn: "1h",
   });
-  const confirmationLink = `${req.protocol}://localhost:3000/auth/confirm/${token}`;
+  const confirmationLink = `${req.protocol}://localhost:5173/confirm/${token}`;
   const isEmailSent = await sendEmailServices({
     to: email,
     subject: "Email Confirmation",
@@ -52,11 +52,12 @@ export const signUp = async (req, res, next) => {
   if (!isEmailSent) {
     return next(new Error("Email not sent", { code: 500 }));
   }
-  res.status(201).json({ user, confirmationLink });
+  res.status(201).json({message:"Sign up done successfully!!", user, confirmationLink });
 };
 //MARK: confirm email
 export const confirmEmail = async (req, res, next) => {
   const { token } = req.params;
+  console.log(token);
   const decode = verifyToken({
     token,
     signature: process.env.CONFIRMATION_EMAIL_TOKEN,

@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { sliderData } from "../Data";
+import { toast } from "react-toastify";
 export const uiSlice = createSlice({
   name: "ui",
   initialState: {
@@ -48,6 +49,17 @@ export const uiSlice = createSlice({
         state.pathbarLinks.push(action.payload);
       }
     },
+    toastEmitter(state, action) {
+      toast[action.payload.type](action.payload.message, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
   },
 });
 export const uiActions = uiSlice.actions;

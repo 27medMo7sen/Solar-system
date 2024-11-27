@@ -6,6 +6,7 @@ import { MdOutlinePageview } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../store/cart-slice";
 import { uiActions } from "../../store/ui-slice";
+
 export const ProductCard = ({ product, index }) => {
   const dispatch = useDispatch();
 
@@ -20,6 +21,7 @@ export const ProductCard = ({ product, index }) => {
     };
     dispatch(uiActions.setNavbar(true));
     dispatch(cartActions.addToCart(cartItem));
+    dispatch(uiActions.toastEmitter({ type: "success", message: "Item added to cart" }));
   };
 
   return (

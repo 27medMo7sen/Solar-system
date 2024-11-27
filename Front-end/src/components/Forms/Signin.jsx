@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Eye, EyeOff,Mail, LockKeyhole } from "lucide-react";
 
 import { useInput } from "../../hooks/useInput";
-import {Link} from "react-router-dom";
+import {Form, Link} from "react-router-dom";
 
 export const Signin = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -22,11 +22,11 @@ export const Signin = () => {
     valueBlurHandler: passwordBlurHandler,
     reset: resetPassword,
   } = useInput((value) => value.trim().length > 6);
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle sign in logic here
-    console.log("Sign in attempted with:", { email });
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   // Handle sign in logic here
+  //   console.log("Sign in attempted with:", { email });
+  // };
 
   const handleGoogleLogin = () => {
     // Handle Google login logic here
@@ -45,7 +45,7 @@ export const Signin = () => {
           </Link>
         </div>
       </div>
-      <form onSubmit={handleSubmit}>
+      <Form method="POST">
           <div>
             <label className={`${!emailHasError?"text-sm font-medium text-gray-700 mb-1 flex gap-1":"text-red-500 flex gap-1 mb-1 text-sm font-medium"}`} >
               <Mail className="font-thin text-sm"/> Email address
@@ -54,6 +54,7 @@ export const Signin = () => {
               type="email"
               value={email}
               onChange={emailChangeHandler}
+              name="email"
               onBlur={emailBlurHandler}
               className={`w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 ${!emailHasError?"":"border-red-500 bg-red-300 focus:bg-red-100 animate-shake"}`}
               required
@@ -83,6 +84,7 @@ export const Signin = () => {
               value={password}
               onChange={passwordChangeHandler}
               onBlur={passwordBlurHandler}
+              name="password"
               className={`w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 ${passwordHasError?"animate-shake border-red-500 bg-red-300 focus:bg-red-100":""}`}
               required
             />
@@ -118,7 +120,7 @@ export const Signin = () => {
             />
             Login with Google
           </button>
-      </form>
+      </Form>
     </div>
   );
 };

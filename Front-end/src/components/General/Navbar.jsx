@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { RiShoppingCartLine } from "react-icons/ri";
 import { cartActions } from "../../store/cart-slice";
-
+import logo from "../../assets/Solar Ease.png"
 const Navbar = () => {
   const dispatch = useDispatch();
   const toggleSideModal = () => {
@@ -49,7 +49,7 @@ const Navbar = () => {
         <div className="w-full justify-between gap-2 flex items-center px-28 mx-lg:px-10 mx-sm:px-2 ">
           <div>
             <Link to="/" className="font-bold tracking-wide">
-              Logo
+              <img src={logo} alt="Solar Ease" className="h-14" />
             </Link>
           </div>
           <div className="text-black  md:flex  mx-lg:hidden   items-center space-x-6">
@@ -129,7 +129,7 @@ const Navbar = () => {
               <RiShoppingCartLine className="text-black text-2xl shadow-lg group-hover:rotate-12" />
               <span className="text-xl">{totalQuantity}</span>
             </button>
-            <Link to="/authentication?mode=login">
+            <Link to="/authentication?mode=signin">
               <button className="mr-2">Sign in</button>
             </Link>
             <Link to="/authentication?mode=signup">
@@ -147,7 +147,7 @@ const Navbar = () => {
               <RiShoppingCartLine className="text-black text-2xl shadow-lg group-hover:rotate-12"/>
               <span className="text-xl">{totalQuantity}</span>
             </button>
-            <Link to="/authentication?mode=login">
+            <Link to="/authentication?mode=signin">
               <button className="mr-2">Sign in</button>
             </Link>
             <Link to="/authentication?mode=signup">
