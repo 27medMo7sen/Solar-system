@@ -3,7 +3,7 @@ const blogSchema = new mongoose.Schema({
   title: String,
   author: String,
   content: String,
-  created_at: { type: Date, default: Date.now },
+  created_at: { type: Date, default: Date.now, index: true },
 });
 
 const blogModel = mongoose.model("Blog", blogSchema);

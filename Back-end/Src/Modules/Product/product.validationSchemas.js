@@ -4,19 +4,19 @@ import JoiObjectId from 'joi-objectid';
 Joi.objectId = JoiObjectId(Joi);
 
 export const createProductSchema = Joi.object({
-  name: Joi.string().min(3).required().messages({
+  name: Joi.string().trim().min(3).required().messages({
     'string.base': 'Name should be a type of text',
     'string.empty': 'Name cannot be an empty field',
     'string.min': 'Name should have a minimum length of 3 characters',
     'any.required': 'Name is a required field'
   }),
-  model: Joi.string().min(3).required().messages({
+  model: Joi.string().trim().min(3).required().messages({
     'string.base': 'Model should be a type of text',
     'string.empty': 'Model cannot be an empty field',
     'string.min': 'Model should have a minimum length of 3 characters',
     'any.required': 'Model is a required field'
   }),
-  description: Joi.string().max(1000).optional().messages({
+  description: Joi.string().trim().max(1000).optional().messages({
     'string.base': 'Description should be a type of text',
     'string.max': 'Description should have a maximum length of 1000 characters'
   }),
@@ -34,7 +34,7 @@ export const createProductSchema = Joi.object({
     'number.positive': 'Efficiency should be a positive number',
     'any.required': 'Efficiency is a required field'
   }),
-  images: Joi.array().items(Joi.string().uri()).optional().messages({
+  images: Joi.array().items(Joi.string().trim().uri()).optional().messages({
     'array.base': 'Images should be an array of URLs',
     'string.uri': 'Each image should be a valid URL'
   }),
@@ -60,17 +60,17 @@ export const createProductSchema = Joi.object({
 });
 
 export const updateProductSchema = Joi.object({
-  name: Joi.string().min(3).messages({
+  name: Joi.string().trim().min(3).messages({
     'string.base': 'Name should be a type of text',
     'string.empty': 'Name cannot be an empty field',
     'string.min': 'Name should have a minimum length of 3 characters'
   }),
-  model: Joi.string().min(3).messages({
+  model: Joi.string().trim().min(3).messages({
     'string.base': 'Model should be a type of text',
     'string.empty': 'Model cannot be an empty field',
     'string.min': 'Model should have a minimum length of 3 characters'
   }),
-  description: Joi.string().max(1000).messages({
+  description: Joi.string().trim().max(1000).messages({
     'string.base': 'Description should be a type of text',
     'string.max': 'Description should have a maximum length of 1000 characters'
   }),
@@ -85,7 +85,7 @@ export const updateProductSchema = Joi.object({
     'number.base': 'Efficiency should be a type of number',
     'number.positive': 'Efficiency should be a positive number'
   }),
-  images: Joi.array().items(Joi.string().uri()).messages({
+  images: Joi.array().items(Joi.string().trim().uri()).messages({
     'array.base': 'Images should be an array of URLs',
     'string.uri': 'Each image should be a valid URL'
   }),

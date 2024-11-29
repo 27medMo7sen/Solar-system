@@ -8,6 +8,9 @@ import { uiActions } from "../store/ui-slice";
 import { Search } from "../components/General/Search";
 import { SideNavbar } from "../components/General/SideNavbar";
 import { Pathbar } from "../components/General/Pathbar";
+import { cartActions } from "../store/cart-slice";
+import { CartMain } from "../components/General/Cart/CartMain";
+
 export const Root = () => {
 
   const dispatch = useDispatch();
@@ -24,7 +27,12 @@ export const Root = () => {
   const searchModalIsVisible = useSelector(
     (state) => state.ui.searchModalIsVisible
   );
-
+  const items = useSelector((state) => state.cart.items);
+  const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+  const isCartVisible = useSelector((state) => state.cart.isCartVisible);
+  const toggleCart = () => {
+    dispatch(cartActions.toggleCart());
+  };
   return (
     <Fragment>
       <Navbar />
@@ -32,6 +40,11 @@ export const Root = () => {
       {searchModalIsVisible && (
         <Modal onClose={closeSearchModal}>
           <Search />
+        </Modal>
+      )}
+      {isCartVisible && (
+        <Modal onClose={toggleCart}>
+         <CartMain/>
         </Modal>
       )}
       {sideModalIsVisible && (

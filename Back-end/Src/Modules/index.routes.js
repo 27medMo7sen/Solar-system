@@ -7,6 +7,9 @@ import energyDataRouter from "./EnergyData/energyData.routes.js";
 import maintenanceRouter from "./Maintenance/maintenance.routes.js";
 import orderRouter from "./Order/order.routes.js";
 import productRouter from "./Product/product.routes.js";
+import requestRouter from "./Request/request.routes.js";
+import vendorRouter from "./Vendor/vendor.routes.js";
+
 export {
   authRouter,
   blogRouter,
@@ -17,4 +20,6 @@ export {
   maintenanceRouter,
   orderRouter,
   productRouter,
+  requestRouter,
+  vendorRouter,
 };

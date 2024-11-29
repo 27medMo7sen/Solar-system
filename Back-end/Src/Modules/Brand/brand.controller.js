@@ -1,4 +1,4 @@
-import brandModel from "../../../models/Brand.js";
+import brandModel from "./brand.schema.js";
 export const createBrand = async (req, res) => {
   const brand = new brandModel({ ...req.body });
   await brand.save();
