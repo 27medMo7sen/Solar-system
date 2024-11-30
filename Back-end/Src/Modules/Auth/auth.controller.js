@@ -109,9 +109,16 @@ export const logIn = async (req, res, next) => {
       sameSite: "Lax",
       secure: true,
     });
+    const ret = {
+      message: "User logged in",
+      ...updatedUser.profile,
+      role: user.role,
+      email: updatedUser.email,
+      token: updatedUser.token,
+    }
     res
       .status(200)
-      .json({ message: "User logged in", user: updatedUser.profile, role: user.role });
+      .json({ message: "User logged in",ret});
   } catch (e) {
     console.log("error", e);
   }

@@ -4,10 +4,11 @@ import { useDispatch } from "react-redux";
 import { uiActions } from "../../store/ui-slice";
 import { FaSearch } from "react-icons/fa";
 import { useSelector } from "react-redux";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 import { RiShoppingCartLine } from "react-icons/ri";
 import { cartActions } from "../../store/cart-slice";
-import logo from "../../assets/Solar Ease.png"
+import { userActions } from "../../store/user-slice";
+import logo from "../../assets/Solar Ease.png";
 const Navbar = () => {
   const dispatch = useDispatch();
   const toggleSideModal = () => {
@@ -16,6 +17,11 @@ const Navbar = () => {
   const toggleSearchModal = () => {
     dispatch(uiActions.toggleSearchModal());
   };
+  const [profileClicked, setProfileClicked] = useState(false);
+  const logged_in = useSelector((state) => state.user.logged_in);
+  console.log(logged_in);
+  const firstName = useSelector((state) => state.user.first_name);
+  const profilePic = useSelector((state) => state.user.profile_pic);
   const [lastScrollY, setLastScrollY] = useState(0);
   const navbarIsVisible = useSelector((state) => state.ui.navbarIsVisible);
   const handleScroll = () => {
@@ -31,7 +37,7 @@ const Navbar = () => {
   };
   const openCart = () => {
     dispatch(cartActions.toggleCart());
-  }
+  };
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -39,6 +45,10 @@ const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [lastScrollY]);
+  const logoutHandler = () => {
+    setProfileClicked(false);
+    dispatch(userActions.logout());
+  };
 
   const activeClass = "text-Primary-button";
   const inactiveClass =
@@ -125,16 +135,53 @@ const Navbar = () => {
             >
               <FaSearch className="text-black" />
             </div>
-            <button onClick={openCart} className = "w-12 h-9 flex justify-center items-center cursor-pointer gap-1 border-1 rounded-md shadow-sm shadow-black hover:bg-gray-200 group">
+            <button
+              onClick={openCart}
+              className="w-12 h-9 flex justify-center items-center cursor-pointer gap-1 border-1 rounded-md shadow-sm shadow-black hover:bg-gray-200 group"
+            >
               <RiShoppingCartLine className="text-black text-2xl shadow-lg group-hover:rotate-12" />
               <span className="text-xl">{totalQuantity}</span>
             </button>
-            <Link to="/authentication?mode=signin">
-              <button className="mr-2">Sign in</button>
-            </Link>
-            <Link to="/authentication?mode=signup">
-              <button className="mr-2">Sign up</button>
-            </Link>
+            {!logged_in && (
+              <Link to="/authentication?mode=signin">
+                <div className="mr-2 min-w-14">Sign in</div>
+              </Link>
+            )}
+            {!logged_in && (
+              <Link to="/authentication?mode=signup">
+                <div className="mr-2 min-w-14 ">Sign up</div>
+              </Link>
+            )}
+            {logged_in && (
+              <div className="flex flex-col cursor-pointer">
+                <div
+                  className="flex items-center gap-2 "
+                  onClick={() => {
+                    setProfileClicked((prev) => !prev); //toggle
+                  }}
+                >
+                  <img
+                    src={profilePic}
+                    alt="profile"
+                    className="h-8 w-8 rounded-full"
+                  />
+                  <div>{firstName}</div>
+                </div>
+                {profileClicked && (
+                  <div className=" absolute top-14 bg-white shadow-lg rounded-md flex flex-col">
+                    <Link className="hover:bg-slate-200 w-full text-center p-3">
+                      Profile
+                    </Link>
+                    <Link className="hover:bg-slate-200 w-full text-center p-3">
+                      Settings
+                    </Link>
+                    <button onClick={logoutHandler} className="hover:bg-slate-200 w-full text-center p-3">
+                      Logout
+                    </button>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
           <div className=" hidden mx-lg:flex font-bold gap-2 justify-center items-center">
             <div
@@ -143,16 +190,53 @@ const Navbar = () => {
             >
               <FaSearch className="text-black text-sm" />
             </div>
-            <button onClick={openCart} className = "w-12 h-9 flex justify-center items-center cursor-pointer gap-1 border-1 rounded-md shadow-sm shadow-black hover:bg-gray-200 group">
-              <RiShoppingCartLine className="text-black text-2xl shadow-lg group-hover:rotate-12"/>
+            <button
+              onClick={openCart}
+              className="w-12 h-9 flex justify-center items-center cursor-pointer gap-1 border-1 rounded-md shadow-sm shadow-black hover:bg-gray-200 group"
+            >
+              <RiShoppingCartLine className="text-black text-2xl shadow-lg group-hover:rotate-12" />
               <span className="text-xl">{totalQuantity}</span>
             </button>
-            <Link to="/authentication?mode=signin">
-              <button className="mr-2">Sign in</button>
-            </Link>
-            <Link to="/authentication?mode=signup">
-              <button className="mr-2">Sign up</button>
-            </Link>
+            {!logged_in && (
+              <Link to="/authentication?mode=signin">
+                <div className="mr-2  ">Sign in</div>
+              </Link>
+            )}
+            {!logged_in && (
+              <Link to="/authentication?mode=signup">
+                <div className="mr-2   ">Sign up</div>
+              </Link>
+            )}
+            {logged_in && (
+              <div className="flex flex-col cursor-pointer">
+                <div
+                  className="flex items-center gap-2 "
+                  onClick={() => {
+                    setProfileClicked((prev) => !prev); //toggle
+                  }}
+                >
+                  <img
+                    src={profilePic}
+                    alt="profile"
+                    className="h-8 w-8 rounded-full"
+                  />
+                  <div>{firstName}</div>
+                </div>
+                {profileClicked && (
+                  <div className=" absolute top-14 bg-white shadow-lg rounded-md flex flex-col">
+                    <Link className="hover:bg-slate-200 w-full text-center p-3">
+                      Profile
+                    </Link>
+                    <Link className="hover:bg-slate-200 w-full text-center p-3">
+                      Settings
+                    </Link>
+                    <button onClick={logoutHandler} className="hover:bg-slate-200 w-full text-center p-3">
+                      Logout
+                    </button>
+                  </div>
+                )}
+              </div>
+            )}
             <IoMenu
               className="text-2xl cursor-pointer"
               onClick={toggleSideModal}

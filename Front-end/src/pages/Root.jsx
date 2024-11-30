@@ -11,13 +11,38 @@ import { Pathbar } from "../components/General/Pathbar";
 import { cartActions } from "../store/cart-slice";
 import { CartMain } from "../components/General/Cart/CartMain";
 import LoadingBar from "react-top-loading-bar";
-import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 axios.defaults.withCredentials = true;
 axios.defaults.baseURL = "http://localhost:3000/api";
+import cookie from "js-cookie";
+import { userActions } from "../store/user-slice";
+
 export const Root = () => {
   const dispatch = useDispatch();
+  useEffect(() => {
+    const token = cookie.get("userToken");
+    if (token) {
+      const first_name = localStorage.getItem("first_name");
+      const last_name = localStorage.getItem("last_name");
+      const email = localStorage.getItem("email");
+      const phone_number = localStorage.getItem("phone_number");
+      const role = localStorage.getItem("role");
+      dispatch(
+        userActions.login({
+          token,
+          first_name,
+          last_name,
+          email,
+          phone_number,
+          role,
+        })
+      );
+    } else {
+      dispatch(userActions.logout());
+    }
+  }, []);
+
   const pathbarLinks = useSelector((state) => state.ui.pathbarLinks);
   const closeSideModal = () => {
     dispatch(uiActions.toggleSideModal());
@@ -54,9 +79,9 @@ export const Root = () => {
         progress={progress}
         onLoaderFinished={() => setProgress(0)}
       />
- 
+
       <Navbar />
-      {(pathbarLinks.length>1 && <Pathbar path={pathbarLinks} />)}
+      {pathbarLinks.length > 1 && <Pathbar path={pathbarLinks} />}
       {searchModalIsVisible && (
         <Modal onClose={closeSearchModal}>
           <Search />
@@ -64,7 +89,7 @@ export const Root = () => {
       )}
       {isCartVisible && (
         <Modal onClose={toggleCart}>
-         <CartMain/>
+          <CartMain />
         </Modal>
       )}
       {sideModalIsVisible && (
@@ -72,10 +97,10 @@ export const Root = () => {
           <div className="flex justify-center font-bold items-center h-10 border-b-4">
             Menu
           </div>
-          <SideNavbar /> 
+          <SideNavbar />
         </SideModal>
       )}
-        <Outlet />
+      <Outlet />
       <Footer />
     </Fragment>
   );

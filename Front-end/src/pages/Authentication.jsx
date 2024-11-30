@@ -42,9 +42,10 @@ export const Authentication = () => {
   );
 };
 export const action = async ({ request }) => {
-  const serchParams = new URL(request.url).searchParams;
-  const mode = serchParams.get("mode");
+  const searchParams = new URL(request.url).searchParams;
+  const mode = searchParams.get("mode");
   const data = await request.formData();
+
   let bodyObj;
   if (mode === "signup") {
     bodyObj = {
@@ -67,23 +68,30 @@ export const action = async ({ request }) => {
       email: data.get("email"),
     };
   }
-  console.log(bodyObj);
-  const res = await axios.post(
-    `/auth/${
-    mode === "signup"
-      ? "sign-up"
-      : mode === "signin"
-      ? "log-in"
-      : "forget-password"
+
+  try {
+    const res = await axios.post(
+      `/auth/${
+        mode === "signup"
+          ? "sign-up"
+          : mode === "signin"
+          ? "log-in"
+          : "forget-password"
+      }`,
+      bodyObj
+    );
+    console.log(res.data);
+    return {
+      message: res.data.message,
+      status: res.status,
+      ret: res.data.ret || null,
+      
+    };
+  } catch (error) {
+    const res = error.response || {};
+    return {
+      message: res.data?.message || "Something went wrong!",
+      status: res.status || 500, 
+    };
   }
-    `,
-    bodyObj
-  );
-  console.log(res);
-  // const resData = await res.json();
-  const ret = {
-    message: res.data.message,
-    status: res.status,
-  };
-  return ret;
 };
