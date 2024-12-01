@@ -1,10 +1,10 @@
-import { Form, Link, NavLink, useFetcher } from "react-router-dom";
+import {Link, NavLink, useFetcher } from "react-router-dom";
 import { IoMenu } from "react-icons/io5";
 import { useDispatch } from "react-redux";
 import { uiActions } from "../../store/ui-slice";
 import { FaSearch } from "react-icons/fa";
 import { useSelector } from "react-redux";
-import { useState, useEffect, Fragment } from "react";
+import { useState, useEffect } from "react";
 import { RiShoppingCartLine } from "react-icons/ri";
 import { cartActions } from "../../store/cart-slice";
 import { userActions } from "../../store/user-slice";
