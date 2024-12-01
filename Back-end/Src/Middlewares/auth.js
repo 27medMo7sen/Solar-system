@@ -5,8 +5,10 @@ export const isAuth = (roles) => {
   return async (req, res, next) => {
     try {
       if (!roles.includes("Guest")) {
+        console.log(req.headers); 
         const { authorization } = req.headers;
         if (!authorization) {
+          console.log("no auth");
           return next(new Error("Please login first", { cause: 400 }));
         }
 

@@ -9,8 +9,12 @@ import Partnership from "./pages/Partnership";
 import { action as authAction } from "./pages/Authentication";
 import { Categories } from "./pages/Categories";
 import DashboardPage from "./pages/DashboardPage";
-import { Confirmation, loader as confirmationLoader } from "./pages/Confirmation";
+import {
+  Confirmation,
+  loader as confirmationLoader,
+} from "./pages/Confirmation";
 import { ToastContainer } from "react-toastify";
+import { action as logOutAction } from "./pages/Logout";
 import "react-toastify/dist/ReactToastify.css";
 const router = createBrowserRouter([
   {
@@ -29,7 +33,7 @@ const router = createBrowserRouter([
         path: "product-details/:name",
         element: <ProductDetails />,
       },
-     
+
       {
         path: "categories",
         element: <Categories />,
@@ -48,18 +52,22 @@ const router = createBrowserRouter([
         action: authAction,
       },
       {
-        path:"confirm/:token",
-        element:<Confirmation/>,
-        loader: confirmationLoader
-      }
-
+        path: "confirm/:token",
+        element: <Confirmation />,
+        loader: confirmationLoader,
+      },
+      {
+        path: "logout",
+        id: "logout",
+        action: logOutAction,
+      },
     ],
   },
 ]);
 function App() {
   return (
     <Fragment>
-       <ToastContainer
+      <ToastContainer
         theme="colored"
         position="top-right"
         autoClose={2000}

@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Form, Link, NavLink, useFetcher } from "react-router-dom";
 import { IoMenu } from "react-icons/io5";
 import { useDispatch } from "react-redux";
 import { uiActions } from "../../store/ui-slice";
@@ -11,6 +11,16 @@ import { userActions } from "../../store/user-slice";
 import logo from "../../assets/Solar Ease.png";
 const Navbar = () => {
   const dispatch = useDispatch();
+  const fetcher = useFetcher();
+  const logoutData = fetcher.data;
+
+  useEffect(() => {
+    if (logoutData) {
+      console.log(logoutData);
+      dispatch(userActions.logout());
+      logoutHandler();
+    }
+  }, [logoutData]);
   const toggleSideModal = () => {
     dispatch(uiActions.toggleSideModal());
   };
@@ -59,7 +69,7 @@ const Navbar = () => {
         <div className="w-full justify-between gap-2 flex items-center px-28 mx-lg:px-10 mx-sm:px-2 ">
           <div>
             <Link to="/" className="font-bold tracking-wide">
-              <img src={logo} alt="Solar Ease" className="h-14" />
+              <img src={logo} alt="Solar Ease" className="h-14 min-w-24" />
             </Link>
           </div>
           <div className="text-black  md:flex  mx-lg:hidden   items-center space-x-6">
@@ -168,16 +178,20 @@ const Navbar = () => {
                   <div>{firstName}</div>
                 </div>
                 {profileClicked && (
-                  <div className=" absolute top-14 bg-white shadow-lg rounded-md flex flex-col">
+                  <div className=" absolute top-14 bg-white shadow-lg rounded-b-md flex flex-col">
                     <Link className="hover:bg-slate-200 w-full text-center p-3">
                       Profile
                     </Link>
                     <Link className="hover:bg-slate-200 w-full text-center p-3">
                       Settings
                     </Link>
-                    <button onClick={logoutHandler} className="hover:bg-slate-200 w-full text-center p-3">
-                      Logout
-                    </button>
+                    <fetcher.Form method="post" action="/logout">
+                      <button type="submit"  className="hover:bg-slate-200 hover:rounded-b-md w-full text-center p-3">
+                        {fetcher.state === "submitting"
+                          ? "Logging out..."
+                          : "Logout"}
+                      </button>
+                    </fetcher.Form>
                   </div>
                 )}
               </div>
@@ -230,7 +244,10 @@ const Navbar = () => {
                     <Link className="hover:bg-slate-200 w-full text-center p-3">
                       Settings
                     </Link>
-                    <button onClick={logoutHandler} className="hover:bg-slate-200 w-full text-center p-3">
+                    <button
+                      onClick={logoutHandler}
+                      className="hover:bg-slate-200 w-full text-center p-3"
+                    >
                       Logout
                     </button>
                   </div>

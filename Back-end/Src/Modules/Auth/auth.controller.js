@@ -6,8 +6,7 @@ import { generateToken, verifyToken } from "../../Utils/tokenFunctions.js";
 import { sendEmailServices } from "../../Services/sendEmailService.js";
 // MARK:signup
 export const signUp = async (req, res, next) => {
-  const { first_name, last_name , phone_number,  email, password } =
-  req.body;
+  const { first_name, last_name, phone_number, email, password } = req.body;
 
   console.log(first_name, last_name, phone_number, email, password);
   const findAcc = await accountModel.findOne({ email });
@@ -26,7 +25,7 @@ export const signUp = async (req, res, next) => {
   const account = await accountModel.create({
     email,
     password: hashedPassword,
-    role: "user",
+    role: "Customer",
     profile: user,
   });
   if (!account) {
@@ -52,7 +51,9 @@ export const signUp = async (req, res, next) => {
   if (!isEmailSent) {
     return next(new Error("Email not sent", { code: 500 }));
   }
-  res.status(201).json({message:"Sign up done successfully!!", user, confirmationLink });
+  res
+    .status(201)
+    .json({ message: "Sign up done successfully!!", user, confirmationLink });
 };
 //MARK: confirm email
 export const confirmEmail = async (req, res, next) => {
@@ -87,7 +88,7 @@ export const logIn = async (req, res, next) => {
     if (!user) return next(new Error("Email not found", { cause: 436 }));
     if (!compareSync(password, user.password))
       return next(new Error("Password not correct", { cause: 436 }));
-    console.log(user)
+    console.log(user);
     const token = generateToken({
       payload: {
         email,
@@ -115,11 +116,24 @@ export const logIn = async (req, res, next) => {
       role: user.role,
       email: updatedUser.email,
       token: updatedUser.token,
-    }
-    res
-      .status(200)
-      .json({ message: "User logged in",ret});
+    };
+    res.status(200).json({ message: "User logged in", ret });
   } catch (e) {
     console.log("error", e);
   }
+};
+
+// MARK: logout
+export const logOut = async (req, res, next) => {
+  console.log("logout");
+  const user = req.user;
+  const updatedUser = await accountModel.findOneAndUpdate(
+    { email: user.email },
+    { token: "" },
+    { new: true }
+  );
+
+  if (!updatedUser) return next(new Error("User not found", { cause: 404 }));
+  res.clearCookie("userToken");
+  res.status(200).json({ message: "User logged out" });
 };
