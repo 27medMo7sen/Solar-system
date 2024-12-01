@@ -34,17 +34,6 @@ export const userSlice = createSlice({
       state.logged_in = false;
       state.profile_pic = placeholder;
     },
-    refresh(state, action) {
-      state.first_name = action.payload.first_name;
-      state.last_name = action.payload.last_name;
-      state.email = action.payload.email;
-      state.phone_number = action.payload.phone_number;
-      state.role = action.payload.role;
-      state.logged_in = true;
-      state.token = action.payload.token;
-      if (action.payload.profile_pic)
-        state.profile_pic = action.payload.profile_pic;
-    },
   },
 });
 export const userActions = userSlice.actions;

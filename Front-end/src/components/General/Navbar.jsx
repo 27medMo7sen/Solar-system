@@ -1,4 +1,4 @@
-import {Link, NavLink, useFetcher } from "react-router-dom";
+import { Link, NavLink, useFetcher } from "react-router-dom";
 import { IoMenu } from "react-icons/io5";
 import { useDispatch } from "react-redux";
 import { uiActions } from "../../store/ui-slice";
@@ -13,10 +13,8 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const fetcher = useFetcher();
   const logoutData = fetcher.data;
-
   useEffect(() => {
     if (logoutData) {
-      console.log(logoutData);
       dispatch(userActions.logout());
       logoutHandler();
     }
@@ -29,11 +27,11 @@ const Navbar = () => {
   };
   const [profileClicked, setProfileClicked] = useState(false);
   const logged_in = useSelector((state) => state.user.logged_in);
-  console.log(logged_in);
   const firstName = useSelector((state) => state.user.first_name);
   const profilePic = useSelector((state) => state.user.profile_pic);
   const [lastScrollY, setLastScrollY] = useState(0);
   const navbarIsVisible = useSelector((state) => state.ui.navbarIsVisible);
+  const role = useSelector((state) => state.user.role);
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
     if (Math.abs(currentScrollY - lastScrollY) > 40) {
@@ -97,22 +95,26 @@ const Navbar = () => {
             >
               Services
             </NavLink>
-            <NavLink
-              to="/partnership"
-              className={({ isActive }) =>
-                isActive ? activeClass : inactiveClass
-              }
-            >
-              Partnership
-            </NavLink>
-            <NavLink
-              to="/dashboard"
-              className={({ isActive }) =>
-                isActive ? activeClass : inactiveClass
-              }
-            >
-              Dashboard
-            </NavLink>
+            {role !== "Vendor" && (
+              <NavLink
+                to="/partnership"
+                className={({ isActive }) =>
+                  isActive ? activeClass : inactiveClass
+                }
+              >
+                Partnership
+              </NavLink>
+            )}
+            {role === "Vendor" && (
+              <NavLink
+                to="/dashboard"
+                className={({ isActive }) =>
+                  isActive ? activeClass : inactiveClass
+                }
+              >
+                Dashboard
+              </NavLink>
+            )}
             <NavLink
               to="/solar-calculator"
               className={({ isActive }) =>
@@ -186,7 +188,10 @@ const Navbar = () => {
                       Settings
                     </Link>
                     <fetcher.Form method="post" action="/logout">
-                      <button type="submit"  className="hover:bg-slate-200 hover:rounded-b-md w-full text-center p-3">
+                      <button
+                        type="submit"
+                        className="hover:bg-slate-200 hover:rounded-b-md w-full text-center p-3"
+                      >
                         {fetcher.state === "submitting"
                           ? "Logging out..."
                           : "Logout"}
