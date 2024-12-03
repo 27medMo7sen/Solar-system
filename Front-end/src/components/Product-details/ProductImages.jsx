@@ -1,7 +1,6 @@
 import { productImages } from "../../Data";
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
-import ReactImageMagnify from "react-image-magnify";
 import { useState } from "react";
 export const ProductImages = () => {
   const [imageIndex, setImageIndex] = useState(0);

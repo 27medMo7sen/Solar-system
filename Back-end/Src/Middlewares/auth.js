@@ -7,13 +7,13 @@ export const isAuth = (roles) => {
       if (!roles.includes("Guest")) {
         const { authorization } = req.headers;
         if (!authorization) {
+          console.log("no auth");
           return next(new Error("Please login first", { cause: 400 }));
         }
 
         if (!authorization.startsWith(process.env.TOKEN_PREFIX)) {
           return next(new Error("invalid token prefix", { cause: 400 }));
         }
-
         const splitedToken = authorization.split(" ")[1];
         let decodedData;
         try {

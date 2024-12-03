@@ -14,10 +14,11 @@ router.post(
   asyncHandler(ac.signUp)
 );
 router.get("/confirm/:token", asyncHandler(ac.confirmEmail));
-router.patch(
+router.post(
   "/log-in",
   validateBody(loginValidationSchema),
   asyncHandler(ac.logIn)
 );
+router.patch("/log-out", isAuth(authRoles.logOut), asyncHandler(ac.logOut));
 
 export default router;

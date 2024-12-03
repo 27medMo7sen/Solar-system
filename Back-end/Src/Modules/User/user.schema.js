@@ -4,11 +4,7 @@ const userSchema = new mongoose.Schema({
   first_name: String,
   last_name: String,
   phone_number: String,
-  address: {
-    location: String,
-    zip_code: Number,
-    city: String,
-  },
+  address: String,
   profile_pic: String,
   installed_products: [
     {
@@ -18,7 +14,7 @@ const userSchema = new mongoose.Schema({
       end_of_warranty: Date,
     },
   ],
-  monthly_consumption: Number,
+  monthly_consumption: {type:Number, required: false},
   created_at: { type: Date, default: Date.now, index: true },
 });
 
