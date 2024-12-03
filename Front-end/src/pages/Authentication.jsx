@@ -8,7 +8,7 @@ import { CheckInbox } from "../components/Forms/CheckInbox";
 import { uiActions } from "../store/ui-slice";
 import { useDispatch } from "react-redux";
 import axios from "axios";
-
+import cookies from "js-cookie"
 export const Authentication = () => {
   const dispatch = useDispatch();
   dispatch(uiActions.clearPath());
@@ -71,7 +71,7 @@ export const action = async ({ request }) => {
 
   try {
     const res = await axios.post(
-      `/auth/${
+      `/auth/${ 
         mode === "signup"
           ? "sign-up"
           : mode === "signin"
@@ -85,7 +85,6 @@ export const action = async ({ request }) => {
       message: res.data.message,
       status: res.status,
       ret: res.data.ret || null,
-      
     };
   } catch (error) {
     const res = error.response || {};

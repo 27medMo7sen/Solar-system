@@ -16,7 +16,7 @@ export const initiateApp = (app, express) => {
   app.use("/api/energy-data", allRoutes.energyDataRouter);
   app.use("/api/maintenances", allRoutes.maintenanceRouter);
   app.use("/api/orders", allRoutes.orderRouter);
-  app.use("/api/products", allRoutes.productRouter);
+  app.use("/api/products", allRoutes.productRouter);// /1    patch
   app.use("/api/requests", allRoutes.requestRouter);
   app.use("/api/vendors", allRoutes.vendorRouter);
 

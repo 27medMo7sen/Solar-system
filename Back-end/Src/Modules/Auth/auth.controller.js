@@ -7,7 +7,7 @@ import { sendEmailServices } from "../../Services/sendEmailService.js";
 // MARK:signup
 export const signUp = async (req, res, next) => {
   const { first_name, last_name, phone_number, email, password } = req.body;
-
+  console.log("i'm here");
   console.log(first_name, last_name, phone_number, email, password);
   const findAcc = await accountModel.findOne({ email });
   if (findAcc) {
@@ -79,7 +79,6 @@ export const confirmEmail = async (req, res, next) => {
 
 // MARK: login
 export const logIn = async (req, res, next) => {
-  try {
     const { email, password } = req.body;
     const user = await accountModel.findOne({
       email: email,
@@ -118,15 +117,12 @@ export const logIn = async (req, res, next) => {
       token: updatedUser.token,
     };
     res.status(200).json({ message: "User logged in", ret });
-  } catch (e) {
-    console.log("error", e);
-  }
 };
 
 // MARK: logout
 export const logOut = async (req, res, next) => {
   console.log("logout");
-  const user = req.user;
+  const user = req.user; 
   const updatedUser = await accountModel.findOneAndUpdate(
     { email: user.email },
     { token: "" },
