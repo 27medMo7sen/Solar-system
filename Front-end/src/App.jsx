@@ -1,14 +1,12 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Root } from "./pages/Root";
-import { Fragment } from "react";
-import { Home } from "./pages/Home";
-import { Products } from "./pages/Products";
-import { ProductDetails } from "./pages/ProductDetails";
-
-import Partnership from "./pages/Partnership";
-
-import { Categories } from "./pages/Categories";
-import DashboardPage from "./pages/DashboardPage";
+import React, { Fragment } from "react";
+const Home = React.lazy(() => import("./pages/Home"));
+const Products = React.lazy(() => import("./pages/Products"));
+const ProductDetails = React.lazy(() => import("./pages/ProductDetails"));
+const Partnership = React.lazy(() => import("./pages/Partnership"));
+const Categories = React.lazy(() => import("./pages/Categories"));
+const DashboardPage = React.lazy(() => import("./pages/DashboardPage"));
 
 const router = createBrowserRouter([
   {
@@ -17,32 +15,52 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />,
+        element: (
+          <React.Suspense fallback={<div>Loading...</div>}>
+            <Home />
+          </React.Suspense>
+        ),
       },
       {
         path: "products",
-        element: <Products />,
+        element: (
+          <React.Suspense fallback={<div>Loading...</div>}>
+            <Products />
+          </React.Suspense>
+        ),
       },
       {
         path: "product-details/:name",
-        element: <ProductDetails />,
+        element: (
+          <React.Suspense fallback={<div>Loading...</div>}>
+            <ProductDetails />
+          </React.Suspense>
+        ),
       },
-     
       {
         path: "categories",
-        element: <Categories />,
+        element: (
+          <React.Suspense fallback={<div>Loading...</div>}>
+            <Categories />
+          </React.Suspense>
+        ),
       },
       {
-
         path: "partnership",
-        element: <Partnership />,
+        element: (
+          <React.Suspense fallback={<div>Loading...</div>}>
+            <Partnership />
+          </React.Suspense>
+        ),
       },
       {
-
         path: "dashboard",
-        element: <DashboardPage />,
+        element: (
+          <React.Suspense fallback={<div>Loading...</div>}>
+            <DashboardPage />
+          </React.Suspense>
+        ),
       },
-
     ],
   },
 ]);

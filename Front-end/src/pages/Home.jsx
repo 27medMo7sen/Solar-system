@@ -7,13 +7,15 @@ import { FeaturedProducts } from "../components/HomePage/FeaturedProducts";
 import Partners from "../components/HomePage/Partners";
 import { uiActions } from "../store/ui-slice";
 import FAQS from "../components/General/FAQS";
-export const Home = () => {
+
+const Home = () => {
   const dispatch = useDispatch();
-  dispatch(uiActions.clearPath());
-    useEffect(() => {
-      dispatch(uiActions.addToPathbar({ name: "Home", link: "/" }));
-      window.scrollTo(0,0);
-    }, [dispatch]);
+  useEffect(() => {
+    dispatch(uiActions.clearPath());
+    dispatch(uiActions.addToPathbar({ name: "Home", link: "/" }));
+    window.scrollTo(0, 0);
+  }, [dispatch]);
+
   return (
     <Fragment>
       <Hero />
@@ -25,3 +27,5 @@ export const Home = () => {
     </Fragment>
   );
 };
+
+export default Home;

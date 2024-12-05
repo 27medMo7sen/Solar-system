@@ -36,7 +36,7 @@ export const Root = () => {
   return (
     <Fragment>
       <Navbar />
-      {(pathbarLinks.length!==1 && <Pathbar path={pathbarLinks} />)}
+      {(pathbarLinks.length !== 1 && <Pathbar path={pathbarLinks} />)}
       {searchModalIsVisible && (
         <Modal onClose={closeSearchModal}>
           <Search />
@@ -44,7 +44,7 @@ export const Root = () => {
       )}
       {isCartVisible && (
         <Modal onClose={toggleCart}>
-         <CartMain/>
+          <CartMain />
         </Modal>
       )}
       {sideModalIsVisible && (
@@ -52,10 +52,10 @@ export const Root = () => {
           <div className="flex justify-center font-bold items-center h-10 border-b-4">
             Menu
           </div>
-          <SideNavbar /> 
+          <SideNavbar />
         </SideModal>
       )}
-        <Outlet />
+      <Outlet />
       <Footer />
     </Fragment>
   );

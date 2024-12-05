@@ -2,15 +2,16 @@ import { useDispatch } from "react-redux";
 import { uiActions } from "../store/ui-slice";
 import { Fragment, useEffect } from "react";
 import Dashboard from "../components/Dashboard/Dashboard";
+
 const DashboardPage = () => {
+  const dispatch = useDispatch();
+
   useEffect(() => {
     window.scrollTo(0, 0);
-  },[]); 
-  const dispatch = useDispatch();
-  dispatch(uiActions.clearPath());
-  dispatch(
-    uiActions.addToPathbar({ name: "Dashboard", link: "/dashboard" })
-  );
+    dispatch(uiActions.clearPath());
+    dispatch(uiActions.addToPathbar({ name: "Dashboard", link: "/dashboard" }));
+  }, [dispatch]);
+
   return (
     <Fragment>
       <Dashboard />
