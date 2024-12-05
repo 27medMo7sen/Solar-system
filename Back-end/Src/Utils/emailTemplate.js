@@ -338,8 +338,8 @@ export const emailTemplate = ({ link, linkData, subject, buttonText }) => {
                                         "
                                         width="140"
                                         height="49.4375"
-                                        alt=""
-                                        src=""
+                                        alt="solar ease"
+                                        src="https://res.cloudinary.com/doou4eolq/image/upload/v1732554880/jki9kwna5h03ssqp3jq2.png"
                                       />
                                     </div>
                                   </td>

@@ -14,28 +14,28 @@ export const createUserSchema = Joi.object({
     'string.empty': 'Last name cannot be an empty field',
     'any.required': 'Last name is a required field'
   }),
-  phone_number: Joi.string().trim().pattern(/^[0-9]{10,15}$/).required().messages({
+  phone_number: Joi.string().min(11).required().messages({
     'string.base': 'Phone number should be a type of text',
     'string.empty': 'Phone number cannot be an empty field',
-    'string.pattern.base': 'Phone number should be a valid phone number with 10 to 15 digits',
+    'string.pattern.base': 'Phone number should be a valid phone number with 10 to 30 digits',
     'any.required': 'Phone number is a required field'
   }),
-  address: Joi.object({
-    location: Joi.string().trim().required().messages({
-      'string.base': 'Location should be a type of text',
-      'string.empty': 'Location cannot be an empty field',
-      'any.required': 'Location is a required field'
-    }),
-    zip_code: Joi.number().required().messages({
-      'number.base': 'Zip code should be a type of number',
-      'any.required': 'Zip code is a required field'
-    }),
-    city: Joi.string().trim().required().messages({
-      'string.base': 'City should be a type of text',
-      'string.empty': 'City cannot be an empty field',
-      'any.required': 'City is a required field'
-    }),
-  }).required(),
+  email: Joi.string().trim().email().required().messages({
+    'string.base': 'Email should be a type of text',
+    'string.empty': 'Email cannot be an empty field',
+    'string.email': 'Email should be a valid email',
+    'any.required': 'Email is a required field'
+  }),
+  password: Joi.string().trim().min(6).required().messages({
+    'string.base': 'Password should be a type of text',
+    'string.empty': 'Password cannot be an empty field',
+    'string.min': 'Password should have a minimum length of 6 characters',
+    'any.required': 'Password is a required field'
+  }),
+  address:Joi.string().trim().optional().messages({
+    'string.base': 'Address should be a type of text',
+    'string.empty': 'Address cannot be an empty field'
+  }),
   profile_pic: Joi.string().trim().optional().allow(null).messages({
     'string.base': 'Profile picture should be a type of text'
   }),
@@ -60,7 +60,7 @@ export const createUserSchema = Joi.object({
       }),
     })
   ).optional(),
-  monthly_consumption: Joi.number().required().messages({
+  monthly_consumption: Joi.number().optional().messages({
     'number.base': 'Monthly consumption should be a type of number',
     'any.required': 'Monthly consumption is a required field'
   }),

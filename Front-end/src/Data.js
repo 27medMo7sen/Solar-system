@@ -158,6 +158,7 @@ export const products = [
   {
     image: solarPanelImg,
     title: "The best solar panel",
+
     id: 6,
     description:
       "The best solar panel that you can get in our store for the next two decades",
@@ -201,7 +202,8 @@ export const categories = [
         discount: 50,
         reviews: 120,
         stars: 5,
-      }, {
+      },
+      {
         image: batteryImg,
         title: "The best battery",
         description:
@@ -211,7 +213,8 @@ export const categories = [
         discount: 50,
         reviews: 120,
         stars: 5,
-      }, {
+      },
+      {
         image: batteryImg,
         title: "The best battery",
         description:
@@ -221,7 +224,8 @@ export const categories = [
         discount: 50,
         reviews: 120,
         stars: 5,
-      }, {
+      },
+      {
         image: batteryImg,
         title: "The best battery",
         description:
@@ -231,7 +235,63 @@ export const categories = [
         discount: 50,
         reviews: 120,
         stars: 5,
-      }, {
+      },
+      {
+        image: batteryImg,
+        title: "The best battery",
+        description:
+          "The best battery that you can get in our store for the next two decades",
+        price: 200,
+        originalPrice: 400,
+        discount: 50,
+        reviews: 120,
+        stars: 5,
+      },
+      {
+        image: batteryImg,
+        title: "The best battery",
+        description:
+          "The best battery that you can get in our store for the next two decades",
+        price: 200,
+        originalPrice: 400,
+        discount: 50,
+        reviews: 120,
+        stars: 5,
+      },
+      {
+        image: batteryImg,
+        title: "The best battery",
+        description:
+          "The best battery that you can get in our store for the next two decades",
+        price: 200,
+        originalPrice: 400,
+        discount: 50,
+        reviews: 120,
+        stars: 5,
+      },
+      {
+        image: batteryImg,
+        title: "The best battery",
+        description:
+          "The best battery that you can get in our store for the next two decades",
+        price: 200,
+        originalPrice: 400,
+        discount: 50,
+        reviews: 120,
+        stars: 5,
+      },
+      {
+        image: batteryImg,
+        title: "The best battery",
+        description:
+          "The best battery that you can get in our store for the next two decades",
+        price: 200,
+        originalPrice: 400,
+        discount: 50,
+        reviews: 120,
+        stars: 5,
+      },
+      {
         image: batteryImg,
         title: "The best battery",
         description:
@@ -255,7 +315,7 @@ export const categories = [
           "The best inverter that you can get in our store for the next two decades",
         price: 200,
         originalPrice: 400,
-        discount: 50,
+        discount: "50%",
         reviews: 120,
         stars: 5,
       },

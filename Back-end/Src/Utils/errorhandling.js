@@ -1,5 +1,4 @@
 // import { productModel } from "../../DB/Models/product.model.js";
-
 export const asyncHandler = (API) => {
   return (req, res, next) => {
     API(req, res, next).catch(async (err) => {
@@ -9,7 +8,7 @@ export const asyncHandler = (API) => {
       //   await cloudinary.api.delete_folder(req.imagesPath);
       //   await productModel.deleteOne({ customId: req.customId });
       // }
-      return next(new Error('Fail', { cause: 500 }));
+      return next(new Error("Fail", { cause: 500 }));
     });
   };
 };

@@ -9,7 +9,7 @@ import { HiOutlineMail } from "react-icons/hi";
 import { FaPhoneVolume } from "react-icons/fa6";
 import backgroundImage from "../../assets/background.png";
 import { Link } from "react-router-dom";
-
+import logoDark from "../../assets/Solar Ease_dark.png";
 const links = ["home", "about-Us", "services", "products", "calculate"];
 const blogs = [
   {
@@ -27,7 +27,7 @@ export const Footer = () => {
     <footer className="flex flex-col justify-center items-center bg-black text-white">
       <div className="flex gap-10 w-full justify-around py-14 max-h-80 overflow-y-auto flex-wrap mx-sm:p-5 sm:gap-5">
         <div className="flex flex-col gap-3 mx-sm:w-full mx-sm:items-center mx-sm:text-center">
-          <p className="font-medium">Logo</p>
+          <img src={logoDark} alt="Solar Ease" className=" w-20" />
           <p className="text-sm w-80 flex flex-col gap-1 mx-sm:w-full">
             <span className="font-bold">
               Ready to cut energy costs and go green?

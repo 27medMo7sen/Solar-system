@@ -1,7 +1,6 @@
 import { productImages } from "../../Data";
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
-import ReactImageMagnify from "react-image-magnify";
 import { useState } from "react";
 export const ProductImages = () => {
   const [imageIndex, setImageIndex] = useState(0);
@@ -19,24 +18,7 @@ export const ProductImages = () => {
           <MdOutlineKeyboardArrowLeft />
         </button>
         <div className="w-96 p-5 flex items-center">
-          <ReactImageMagnify
-            {...{
-              smallImage: {
-                alt: "Wristwatch by Ted Baker London",
-                isFluidWidth: true,
-                src: productImages[imageIndex],
-              },
-              largeImage: {
-                src: productImages[imageIndex],
-                width: 1000,
-                height: 1000,
-              },
-              isHintEnabled: true,
-              enlargedImagePosition: "over",
-              shouldHideHintAfterFirstActivation: false,
-              enlargedImageContainerStyle: { zIndex: 9 },
-            }}
-          />
+         <img src={productImages[imageIndex]} alt="product" className="w-full h-full object-contain" />
         </div>
         <button
           className="text-2xl cursor-pointer absolute right-4 rounded-lg bg-slate-200/50 h-8 w-10 border border-1 justify-center flex items-center border-border-color hover:bg-slate-300"
