@@ -7,9 +7,15 @@ export const initiateApp = (app, express) => {
   app.use(express.json());
   connectDB();
 
-  // Configure CORS middleware
-  app.use(cors());
+  app.options("*", cors()); // Preflight requests for all routes
 
+  app.use(
+    cors({
+      origin: "*", // Allow all origins
+      methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allow all HTTP methods
+      allowedHeaders: ["Content-Type", "Authorization", "x-requested-with"], // Specify allowed headers
+    })
+  );
   // Test route
   app.get("/", (req, res) => res.send("Hello World"));
 
