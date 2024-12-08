@@ -7,7 +7,7 @@ export default defineConfig({
   build: {
     outDir: 'dist',
   },
-  base:"/solarease-tech.vercel.app",
+  base:"/",
   css: {
     postcss: "./postcss.config.js",
   },
