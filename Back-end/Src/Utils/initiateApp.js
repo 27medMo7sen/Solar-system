@@ -7,6 +7,13 @@ export const initiateApp = (app, express) => {
   app.use(express.json());
   connectDB();
   // app.get("/", (req, res) => res.send("Hello World"));
+  app.use(
+    cors({
+      origin: "http://deply-mern-lwhq.vercel.app",
+      methods: ["POST", "GET"],
+      credentials: true,
+    })
+  );
   app.use(cors({ origin: "http://localhost:5173", credentials: true }));
   app.use("/api/auth", allRoutes.authRouter);
   app.use("/api/blogs", allRoutes.blogRouter);
@@ -16,7 +23,7 @@ export const initiateApp = (app, express) => {
   app.use("/api/energy-data", allRoutes.energyDataRouter);
   app.use("/api/maintenances", allRoutes.maintenanceRouter);
   app.use("/api/orders", allRoutes.orderRouter);
-  app.use("/api/products", allRoutes.productRouter);// /1    patch
+  app.use("/api/products", allRoutes.productRouter); // /1    patch
   app.use("/api/requests", allRoutes.requestRouter);
   app.use("/api/vendors", allRoutes.vendorRouter);
 

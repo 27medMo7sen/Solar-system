@@ -18,7 +18,7 @@ const connectDB = async () => {
   // Connect to MongoDB
   config();
   mongoose
-    .connect(process.env.CONNECTION_DB_URL)
+    .connect(process.env.MONGO_URI)
     .then(() => {
       console.log("MongoDB connected");
 
