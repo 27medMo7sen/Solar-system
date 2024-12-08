@@ -16,7 +16,7 @@ const app = express();
 console.log("Hello World");
 app.use(
   cors({
-    origin: "*",
+    origin: "https://solarease.vercel.app",
     credentials: true,
   })
 );
