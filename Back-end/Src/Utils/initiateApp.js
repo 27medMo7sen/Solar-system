@@ -6,7 +6,7 @@ import cors from "cors";
 export const initiateApp = (app, express) => {
   app.use(express.json());
   connectDB();
-  // app.get("/", (req, res) => res.send("Hello World"));
+  app.get("/", (req, res) => res.send("Hello World"));
  
   // app.use(
   //   cors({
