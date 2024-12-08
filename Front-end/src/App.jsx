@@ -16,56 +16,57 @@ import {
 import { ToastContainer } from "react-toastify";
 import { action as logOutAction } from "./pages/Logout";
 import "react-toastify/dist/ReactToastify.css";
-const router = createBrowserRouter(
-  [
-    {
-      path: "/",
-      element: <Root />,
-      children: [
-        {
-          index: true,
-          element: <Home />,
-        },
-        {
-          path: "products",
-          element: <Products />,
-        },
-        {
-          path: "product-details/:name",
-          element: <ProductDetails />,
-        },
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: "products",
+        element: <Products />,
+      },
+      {
+        path: "product-details/:name",
+        element: <ProductDetails />,
+      },
 
-        {
-          path: "categories",
-          element: <Categories />,
-        },
-        {
-          path: "partnership",
-          element: <Partnership />,
-        },
-        {
-          path: "dashboard",
-          element: <DashboardPage />,
-        },
-        {
-          path: "authentication",
-          element: <Authentication />,
-          action: authAction,
-        },
-        {
-          path: "confirm/:token",
-          element: <Confirmation />,
-          loader: confirmationLoader,
-        },
-        {
-          path: "logout",
-          id: "logout",
-          action: logOutAction,
-        },
-      ],
-    },
-  ]
-);
+      {
+        path: "categories",
+        element: <Categories />,
+      },
+      {
+        path: "partnership",
+        element: <Partnership />,
+      },
+      {
+        path: "dashboard",
+        element: <DashboardPage />,
+      },
+      {
+        path: "authentication",
+        element: <Authentication />,
+        action: authAction,
+      },
+      {
+        path: "confirm/:token",
+        element: <Confirmation />,
+        loader: confirmationLoader,
+      },
+      {
+        path: "logout",
+        id: "logout",
+        action: logOutAction,
+      },
+    ],
+  },
+  {
+    basepath: "/",
+  },
+]);
 function App() {
   return (
     <Fragment>
