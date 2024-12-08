@@ -9,8 +9,7 @@ export const initiateApp = (app, express) => {
   // app.get("/", (req, res) => res.send("Hello World"));
   app.use(
     cors({
-      origin: "http://deply-mern-lwhq.vercel.app",
-      methods: ["POST", "GET"],
+      origin: "https://solarease.vercel.app/",
       credentials: true,
     })
   );

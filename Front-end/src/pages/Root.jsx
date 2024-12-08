@@ -14,7 +14,7 @@ import LoadingBar from "react-top-loading-bar";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 axios.defaults.withCredentials = true;
-axios.defaults.baseURL = "http://localhost:3000/api";
+axios.defaults.baseURL = "https://solarease-api.vercel.app/api";
 import cookie from "js-cookie";
 import { userActions } from "../store/user-slice";
 
