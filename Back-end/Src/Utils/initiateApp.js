@@ -9,10 +9,11 @@ export const initiateApp = (app, express) => {
   // app.get("/", (req, res) => res.send("Hello World"));
   app.use(
     cors({
-      origin: "https://solarease.vercel.app/",
+      origin: "https://solarease-api.vercel.app/",
       credentials: true,
     })
   );
+  app.use(cors({ origin: "http://localhost:5173", credentials: true }));
   app.use("/api/auth", allRoutes.authRouter);
   app.use("/api/blogs", allRoutes.blogRouter);
   app.use("/api/brands", allRoutes.brandRouter);
