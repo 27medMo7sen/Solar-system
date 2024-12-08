@@ -9,7 +9,7 @@ export const initiateApp = (app, express) => {
   // app.get("/", (req, res) => res.send("Hello World"));
   app.use(
     cors({
-      origin: "https://solarease.vercel.app/",
+      origin: "https://solarease.vercel.app",
       credentials: true,
     })
   );
