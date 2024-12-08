@@ -12,7 +12,6 @@ app.options("*", (req, res) => {
   res.sendStatus(200); // Respond to preflight request
 });
 
-
 app.use(
   cors({
     origin: "https://solarease.vercel.app",
