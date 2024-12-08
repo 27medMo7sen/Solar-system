@@ -8,13 +8,7 @@ export const initiateApp = (app, express) => {
   connectDB();
 
   // Configure CORS middleware
-  app.use(
-    cors({
-      origin: "*", // Allow all origins
-      methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Specify allowed methods
-      allowedHeaders: ["Content-Type", "Authorization", "x-requested-with"], // Specify allowed headers
-    })
-  );
+  app.use(cors());
 
   // Test route
   app.get("/", (req, res) => res.send("Hello World"));
