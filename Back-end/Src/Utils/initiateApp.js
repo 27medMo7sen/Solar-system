@@ -6,14 +6,21 @@ import cors from "cors";
 export const initiateApp = (app, express) => {
   app.use(express.json());
   connectDB();
-  app.get("/", (req, res) => res.send("Hello World"));
+
+  // Configure CORS middleware
   app.use(
     cors({
-      origin: "https://solarease.vercel.app",
-      credentials: true,
+      origin: "https://solarease.vercel.app", // Allow only your deployed frontend
+      methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Specify allowed methods
+      allowedHeaders: ["Content-Type", "Authorization", "x-requested-with"], // Specify allowed headers
+      credentials: true, // Allow credentials (cookies, authorization headers)
     })
   );
-  // app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+
+  // Test route
+  app.get("/", (req, res) => res.send("Hello World"));
+
+  // API routes
   app.use("/api/auth", allRoutes.authRouter);
   app.use("/api/blogs", allRoutes.blogRouter);
   app.use("/api/brands", allRoutes.brandRouter);
@@ -22,15 +29,16 @@ export const initiateApp = (app, express) => {
   app.use("/api/energy-data", allRoutes.energyDataRouter);
   app.use("/api/maintenances", allRoutes.maintenanceRouter);
   app.use("/api/orders", allRoutes.orderRouter);
-  app.use("/api/products", allRoutes.productRouter); // /1    patch
+  app.use("/api/products", allRoutes.productRouter);
   app.use("/api/requests", allRoutes.requestRouter);
   app.use("/api/vendors", allRoutes.vendorRouter);
 
-  // global route
+  // 404 route
   app.all("*", (req, res) => {
     res.status(404).json({ message: "404 not found" });
   });
 
+  // Error handling middleware
   app.use(globalResponse);
 
   const port = process.env.PORT || 3000;
