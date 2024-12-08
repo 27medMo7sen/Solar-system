@@ -8,7 +8,6 @@ import { CheckInbox } from "../components/Forms/CheckInbox";
 import { uiActions } from "../store/ui-slice";
 import { useDispatch } from "react-redux";
 import axios from "axios";
-import cookies from "js-cookie";
 export const Authentication = () => {
   const dispatch = useDispatch();
   dispatch(uiActions.clearPath());
@@ -71,7 +70,7 @@ export const action = async ({ request }) => {
 
   try {
     const res = await axios.post(
-      `/auth/${
+      `/auth/${ 
         mode === "signup"
           ? "sign-up"
           : mode === "signin"
@@ -79,12 +78,7 @@ export const action = async ({ request }) => {
           : "forget-password"
       }`,
       bodyObj,
-      {
-        headers: {
-          "Content-Type": "application/json",
-          credentials: "include",
-        },
-      }
+      
     );
     console.log(res.data);
     return {
@@ -96,7 +90,7 @@ export const action = async ({ request }) => {
     const res = error.response || {};
     return {
       message: res.data?.message || "Something went wrong!",
-      status: res.status || 500,
+      status: res.status || 500, 
     };
   }
 };
