@@ -7,13 +7,13 @@ import { sendEmailServices } from "../../Services/sendEmailService.js";
 // MARK:signup
 export const signUp = async (req, res, next) => {
   const { first_name, last_name, phone_number, email, password } = req.body;
-  console.log("i'm here");
   console.log(first_name, last_name, phone_number, email, password);
   const findAcc = await accountModel.findOne({ email });
   if (findAcc) {
     return next(new Error("User already exists"));
   }
   const hashedPassword = hashSync(password, 10);
+  console.log(findAcc);
   const user = await userModel.create({
     first_name,
     last_name,
