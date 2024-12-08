@@ -20,7 +20,7 @@ export const initiateApp = (app, express) => {
   app.get("/", (req, res) => res.send("Hello World"));
 
   // API routes
-  app.use("/api/auth", allRoutes.authRouter);
+  app.use("/api/auth",cors(), allRoutes.authRouter);
   app.use("/api/blogs", allRoutes.blogRouter);
   app.use("/api/brands", allRoutes.brandRouter);
   app.use("/api/carts", allRoutes.cartRouter);
