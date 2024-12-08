@@ -10,10 +10,9 @@ export const initiateApp = (app, express) => {
   // Configure CORS middleware
   app.use(
     cors({
-      origin: "https://solarease.vercel.app", // Allow only your deployed frontend
+      origin: "*", // Allow all origins
       methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Specify allowed methods
       allowedHeaders: ["Content-Type", "Authorization", "x-requested-with"], // Specify allowed headers
-      credentials: true, // Allow credentials (cookies, authorization headers)
     })
   );
 
