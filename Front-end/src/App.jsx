@@ -64,10 +64,7 @@ const router = createBrowserRouter(
         },
       ],
     },
-  ],
-  {
-    basename: "/solarease-tech.vercel.app", // Set this to your GitHub Pages repository name
-  }
+  ]
 );
 function App() {
   return (
