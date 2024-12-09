@@ -7,7 +7,7 @@ export const initiateApp = (app, express) => {
   app.use(express.json());
   connectDB();
 
-  app.use(cors({ origin: "*", withCredentials: true }));
+  app.use(cors({ origin: "https://solarease.vercel.app", withCredentials: true }));
   // Test route
   app.get("/", (req, res) => res.send("Hello World"));
 
