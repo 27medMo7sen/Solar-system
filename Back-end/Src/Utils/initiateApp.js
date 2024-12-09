@@ -7,20 +7,12 @@ export const initiateApp = (app, express) => {
   app.use(express.json());
   connectDB();
 
-  app.options("*", cors()); // Preflight requests for all routes
-
-  app.use(
-    cors({
-      origin: "*", // Allow all origins
-      methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allow all HTTP methods
-      allowedHeaders: ["Content-Type", "Authorization", "x-requested-with"], // Specify allowed headers
-    })
-  );
+  app.use(cors({ origin: "*", withCredentials: true }));
   // Test route
   app.get("/", (req, res) => res.send("Hello World"));
 
   // API routes
-  app.use("/api/auth",cors(), allRoutes.authRouter);
+  app.use("/api/auth", allRoutes.authRouter);
   app.use("/api/blogs", allRoutes.blogRouter);
   app.use("/api/brands", allRoutes.brandRouter);
   app.use("/api/carts", allRoutes.cartRouter);
