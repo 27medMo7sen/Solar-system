@@ -106,8 +106,7 @@ export const logIn = async (req, res, next) => {
     await res.cookie("userToken", token, {
       maxAge: 1000 * 60 * 60 * 2,
       path: "/",
-      sameSite: "none",
-      secure: true,
+      sameSite: "strict",
     });
     const ret = {
       message: "User logged in",
