@@ -3,11 +3,13 @@ import { Root } from "./pages/Root";
 import React, { Fragment } from "react";
 const Home = React.lazy(() => import("./pages/Home"));
 const Products = React.lazy(() => import("./pages/Products"));
-const ProductDetails = React.lazy(() => import("./pages/ProductDetails"));
+// const ProductDetails = React.lazy(() => import("./pages/ProductDetails"));
 const Partnership = React.lazy(() => import("./pages/Partnership"));
 const Categories = React.lazy(() => import("./pages/Categories"));
 const DashboardPage = React.lazy(() => import("./pages/DashboardPage"));
+const AboutPage = React.lazy(() => import("./pages/AboutPage"));
 import { Authentication } from "./pages/Authentication";
+import {ProductDetails} from './pages/ProductDetails'
 import { action as authAction } from "./pages/Authentication";
 import {
   Confirmation,
@@ -41,9 +43,7 @@ const router = createBrowserRouter(
         {
           path: "product-details/:name",
           element: (
-            <React.Suspense fallback={<div>Loading...</div>}>
-              <ProductDetails />
-            </React.Suspense>
+              <ProductDetails />    
           ),
         },
         {
@@ -67,6 +67,14 @@ const router = createBrowserRouter(
           element: (
             <React.Suspense fallback={<div>Loading...</div>}>
               <DashboardPage />
+            </React.Suspense>
+          ),
+        },
+        {
+          path: "about",
+          element: (
+            <React.Suspense fallback={<div>Loading...</div>}>
+              <AboutPage />
             </React.Suspense>
           ),
         },
