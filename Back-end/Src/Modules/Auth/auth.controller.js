@@ -106,7 +106,7 @@ export const logIn = async (req, res, next) => {
     await res.cookie("userToken", token, {
       maxAge: 1000 * 60 * 60 * 2,
       path: "/",
-      sameSite: "Lax",
+      sameSite: "none",
       secure: true,
     });
     const ret = {
