@@ -97,7 +97,7 @@ const router = createBrowserRouter(
     },
   ],
   {
-    basename: "/Solarease",
+    basename: "/",
   }
 );
 
