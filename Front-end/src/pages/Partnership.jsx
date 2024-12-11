@@ -6,15 +6,16 @@ import WhyUs from "../components/Partnership/WhyUs";
 import { useDispatch } from "react-redux";
 import { uiActions } from "../store/ui-slice";
 import { Fragment, useEffect } from "react";
+
 const Partnership = () => {
+  const dispatch = useDispatch();
+
   useEffect(() => {
     window.scrollTo(0, 0);
-  },[]); 
-  const dispatch = useDispatch();
-  dispatch(uiActions.clearPath());
-  dispatch(
-    uiActions.addToPathbar({ name: "Partnership", link: "/partnership" })
-  );
+    dispatch(uiActions.clearPath());
+    dispatch(uiActions.addToPathbar({ name: "Partnership", link: "/partnership" }));
+  }, [dispatch]);
+
   return (
     <Fragment>
       <Head />
@@ -27,3 +28,4 @@ const Partnership = () => {
 };
 
 export default Partnership;
+

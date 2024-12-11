@@ -2,7 +2,7 @@ import { Fragment,useEffect } from "react";
 import { CategoriesList } from "../components/Categories/CategoriesList";
 import { useDispatch } from "react-redux";
 import { uiActions } from "../store/ui-slice";
-export const Categories = () => {
+const Categories = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   },[]);
@@ -14,3 +14,5 @@ export const Categories = () => {
     </Fragment>
   );
 };
+export default Categories;
+
