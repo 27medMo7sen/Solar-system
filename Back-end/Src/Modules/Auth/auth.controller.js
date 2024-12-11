@@ -7,13 +7,13 @@ import { sendEmailServices } from "../../Services/sendEmailService.js";
 // MARK:signup
 export const signUp = async (req, res, next) => {
   const { first_name, last_name, phone_number, email, password } = req.body;
-  console.log("i'm here");
   console.log(first_name, last_name, phone_number, email, password);
   const findAcc = await accountModel.findOne({ email });
   if (findAcc) {
     return next(new Error("User already exists"));
   }
   const hashedPassword = hashSync(password, 10);
+  console.log(findAcc);
   const user = await userModel.create({
     first_name,
     last_name,
@@ -36,7 +36,7 @@ export const signUp = async (req, res, next) => {
     signature: process.env.CONFIRMATION_EMAIL_TOKEN,
     expiresIn: "1h",
   });
-  const confirmationLink = `${req.protocol}://localhost:5173/confirm/${token}`;
+  const confirmationLink = `${req.protocol}://solarease.vercel.app/confirm/${token}`;
   const isEmailSent = await sendEmailServices({
     to: email,
     subject: "Email Confirmation",
@@ -106,8 +106,7 @@ export const logIn = async (req, res, next) => {
     await res.cookie("userToken", token, {
       maxAge: 1000 * 60 * 60 * 2,
       path: "/",
-      sameSite: "Lax",
-      secure: true,
+      sameSite: "strict",
     });
     const ret = {
       message: "User logged in",

@@ -7,7 +7,7 @@ export default defineConfig({
   build: {
     outDir: 'dist',
   },
-  base:"/Solarease",
+  base: "/",
   css: {
     postcss: "./postcss.config.js",
   },

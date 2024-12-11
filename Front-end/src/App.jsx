@@ -100,6 +100,7 @@ const router = createBrowserRouter(
     basename: "/Solarease",
   }
 );
+
 function App() {
   return (
     <Fragment>
